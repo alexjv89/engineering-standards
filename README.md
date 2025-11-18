@@ -4,10 +4,10 @@ An atomic knowledge base of engineering standards designed for efficient LLM con
 
 ## What is This?
 
-This repository contains **36+ atomic notes** organized into focused topics:
+This repository contains **47+ atomic notes** organized into focused topics:
 - **Naming** (11 notes) - Variables, functions, components, files, types
 - **Testing** (9 notes) - Test patterns, coverage, mocking, React testing
-- **Architecture** (9 notes) - Component patterns, state management, services
+- **Architecture** (20 notes) - Components, state, modules, database patterns
 - **Git Workflow** (7 notes) - Branches, commits, PRs, background tasks
 
 ### For Small Teams
@@ -50,11 +50,13 @@ Traditional comprehensive documentation is inefficient for LLM tools. This knowl
 │   ├── aaa-pattern.md
 │   ├── coverage-requirements.md
 │   └── ... (6 more)
-├── architecture/      # Architecture patterns (9 notes)
+├── architecture/      # Architecture patterns (20 notes)
 │   ├── index.md
-│   ├── container-presentational-pattern.md
-│   ├── custom-hooks.md
-│   └── ... (6 more)
+│   ├── database/      # Database patterns (11 notes)
+│   ├── components/    # Component patterns
+│   ├── state/         # State management
+│   ├── modules/       # Module organization
+│   └── functional/    # Functional programming
 ├── git-workflow/      # Git & development workflow (7 notes)
 │   ├── index.md
 │   ├── branch-naming.md
@@ -201,4 +203,4 @@ See [CHANGELOG.md](./CHANGELOG.md) for version history and major changes.
 
 **Maintained for**: LLM-powered development tools, AI coding assistants, engineering teams
 **Last Updated**: 2025-11-18
-**Note Count**: 36+ atomic notes across 4 topics
+**Note Count**: 47+ atomic notes across 4 topics

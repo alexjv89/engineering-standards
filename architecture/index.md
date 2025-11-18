@@ -1,6 +1,20 @@
 # Architecture Patterns
 
-Atomic notes on component design, state management, API integration, and architectural patterns.
+Atomic notes on component design, state management, API integration, database patterns, and architectural patterns.
+
+## Database Patterns
+- [Database Patterns Overview](./database/index.md) - Complete guide to Sequelize patterns
+- [Sequelize Initialization](./database/sequelize-initialization.md) - Singleton instance pattern
+- [Model Definition Pattern](./database/model-definition-pattern.md) - Factory function pattern
+- [Database Initialization](./database/database-initialization.md) - Model registry setup
+- [Model File Naming](./database/model-file-naming.md) - PascalCase.model.js convention
+- [Table Naming](./database/table-naming.md) - Lowercase plural with underscores
+- [Column Naming](./database/column-naming.md) - snake_case standard
+- [Primary Key Strategies](./database/primary-key-strategies.md) - STRING(12), UUID, or auto-increment
+- [Timestamp Columns](./database/timestamp-columns.md) - created_at/updated_at patterns
+- [JSONB Columns](./database/jsonb-columns.md) - Flexible data with JSDoc
+- [Foreign Key Pattern](./database/foreign-key-pattern.md) - Manual FK definitions
+- [Custom Model Methods](./database/custom-model-methods.md) - Adding static methods
 
 ## Module Organization
 - [Module Organization Overview](./modules/module-organization.md) - Overview of functional module patterns

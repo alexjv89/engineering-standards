@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(tree:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Read(//Users/alex/ec2code/cashflowy/txn.fobrix.com/src/database/**)"
     ],
     "deny": [],
     "ask": []
