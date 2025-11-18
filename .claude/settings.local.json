@@ -3,7 +3,9 @@
     "allow": [
       "Bash(tree:*)",
       "Bash(find:*)",
-      "Read(//Users/alex/ec2code/cashflowy/txn.fobrix.com/src/database/**)"
+      "Read(//Users/alex/ec2code/cashflowy/txn.fobrix.com/src/database/**)",
+      "Read(//Users/alex/ec2code/cashflowy/txn.fobrix.com/**)",
+      "Read(//Users/alex/ec2code/vimana/svc/elevate-ai/**)"
     ],
     "deny": [],
     "ask": []

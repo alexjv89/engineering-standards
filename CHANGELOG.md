@@ -14,6 +14,40 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Removed
 
+## [1.1.0] - 2025-11-18
+
+### Added
+- **Testing Documentation Expansion (12 new notes)**:
+  - `testing/` - Expanded from 10 to 22 notes with comprehensive three-layer testing strategy
+  - **Jest Unit Testing (6 new notes)**:
+    - `jest-mocking-patterns.md` - Module vs function mocking patterns
+    - `semantic-mocking.md` - Implementation-based mocking (mock by URL, not call order)
+    - `mock-cleanup.md` - jest.clearAllMocks() pattern for test independence
+    - `test-utilities.md` - Reusable validators and helpers (validateTransaction, validateMetadata)
+    - `parametric-testing.md` - test.each() pattern for multiple test cases
+    - `fixture-loading.md` - beforeAll pattern for expensive fixture loading
+  - **Storybook Component Testing (3 new notes)**:
+    - `storybook-user-journey-pattern.md` - Stories represent real user scenarios
+    - `storybook-interactions.md` - Play functions with automated interactions and assertions
+    - `storybook-mock-data.md` - Centralized mock data and Proxy-based action mocking
+  - **Playwright E2E Testing (3 new notes)**:
+    - `playwright-e2e-structure.md` - E2E test organization and configuration
+    - `playwright-auth-pattern.md` - Reusable authentication setup pattern
+    - `playwright-helpers.md` - Feature-based helper functions for test reusability
+
+### Changed
+- **Testing Strategy Reorganization**:
+  - `testing/index.md` - Reorganized into three distinct testing layers (Jest/Storybook/Playwright)
+  - `testing-react-components.md` - Updated to reflect actual practice: Storybook for components (not React Testing Library)
+  - `mock-external-dependencies.md` - Added Next.js (redirect, notFound, cookies) and Sequelize DB mocking patterns
+  - `setup-teardown.md` - Added jest.clearAllMocks() pattern used in actual projects
+- **Testing Philosophy Documentation**:
+  - Documents actual testing patterns from elevate-ai and txn.fobrix.com projects
+  - Three-layer testing strategy: Unit (Jest), Component (Storybook), E2E (Playwright)
+  - Semantic mocking over order-dependent mocks
+  - User journey pattern for Storybook stories
+  - Reusable test utilities and fixture loading patterns
+
 ## [1.0.0] - 2025-11-18
 
 ### Added

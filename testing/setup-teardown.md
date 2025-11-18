@@ -17,6 +17,9 @@ describe('UserService', () => {
   let mockDb;
 
   beforeEach(() => {
+    // Clear all mocks before each test
+    jest.clearAllMocks();
+
     // Setup runs before each test
     mockDb = createMockDatabase();
     userService = new UserService(mockDb);
@@ -79,6 +82,35 @@ describe('User API Integration', () => {
 - Server startup
 - Loading fixtures
 
+## Mock Cleanup Pattern
+
+Always reset mocks in `beforeEach` to ensure test independence:
+
+```javascript
+describe('API Service', () => {
+  const mockFetch = jest.fn();
+
+  beforeEach(() => {
+    // Critical: Clear all mock history and implementations
+    jest.clearAllMocks();
+
+    // Set up fresh mock implementations
+    mockFetch.mockResolvedValue({ data: [] });
+  });
+
+  it('should call API', async () => {
+    await fetchData();
+    expect(mockFetch).toHaveBeenCalledTimes(1);
+  });
+
+  it('should call API again', async () => {
+    // mockFetch was reset, so call count starts at 0
+    await fetchData();
+    expect(mockFetch).toHaveBeenCalledTimes(1);
+  });
+});
+```
+
 ## Cleanup Best Practices
 
 Always clean up resources:
@@ -107,5 +139,6 @@ describe('FileProcessor', () => {
 
 ## Related Notes
 - [Test Independence](./test-independence.md)
+- [Mock Cleanup](./mock-cleanup.md)
 - [AAA Pattern](./aaa-pattern.md)
 - [Unit vs Integration Tests](./unit-vs-integration.md)
