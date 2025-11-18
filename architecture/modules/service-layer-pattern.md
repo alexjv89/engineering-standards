@@ -61,17 +61,17 @@ export async function listUsers(filters = {}) {
 ## Usage in Components
 
 ```javascript
-import { getUser, updateUser } from '@/services/userService.js';
+import * as userService from '@/services/userService.js';
 
 function UserProfile({ userId }) {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    getUser(userId).then(setUser);
+    userService.getUser(userId).then(setUser);
   }, [userId]);
 
   const handleUpdate = async (updates) => {
-    const updated_user = await updateUser(userId, updates);
+    const updated_user = await userService.updateUser(userId, updates);
     setUser(prev => ({ ...prev, ...updates }));
   };
 
@@ -85,6 +85,8 @@ function UserProfile({ userId }) {
 - **Consistency**: Uniform error handling and data transformation
 - **Testability**: Easy to mock service layer
 - **Maintainability**: Change API structure in one place
+- **Readability**: Namespace imports (`userService.getUser()`) make it clear which module functions belong to
+- **Tree Shaking**: Individual function exports allow bundlers to eliminate unused code at build time
 
 ## API Client Configuration
 
