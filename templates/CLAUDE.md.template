@@ -1,0 +1,201 @@
+# [Project Name] - Claude Assistant Context
+
+## Project Overview
+[Brief description of the project, its purpose, and main features]
+
+## Tech Stack
+- **Framework**: [e.g., Next.js 15, React 19, Express]
+- **UI Library**: [e.g., TailwindCSS, Material-UI, shadcn/ui]
+- **Database**: [e.g., PostgreSQL, MongoDB, SQLite]
+- **Testing**: [e.g., Jest, Playwright, Vitest]
+- **Deployment**: [e.g., Docker, Vercel, AWS]
+
+## Engineering Standards
+
+**IMPORTANT**: This project follows the engineering standards defined at:
+https://github.com/[your-org]/engineering-standards
+
+### Standards References
+
+When working on this codebase, always adhere to:
+
+1. **[Code Style Guide](https://github.com/[your-org]/engineering-standards/blob/main/standards/code-style.md)**
+   - Variable and function naming conventions
+   - File naming and organization
+   - Code formatting and structure
+   - Import/export patterns
+
+2. **[Testing Practices](https://github.com/[your-org]/engineering-standards/blob/main/standards/testing-practices.md)**
+   - Test structure and naming
+   - Coverage requirements (80% minimum)
+   - Mocking and stubbing conventions
+   - Test data management
+
+3. **[Architecture Patterns](https://github.com/[your-org]/engineering-standards/blob/main/standards/architecture-patterns.md)**
+   - Component structure (Container/Presentational pattern)
+   - State management (Context API, local state)
+   - API integration patterns
+   - Error handling strategies
+
+4. **[Development Workflows](https://github.com/[your-org]/engineering-standards/blob/main/standards/development-workflows.md)**
+   - Git branching strategy (GitHub Flow / Git Flow)
+   - Commit message format (Conventional Commits)
+   - Pull request guidelines
+   - Background task implementation
+   - Deployment procedures
+
+### Key Standards Summary
+
+**Naming Conventions:**
+- Variables/Functions: `camelCase`
+- React Components: `PascalCase`
+- Files: `PascalCase.jsx` for components, `camelCase.js` for utils
+- Constants: `SCREAMING_SNAKE_CASE`
+
+**Testing:**
+- Unit tests: Co-located `*.test.js` files
+- Coverage: 80% minimum, 100% for critical paths
+- Pattern: Arrange-Act-Assert
+
+**Git Workflow:**
+- Branch naming: `<type>/<description>` (e.g., `feature/user-auth`)
+- Commit format: `<type>: <description>` (e.g., `feat: add login`)
+- PR size: 200-400 lines ideal, 800 max
+
+## Key Features
+[List main features of the application]
+1. **Feature 1**: Description
+2. **Feature 2**: Description
+3. **Feature 3**: Description
+
+## Directory Structure
+
+```
+/src
+├── app/              # [Framework-specific routing/pages]
+├── components/       # Reusable React components
+├── utils/            # Utility functions
+├── services/         # API service layer
+├── hooks/            # Custom React hooks
+└── types/            # TypeScript types/interfaces
+```
+
+### Important Directories
+
+**`/src/components/`** - [Description of component organization]
+**`/src/services/`** - [Description of service layer]
+**`/src/utils/`** - [Description of utilities]
+
+## Development Commands
+
+```bash
+# Development
+npm run dev              # Start development server
+npm run build           # Production build
+npm start              # Start production server
+
+# Testing
+npm test               # Run unit tests
+npm run test:watch     # Run tests in watch mode
+npm run test:e2e       # Run E2E tests
+
+# Code Quality
+npm run lint           # Run linter
+npm run format         # Format code
+```
+
+## Environment Variables
+
+### Required Variables
+```bash
+# API Configuration
+API_ENDPOINT=
+API_KEY=
+
+# Database
+DATABASE_URL=
+
+# [Other required variables]
+```
+
+## Project-Specific Guidelines
+
+### [Custom Convention 1]
+[Describe any project-specific conventions that differ from or extend the engineering standards]
+
+### [Custom Convention 2]
+[e.g., "API Routes: All API routes must include request validation using Zod schemas"]
+
+### [Custom Convention 3]
+[e.g., "Component Stories: All UI components must have corresponding Storybook stories"]
+
+## Architecture Decisions
+
+### [Key Decision 1]
+**Decision**: [What was decided]
+**Rationale**: [Why this decision was made]
+**Impact**: [What this means for development]
+
+### [Key Decision 2]
+**Decision**: [What was decided]
+**Rationale**: [Why this decision was made]
+**Impact**: [What this means for development]
+
+## Testing Strategy
+
+- **Unit Tests**: [What is covered by unit tests]
+- **Integration Tests**: [What is covered by integration tests]
+- **E2E Tests**: [What is covered by E2E tests]
+- **Visual Regression**: [If using Storybook or similar]
+
+## Authentication & Authorization
+[Describe auth system if applicable]
+
+## Deployment
+- **Staging**: [Staging environment details]
+- **Production**: [Production environment details]
+- **Process**: [Deployment process overview]
+
+## Common Tasks
+
+### Adding a New Feature
+1. Create feature branch: `git checkout -b feature/feature-name`
+2. Implement feature following [Architecture Patterns](https://github.com/[your-org]/engineering-standards/blob/main/standards/architecture-patterns.md)
+3. Write tests achieving 80%+ coverage
+4. Create pull request with PR template
+5. Address review feedback
+6. Merge after approval
+
+### Adding a New Component
+1. Create component file in appropriate directory
+2. Follow [Component Architecture patterns](https://github.com/[your-org]/engineering-standards/blob/main/standards/architecture-patterns.md#component-architecture)
+3. Write unit tests in `ComponentName.test.jsx`
+4. Create Storybook story in `ComponentName.stories.jsx`
+5. Export from `index.js` for easy importing
+
+### Running Background Tasks
+[Project-specific instructions for background tasks, referencing the [Development Workflows](https://github.com/[your-org]/engineering-standards/blob/main/standards/development-workflows.md#background-tasks) standard]
+
+## Troubleshooting
+
+### Common Issues
+1. **[Issue 1]**: [Solution]
+2. **[Issue 2]**: [Solution]
+3. **[Issue 3]**: [Solution]
+
+## Resources
+
+- **Documentation**: [Link to project docs]
+- **API Reference**: [Link to API docs]
+- **Design System**: [Link to design system if applicable]
+- **Engineering Standards**: https://github.com/[your-org]/engineering-standards
+
+## Team Contacts
+
+- **Project Lead**: [Name/Contact]
+- **Tech Lead**: [Name/Contact]
+- **Code Review**: [Process/Contact]
+
+---
+
+**Note**: This project adheres to the organization's [Engineering Standards](https://github.com/[your-org]/engineering-standards). When in doubt, consult those standards or ask the team.
