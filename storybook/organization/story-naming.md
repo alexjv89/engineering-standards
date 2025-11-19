@@ -21,20 +21,6 @@ export const WithMissingCategories = { ... }
 export const WithLargeDataset = { ... }
 ```
 
-## Required Story: DeveloperInteractive
-
-**Every story file must include `DeveloperInteractive`** for manual testing:
-
-```javascript
-/**
- * DEVELOPER TESTING STORY
- * Interactive story with no play functions. Use for manual testing.
- */
-export const DeveloperInteractive = {
-  args: { /* Minimal or realistic defaults */ },
-};
-```
-
 ## Anti-Patterns to Avoid
 
 ```javascript
@@ -62,13 +48,12 @@ export const AfterSuccessfulUpload = { ... }
 - **Molecules** (cards, dialogs): 3-6 stories
 - **Organisms** (forms, tables): 5-10 stories
 
-## Typical Story Set (5-6 stories)
+## Typical Story Set (4-5 stories)
 
 1. Happy Path - Most common scenario
 2. Empty/Before State - Before interaction
 3. Error State - When something fails
 4. Edge Case(s) - Real production scenarios
-5. DeveloperInteractive - Manual testing (required)
 
 ## Example: FileDropzone
 
@@ -78,7 +63,6 @@ export const AfterSelectingFiles = { ... }        // Action result
 export const AfterSelectingMultipleFiles = { ... }// Edge case
 export const WhileUploading = { ... }             // Temporary state
 export const WhenUploadFails = { ... }            // Error state
-export const DeveloperInteractive = { ... }       // Manual testing
 ```
 
 ## Related Notes

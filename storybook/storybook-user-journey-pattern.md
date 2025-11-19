@@ -19,7 +19,6 @@ export const AfterSuccessfulUpload = { ... }
 export const WhileFileIsProcessing = { ... }
 export const WhenParserFails = { ... }
 export const WithUnusualFileName = { ... }
-export const DeveloperInteractive = { ... }
 
 // BAD: Component variation pattern
 export const Default = { ... }
@@ -55,12 +54,11 @@ export const AfterSuccessfulProcessing = {
 - **Molecules** (cards, dialogs): 3-6 stories
 - **Organisms** (forms, tables): 5-10 stories
 
-## Typical Story Set (5-6 stories)
+## Typical Story Set (4-5 stories)
 
 1. Happy Path - Most common scenario
 2. Error/Edge States - Failures, missing data
 3. Real Edge Cases - Production scenarios
-4. DeveloperInteractive - Manual testing (required)
 
 ## Multi-User Pattern
 

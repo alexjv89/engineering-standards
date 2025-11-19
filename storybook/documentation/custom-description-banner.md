@@ -179,20 +179,6 @@ If you want to modify the banner appearance, edit the decorator in `.storybook/p
 <div className="text-base font-normal">
 ```
 
-## DeveloperInteractive Story
-
-The `DeveloperInteractive` story typically **does NOT need** a description banner since it's for manual testing:
-
-```javascript
-/**
- * DEVELOPER TESTING STORY
- */
-export const DeveloperInteractive = {
-  args: {},
-  // NO parameters.description needed
-};
-```
-
 ## Related Notes
 - [Documentation Patterns](/storybook/documentation/documentation.md) - Multi-layer docs approach
 - [MDX Component Docs](/storybook/documentation/mdx-component-docs.md) - Component-level MDX documentation

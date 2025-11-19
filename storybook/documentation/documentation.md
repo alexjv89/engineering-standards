@@ -43,7 +43,7 @@ ComponentName.mdx                    ← Layer 3: Component-level docs
 
 ### Always Required
 - **File header** - Every story file needs this
-- **Story descriptions** - For all non-trivial stories (skip DeveloperInteractive)
+- **Story descriptions** - For all non-trivial stories
 
 ### Optional (Based on Component Complexity)
 - **MDX documentation** - Only for complex components

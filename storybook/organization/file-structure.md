@@ -34,10 +34,6 @@ export const AfterImportingData = {
   },
   args: { data: sample_transactions },
 };
-
-export const DeveloperInteractive = {
-  args: {},
-};
 ```
 
 ## Story Object Order
