@@ -22,8 +22,13 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - **Core Story Files** (7 notes):
     - `meta-structure.md` - Standard meta object format and conventions
     - `story-naming.md` - User journey naming patterns (AfterAction, BeforeState, etc.)
-    - `argtypes-standards.md` - ArgTypes documentation with comprehensive vs minimal approach
-    - `decorators.md` - Layout constraints and context provider patterns
+    - Split into atomic notes:
+      - `argtypes-basics.md` - Coverage requirements and structure
+      - `argtypes-control-types.md` - Complete control type reference
+      - `argtypes-examples.md` - Real component examples
+      - `decorator-patterns.md` - Common decorator patterns
+      - `decorator-placement.md` - Where to put decorators
+      - `decorator-anti-patterns.md` - Common mistakes to avoid
     - `storybook-interactions.md` - Detailed interaction patterns (moved from testing/)
     - `storybook-mock-data.md` - Centralized mocks and action proxies (moved from testing/)
     - `storybook-user-journey-pattern.md` - Complete user journey methodology (moved from testing/)

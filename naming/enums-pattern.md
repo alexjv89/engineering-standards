@@ -41,11 +41,7 @@ const status = OrderStatus.PENDING;
 Prevents accidental modification:
 
 ```javascript
-const Status = {
-  ACTIVE: 'active',
-  INACTIVE: 'inactive'
-};
-
+const Status = { ACTIVE: 'active', INACTIVE: 'inactive' };
 Object.freeze(Status);
 
 // This will fail silently (or throw in strict mode)
@@ -62,8 +58,6 @@ Status.ACTIVE = 'something else';
  * @property {'user'} USER - Regular user role
  * @property {'guest'} GUEST - Guest user role
  */
-
-/** @type {UserRole} */
 const UserRole = {
   ADMIN: 'admin',
   USER: 'user',
@@ -75,13 +69,12 @@ Object.freeze(UserRole);
 
 ## Reverse Lookup
 
-Add methods for reverse lookup if needed:
+Add helper method if needed:
 
 ```javascript
 const Status = {
   ACTIVE: 'active',
   INACTIVE: 'inactive',
-  PENDING: 'pending',
 
   fromValue(value) {
     return Object.keys(this).find(key => this[key] === value);
@@ -89,7 +82,6 @@ const Status = {
 };
 
 Object.freeze(Status);
-
 console.log(Status.fromValue('active')); // 'ACTIVE'
 ```
 

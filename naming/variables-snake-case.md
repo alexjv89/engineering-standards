@@ -18,20 +18,19 @@ const api_base_url = "https://api.example.com";
 - Local variables
 - Function parameters
 - Object properties (data)
-- Most constant values (see exception below)
+- Most constant values (see exceptions below)
 
 ## Exceptions
 
-**React Hook Returns**: Variables returned from React hooks use `camelCase` (React ecosystem convention):
+**React Hook Returns**: Use `camelCase` (React ecosystem convention):
 
 ```javascript
 // Hook returns: camelCase
 const [isEditing, setIsEditing] = useState(false);
 const { data, error, isLoading } = useQuery();
-const { user, isAuthenticated, login } = useAuth();
 
-// But derived values and local variables: snake_case
-const display_name = user?.name || 'Guest';
+// Derived values and local variables: snake_case
+const display_name = data?.name || 'Guest';
 const error_message = error?.message;
 ```
 
@@ -60,16 +59,15 @@ const user_data = getUserData(user_id);
 
 ## React Naming
 
-**Props**: React props use `camelCase` (React community standard):
+**Props**: Use `camelCase` (React community standard):
 
 ```javascript
 function UserProfile({ userId, userName, isActive }) {
-  // Props are camelCase: userId, userName, isActive
-
-  // Hook returns are camelCase
+  // Props: camelCase
+  // Hook returns: camelCase
   const [isEditing, setIsEditing] = useState(false);
 
-  // Your variables are snake_case
+  // Your variables: snake_case
   const display_name = userName || 'Anonymous';
   const status_class = isActive ? 'active' : 'inactive';
 
@@ -77,19 +75,14 @@ function UserProfile({ userId, userName, isActive }) {
 }
 ```
 
-**Event Handlers**: Variables inside event handlers use `snake_case`:
+**Event Handlers**: Variables inside use `snake_case`:
 
 ```javascript
-function Component() {
-  const handleClick = () => {
-    // Variables in event handlers: snake_case
-    const new_value = count + 1;
-    const updated_data = { ...data, value: new_value };
-    setData(updated_data);
-  };
-
-  return <button onClick={handleClick}>Click</button>;
-}
+const handleClick = () => {
+  const new_value = count + 1;
+  const updated_data = { ...data, value: new_value };
+  setData(updated_data);
+};
 ```
 
 ## Related Notes

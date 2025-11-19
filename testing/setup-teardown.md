@@ -4,10 +4,10 @@ Use lifecycle hooks to avoid repetition in test setup and cleanup.
 
 ## Lifecycle Hooks
 
-- `beforeAll()` - Runs once before all tests in block
+- `beforeAll()` - Runs once before all tests
 - `beforeEach()` - Runs before each test
 - `afterEach()` - Runs after each test
-- `afterAll()` - Runs once after all tests in block
+- `afterAll()` - Runs once after all tests
 
 ## Common Pattern
 
@@ -17,16 +17,12 @@ describe('UserService', () => {
   let mockDb;
 
   beforeEach(() => {
-    // Clear all mocks before each test
     jest.clearAllMocks();
-
-    // Setup runs before each test
     mockDb = createMockDatabase();
     userService = new UserService(mockDb);
   });
 
   afterEach(() => {
-    // Cleanup runs after each test
     mockDb.clear();
   });
 
@@ -34,32 +30,29 @@ describe('UserService', () => {
     const user = await userService.create({ name: 'John' });
     expect(user.name).toBe('John');
   });
-
-  it('should find user', async () => {
-    await userService.create({ id: '1', name: 'John' });
-    const user = await userService.findById('1');
-    expect(user).toBeDefined();
-  });
 });
 ```
 
-## Database Setup Example
+## When to Use Each
+
+**`beforeEach/afterEach`** - Test-specific setup/cleanup (creating instances, resetting mocks)
+
+**`beforeAll/afterAll`** - Expensive one-time operations (database connections, loading fixtures)
+
+## Database Integration Example
 
 ```javascript
 describe('User API Integration', () => {
   beforeAll(async () => {
-    // One-time setup: database connection
     await db.connect();
     await db.migrate.latest();
   });
 
   beforeEach(async () => {
-    // Clean database before each test
     await db.seed.run();
   });
 
   afterAll(async () => {
-    // One-time cleanup: close connection
     await db.destroy();
   });
 
@@ -70,31 +63,16 @@ describe('User API Integration', () => {
 });
 ```
 
-## When to Use Each
-
-**`beforeEach/afterEach`** - Use for test-specific setup/cleanup:
-- Creating fresh instances
-- Resetting mocks
-- Clearing test data
-
-**`beforeAll/afterAll`** - Use for expensive one-time operations:
-- Database connections
-- Server startup
-- Loading fixtures
-
 ## Mock Cleanup Pattern
 
-Always reset mocks in `beforeEach` to ensure test independence:
+Always reset mocks to ensure test independence:
 
 ```javascript
 describe('API Service', () => {
   const mockFetch = jest.fn();
 
   beforeEach(() => {
-    // Critical: Clear all mock history and implementations
     jest.clearAllMocks();
-
-    // Set up fresh mock implementations
     mockFetch.mockResolvedValue({ data: [] });
   });
 
@@ -104,41 +82,13 @@ describe('API Service', () => {
   });
 
   it('should call API again', async () => {
-    // mockFetch was reset, so call count starts at 0
     await fetchData();
-    expect(mockFetch).toHaveBeenCalledTimes(1);
-  });
-});
-```
-
-## Cleanup Best Practices
-
-Always clean up resources:
-
-```javascript
-describe('FileProcessor', () => {
-  let tempFile;
-
-  beforeEach(() => {
-    tempFile = createTempFile();
-  });
-
-  afterEach(() => {
-    // Always clean up resources
-    if (tempFile && fs.existsSync(tempFile)) {
-      fs.unlinkSync(tempFile);
-    }
-  });
-
-  it('should process file', () => {
-    const result = processFile(tempFile);
-    expect(result).toBeDefined();
+    expect(mockFetch).toHaveBeenCalledTimes(1); // Reset in beforeEach
   });
 });
 ```
 
 ## Related Notes
 - [Test Independence](/testing/test-independence.md)
-- [Mock Cleanup](/testing/mock-cleanup.md)
+- [Fixture Loading](/testing/fixture-loading.md)
 - [AAA Pattern](/testing/aaa-pattern.md)
-- [Unit vs Integration Tests](/testing/unit-vs-integration.md)

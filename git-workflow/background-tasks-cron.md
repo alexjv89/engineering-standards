@@ -2,7 +2,7 @@
 
 Implement scheduled recurring tasks using cron job pattern.
 
-## Pattern (Node.js)
+## Pattern
 
 ```javascript
 // jobs/dailyReport.js
@@ -17,7 +17,6 @@ cron.schedule('0 6 * * *', async () => {
     console.log('Daily report generated successfully');
   } catch (error) {
     console.error('Failed to generate daily report:', error);
-    // Alert monitoring system
     await alertOncall(error);
   }
 });
@@ -27,8 +26,7 @@ cron.schedule('0 6 * * *', async () => {
 
 ```
 * * * * *
-│ │ │ │ │
-│ │ │ │ └─── Day of week (0-7, 0 and 7 are Sunday)
+│ │ │ │ └─── Day of week (0-7, both 0 and 7 = Sunday)
 │ │ │ └───── Month (1-12)
 │ │ └─────── Day of month (1-31)
 │ └───────── Hour (0-23)
@@ -38,20 +36,10 @@ cron.schedule('0 6 * * *', async () => {
 ## Common Schedules
 
 ```javascript
-// Every minute
-cron.schedule('* * * * *', handler);
-
-// Every hour
-cron.schedule('0 * * * *', handler);
-
-// Every day at midnight
-cron.schedule('0 0 * * *', handler);
-
-// Every Monday at 9 AM
-cron.schedule('0 9 * * 1', handler);
-
-// Every 15 minutes
-cron.schedule('*/15 * * * *', handler);
+cron.schedule('0 * * * *', handler);      // Every hour
+cron.schedule('0 0 * * *', handler);      // Daily at midnight
+cron.schedule('0 9 * * 1', handler);      // Every Monday at 9 AM
+cron.schedule('*/15 * * * *', handler);   // Every 15 minutes
 ```
 
 ## Best Practices
@@ -63,20 +51,15 @@ async function runScheduledTask() {
   try {
     // Check idempotency
     const existing = await cache.get(taskId);
-    if (existing) {
-      console.log('Task already processed');
-      return;
-    }
+    if (existing) return;
 
     // Set timeout
     const result = await Promise.race([
       performTask(),
-      timeout(30000) // 30 second timeout
+      timeout(30000)
     ]);
 
-    // Cache result
     await cache.set(taskId, result, 3600);
-
     console.log('Task completed:', taskId);
   } catch (error) {
     console.error('Task failed:', error);
@@ -88,5 +71,5 @@ cron.schedule('0 * * * *', runScheduledTask);
 ```
 
 ## Related Notes
-- [Background Tasks: Job Queues](/git-workflow/background-tasks-queues.md)
-- [Environment Variables](/git-workflow/environment-variables.md)
+- [Job Queue Pattern](/git-workflow/job-queue-pattern.md) - Asynchronous task processing
+- [Environment File Structure](/git-workflow/environment-file-structure.md) - Configuration management

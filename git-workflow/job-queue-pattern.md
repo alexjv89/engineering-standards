@@ -1,8 +1,8 @@
-# Background Tasks: Job Queues
+# Job Queue Pattern
 
 Implement asynchronous task processing using job queue pattern (Bull/BullMQ).
 
-## Pattern
+## Basic Pattern
 
 ```javascript
 // queues/emailQueue.js
@@ -35,7 +35,7 @@ export async function queueEmail(to, subject, body) {
 }
 ```
 
-## Usage
+## Usage Example
 
 ```javascript
 // In API route or service
@@ -55,40 +55,6 @@ async function registerUser(userData) {
 }
 ```
 
-## Job Options
-
-```javascript
-emailQueue.add(
-  { to, subject, body },
-  {
-    attempts: 3,              // Retry up to 3 times
-    backoff: {
-      type: 'exponential',    // Exponential backoff
-      delay: 2000,            // Start with 2s delay
-    },
-    delay: 5000,              // Delay job by 5 seconds
-    priority: 1,              // Higher priority = processed first
-    removeOnComplete: true,   // Auto-remove on completion
-  }
-);
-```
-
-## Error Handling
-
-```javascript
-emailQueue.on('failed', (job, err) => {
-  console.error(`Job ${job.id} failed:`, err);
-  // Alert if critical
-  if (job.opts.priority === 1) {
-    alertOncall(err);
-  }
-});
-
-emailQueue.on('completed', (job) => {
-  console.log(`Job ${job.id} completed`);
-});
-```
-
 ## When to Use Queues
 
 **Use job queues for:**
@@ -105,5 +71,7 @@ emailQueue.on('completed', (job) => {
 - Distributed processing
 
 ## Related Notes
-- [Background Tasks: Cron Jobs](/git-workflow/background-tasks-cron.md)
-- [Environment Variables](/git-workflow/environment-variables.md)
+- [Job Queue Options](/git-workflow/job-queue-options.md) - Job configuration and options
+- [Job Queue Error Handling](/git-workflow/job-queue-error-handling.md) - Error handling and retries
+- [Background Tasks: Cron Jobs](/git-workflow/background-tasks-cron.md) - Scheduled tasks
+- [Environment File Structure](/git-workflow/environment-file-structure.md) - Redis URL configuration

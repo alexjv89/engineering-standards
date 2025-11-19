@@ -2,83 +2,53 @@
 
 Use `beforeAll` to load expensive fixtures once, improving test performance.
 
-## The Problem: Repeated Expensive Operations
+## The Problem vs Solution
 
 ```javascript
 // BAD: Loads file before EVERY test (slow!)
 describe('Parser Tests', () => {
   it('should extract metadata', async () => {
-    const statement = await loadMockStatement('large_file.pdf'); // Load
+    const statement = await loadMockStatement('large_file.pdf');
     const result = await parseStatement(statement);
     expect(result.metadata).toBeDefined();
   });
-
-  it('should extract transactions', async () => {
-    const statement = await loadMockStatement('large_file.pdf'); // Load again!
-    const result = await parseStatement(statement);
-    expect(result.transactions).toHaveLength(56);
-  });
 });
-```
 
-## The Solution: Load Once with beforeAll
-
-```javascript
 // GOOD: Load once, use in all tests
-describe('ICICI Savings Parser - baseline_56_txns.xls', () => {
+describe('ICICI Savings Parser', () => {
   let parsed_result;
 
   beforeAll(async () => {
-    // Load expensive fixture ONCE
-    const statement = await loadMockStatement('icici_save/__mocks__/baseline_56_txns.xls');
+    const statement = await loadMockStatement('baseline_56_txns.xls');
     parsed_result = await parseStatement(statement);
   });
 
   it('should extract complete metadata', () => {
-    const { metadata } = parsed_result;
-    expect(metadata.acc_no).toBe('115901500651');
-    expect(metadata.currency).toBe('INR');
+    expect(parsed_result.metadata.acc_no).toBe('115901500651');
   });
 
   it('should extract all 56 transactions', () => {
     expect(parsed_result.transactions).toHaveLength(56);
   });
-
-  it('should extract first transaction correctly', () => {
-    const first_txn = parsed_result.transactions[0];
-    expect(first_txn.date).toBe('2025-07-01');
-    expect(first_txn.particulars).toBe('INF/IWISH CONTRIBUTION');
-    expect(first_txn.outflow).toBe(1000);
-  });
 });
 ```
 
-## When to Use beforeAll
+## When to Use
 
-Use `beforeAll` for:
-- Loading large fixture files (PDFs, XLSX, CSV)
-- Database setup/seeding
-- Expensive computations used by all tests
-- One-time API calls for test data
+Use `beforeAll` for: Loading large files (PDFs, XLSX, CSV), database setup, expensive computations
 
-Use `beforeEach` for:
-- Resetting mocks
-- Creating fresh test instances
-- Operations that must be isolated per test
+Use `beforeEach` for: Resetting mocks, creating fresh instances, per-test isolation
 
-## Pattern: Multiple Fixtures
+## Multiple Fixtures
 
 ```javascript
 describe('Parser Detection', () => {
   let hdfc_statement;
   let icici_statement;
-  let sbi_statement;
 
   beforeAll(async () => {
-    // Load all fixtures once
     hdfc_statement = await loadMockStatement('hdfc.pdf');
     icici_statement = await loadMockStatement('icici.xlsx');
-    sbi_statement = await loadMockStatement('sbi.csv');
   });
 
   it('should detect HDFC parser', async () => {
@@ -89,11 +59,6 @@ describe('Parser Detection', () => {
   it('should detect ICICI parser', async () => {
     const result = await detectParser(icici_statement);
     expect(result.parser).toBe('icici_save__xlsx');
-  });
-
-  it('should detect SBI parser', async () => {
-    const result = await detectParser(sbi_statement);
-    expect(result.parser).toBe('sbi_save__csv');
   });
 });
 ```
@@ -106,12 +71,10 @@ describe('Transaction Processing', () => {
   let mockDB;    // Reset each test
 
   beforeAll(async () => {
-    // Expensive: Load fixture once
     statement = await loadMockStatement('statement.pdf');
   });
 
   beforeEach(() => {
-    // Fast: Reset mocks before each test
     jest.clearAllMocks();
     mockDB = createMockDB();
   });
@@ -123,37 +86,15 @@ describe('Transaction Processing', () => {
 });
 ```
 
-## Cleanup with afterAll
-
-```javascript
-describe('Database Integration', () => {
-  beforeAll(async () => {
-    await db.connect();
-    await db.migrate.latest();
-  });
-
-  afterAll(async () => {
-    // Clean up expensive resources
-    await db.destroy();
-  });
-
-  it('should query data', async () => {
-    const result = await db.query('SELECT * FROM users');
-    expect(result).toBeDefined();
-  });
-});
-```
-
-## Performance Benefits
+## Performance Impact
 
 ```
-Without beforeAll: 5 tests × 500ms load time = 2500ms
-With beforeAll:    500ms load time + (5 tests × 10ms) = 550ms
+Without beforeAll: 5 tests × 500ms load = 2500ms
+With beforeAll:    500ms + (5 × 10ms) = 550ms
+```
 
 5x faster test suite!
-```
 
 ## Related Notes
 - [Setup and Teardown](/testing/setup-teardown.md)
-- [Test Utilities](/testing/test-utilities.md)
 - [Test Independence](/testing/test-independence.md)

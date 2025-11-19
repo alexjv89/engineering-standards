@@ -198,5 +198,5 @@ export const DeveloperInteractive = {
 - [MDX Component Docs](/storybook/documentation/mdx-component-docs.md) - Component-level MDX documentation
 - [Story Naming](/storybook/story-naming.md) - User journey naming
 - [Storybook User Journey Pattern](/storybook/storybook-user-journey-pattern.md) - Overall pattern philosophy
-- [Meta Structure](/storybook/meta-structure.md) - Parameters configuration
+- [Parameters Structure](/storybook/parameters-structure.md) - Parameters configuration
 - [Auto-Extract Description from JSDoc](/storybook/documentation/auto-extract-description-from-jsdoc.md) - Future enhancement exploration

@@ -1,151 +1,94 @@
 # Storybook User Journey Pattern
 
-Stories represent real user scenarios and journeys, not technical component variations.
+Stories represent real user scenarios, not technical component variations.
 
 ## Philosophy
 
 Each story answers: **"When/why does a user see this component?"**
 
-This approach provides:
-- **Product documentation** - Stories document actual user scenarios
-- **Reduced cognitive load** - Clear purpose for each story
-- **Fast maintenance** - Easy to identify which scenarios need updating
-- **Better QA** - Stories map directly to production bugs/scenarios
-
-For complete pattern details, see: `/docs/design/storybook-user-journey-pattern.md` in consuming projects.
+Benefits:
+- Product documentation - Stories document actual user scenarios
+- Reduced cognitive load - Clear purpose for each story
+- Better QA - Stories map to production bugs/scenarios
 
 ## Story Naming Convention
 
-### Good Names (User Journey Pattern)
-
 ```javascript
+// GOOD: User journey pattern
 export const AfterSuccessfulUpload = { ... }
 export const WhileFileIsProcessing = { ... }
 export const WhenParserFails = { ... }
 export const WithUnusualFileName = { ... }
 export const DeveloperInteractive = { ... }
+
+// BAD: Component variation pattern
+export const Default = { ... }
+export const EmptyState = { ... }
+export const PDFFile = { ... }  // File type doesn't change UI
 ```
 
 **Pattern:** `<UserAction/State>` or `With<EdgeCaseCondition>`
-
-### Bad Names (Component Variation Pattern)
-
-```javascript
-// Avoid these
-export const Default = { ... }
-export const EmptyState = { ... }
-export const PDFFile = { ... }      // File type doesn't change UI
-export const CSVFile = { ... }      // File type doesn't change UI
-```
 
 ## Story Structure Template
 
 ```javascript
 /**
  * USER JOURNEY STORY: After Successful Processing
- *
- * When: File uploaded and processing completed successfully
- *
+ * When: File uploaded and processing completed
  * User sees: Complete metadata with all fields populated
- *
- * Tests: Verify all data displays correctly
  */
 export const AfterSuccessfulProcessing = {
   args: {
     statement: {
-      id: 'stmt-456',
-      file_name: 'hdfc_statement_jan_2024.pdf',
+      file_name: 'statement.pdf',
       parser_type: 'hdfc_credit_card__pdf',
-      account: { id: 'acc-1', name: 'HDFC Credit Card' },
       parsed_data: { transactions: [{}, {}] }
     }
   },
   play: autoOpenDropdown,
-  parameters: {
-    docs: {
-      description: {
-        story: 'Most common scenario: Statement fully processed with all data available.'
-      }
-    }
-  }
 }
 ```
 
-## Recommended Story Count by Component Type
+## Story Count Guidelines
 
 - **Atoms** (buttons, inputs): 1-2 stories
 - **Molecules** (cards, dialogs): 3-6 stories
 - **Organisms** (forms, tables): 5-10 stories
 
-## Typical Story Categories (5-6 stories)
+## Typical Story Set (5-6 stories)
 
-1. **Happy Path** (1 story) - Most common scenario, auto-opens
-2. **Error/Edge States** (1-2 stories) - Failures, missing data
-3. **Real Edge Cases** (1-2 stories) - Scenarios from production
-4. **Developer Testing** (1 story) - Manual interaction testing
+1. Happy Path - Most common scenario
+2. Error/Edge States - Failures, missing data
+3. Real Edge Cases - Production scenarios
+4. DeveloperInteractive - Manual testing (required)
 
-## Example: FileDetailsDialog (6 stories)
+## Multi-User Pattern
 
-```javascript
-export const AfterSuccessfulUpload = { ... }      // Happy path
-export const WhileFileIsProcessing = { ... }      // Temporary state
-export const WhenParserFails = { ... }            // Error state
-export const WithUnusualFileName = { ... }        // Edge case
-export const WithVeryLargeFile = { ... }          // Edge case
-export const DeveloperInteractive = { ... }       // Manual testing
-```
-
-## Multi-User Pattern: Splitting Stories by User Type
-
-When component behaves differently for user types, split into separate files:
+When component behaves differently by user type, split files:
 
 ```
 ComponentName.stories.js              // App user (default)
 ComponentName.StaffUser.stories.js    // Staff/admin user
-ComponentName.Premium.stories.js       // Premium user (if applicable)
 ```
 
-Example titles:
+## Anti-Patterns
+
 ```javascript
-// File 1: StatementDropdownActions.stories.js
-title: 'app/.../StatementDropdownActions/AppUser'
-
-// File 2: StatementDropdownActions.StaffUser.stories.js
-title: 'app/.../StatementDropdownActions/StaffUser'
-```
-
-## Anti-Patterns to Avoid
-
-### Don't test every data variation
-```javascript
-// BAD: File type doesn't change the UI
+// BAD: Data variations when UI doesn't change
 export const PDFFile = { ... }
 export const CSVFile = { ... }
-export const XLSXFile = { ... }
-```
 
-### Don't duplicate with auto-open
-```javascript
-// BAD: Duplication
-export const LongFileName = { ... }           // Manual click
-export const AutoOpen_LongFileName = { ... }  // Same data, auto-opens
-```
-
-### Don't use technical state names
-```javascript
-// BAD: Technical, not user-focused
+// BAD: Technical state names
 export const LocationNull = { ... }
-export const ParserTypeNull = { ... }
+export const IsLoadingTrue = { ... }
 
-// GOOD: User-focused
+// GOOD: User-focused states
 export const WhileFileIsProcessing = { ... }
 export const WhenParserFails = { ... }
 ```
 
 ## Related Notes
-- [Story Naming](/storybook/story-naming.md) - User journey naming conventions
-- [Meta Structure](/storybook/meta-structure.md) - Story file configuration
-- [Play Functions](/storybook/play-functions/play-functions.md) - Automated interactions overview
-- [Documentation Patterns](/storybook/documentation/documentation.md) - Multi-layer docs strategy
-- [Storybook Interactions](/storybook/storybook-interactions.md) - Detailed interaction patterns
-- [Storybook Mock Data](/storybook/storybook-mock-data.md) - Mock data patterns
+- [Story Naming](/storybook/story-naming.md) - Detailed naming conventions
+- [Meta Object Structure](/storybook/meta-object-structure.md) - Story file configuration
+- [Play Functions](/storybook/play-functions/play-functions.md) - Automated interactions
+- [Documentation Patterns](/storybook/documentation/documentation.md) - Multi-layer docs
