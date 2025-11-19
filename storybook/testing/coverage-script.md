@@ -131,4 +131,3 @@ coverage_percentage = (components_with_stories / total_components) * 100
 
 - [Coverage Requirements](/storybook/testing/coverage-requirements.md) - What counts as component/covered
 - [Coverage Reports](/storybook/testing/coverage-reports.md) - Report formats and badges
-- [Coverage Improving](/storybook/testing/coverage-improving.md) - Strategies to improve coverage

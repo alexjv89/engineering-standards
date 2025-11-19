@@ -145,8 +145,6 @@ Watch browser execute test.
 
 Edit story, watch tests auto-run (if in watch mode).
 
-See [Testing Debugging Individual](/storybook/testing/testing-debugging-individual.md) for more debugging strategies.
-
 ## Working on Multiple Components
 
 Testing several components you're modifying:
@@ -253,7 +251,6 @@ npx test-storybook --pattern="Component" --headed
 
 ## Related Notes
 
-- [Testing Pattern Matching](/storybook/testing/testing-pattern-matching.md) - Pattern syntax
-- [Testing Debugging Individual](/storybook/testing/testing-debugging-individual.md) - Debug strategies
-- [Running Tests Development](/storybook/testing/running-tests-development.md) - Watch mode details
-- [Coverage Improving](/storybook/testing/coverage-improving.md) - Coverage workflows
+- [Testing Pattern Matching](/storybook/testing/testing-pattern-matching.md) - Pattern syntax and filtering
+- [Test Runner Config](/storybook/testing/test-runner-config.md) - Configuration settings
+- [Coverage Reports](/storybook/testing/coverage-reports.md) - Understanding coverage output

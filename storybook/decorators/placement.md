@@ -170,4 +170,3 @@ const meta = {
 - [Decorator Patterns](/storybook/decorators/patterns.md) - Common decorator patterns
 - [Decorator Anti-Patterns](/storybook/decorators/anti-patterns.md) - What to avoid
 - [Parameters Structure](/storybook/organization/parameters.md) - Alternative to decorators
-- [Meta Object Structure](/storybook/organization/meta-object.md) - Story file configuration

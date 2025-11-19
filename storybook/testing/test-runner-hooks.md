@@ -253,4 +253,3 @@ async postVisit(page, context) {
 - [Test Runner Config](/storybook/testing/test-runner-config.md) - Configuration settings
 - [Test Runner Filtering](/storybook/testing/test-runner-filtering.md) - Ignoring stories
 - [Play Functions](/storybook/play-functions/basics.md) - Story interactions
-- [CI Artifacts](/storybook/testing/ci-cd-artifacts.md) - Uploading screenshots

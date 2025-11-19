@@ -177,4 +177,3 @@ Skip decorators for:
 - [Decorator Anti-Patterns](/storybook/decorators/anti-patterns.md) - Common mistakes to avoid
 - [Parameters Structure](/storybook/organization/parameters.md) - Alternative to decorators
 - [User Type Mocking](/storybook/mocking/user-types.md) - Full user type pattern
-- [Meta Object Structure](/storybook/organization/meta-object.md) - Story file configuration

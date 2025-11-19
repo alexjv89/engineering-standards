@@ -89,5 +89,4 @@ export const WhenParserFails = { ... }
 
 ## Related Notes
 - [Story Naming](/storybook/organization/story-naming.md) - Detailed naming conventions
-- [Meta Object Structure](/storybook/organization/meta-object.md) - Story file configuration
 - [Play Functions Basics](/storybook/play-functions/basics.md) - Automated interactions

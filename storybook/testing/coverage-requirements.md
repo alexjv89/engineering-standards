@@ -161,5 +161,4 @@ npm run storybook:coverage || exit 1
 
 - [Coverage Script](/storybook/testing/coverage-script.md) - How script scans and matches
 - [Coverage Reports](/storybook/testing/coverage-reports.md) - Understanding coverage output
-- [Coverage Improving](/storybook/testing/coverage-improving.md) - Strategies to reach 100%
 - [User Journey Pattern](/storybook/storybook-user-journey-pattern.md) - How to write stories

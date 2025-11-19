@@ -240,4 +240,3 @@ Don't use decorators when:
 - [Decorator Patterns](/storybook/decorators/patterns.md) - Correct decorator patterns
 - [Decorator Placement](/storybook/decorators/placement.md) - Where to put decorators
 - [Parameters Structure](/storybook/organization/parameters.md) - Alternative to decorators
-- [Meta Object Structure](/storybook/organization/meta-object.md) - Story file configuration

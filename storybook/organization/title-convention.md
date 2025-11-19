@@ -38,7 +38,6 @@ const meta = {
 ```
 
 ## Related Notes
-- [Meta Object Structure](/storybook/organization/meta-object.md) - Basic meta object pattern
 - [Story File Organization](/storybook/organization/file-structure.md) - File structure order
 - [Story Naming](/storybook/organization/story-naming.md) - User journey naming conventions
 - [Component Type Guidelines](/storybook/component-type-guidelines.md) - Component categorization

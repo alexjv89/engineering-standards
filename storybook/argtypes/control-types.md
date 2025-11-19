@@ -222,4 +222,3 @@ argTypes: {
 - [ArgTypes Basics](/storybook/argtypes/basics.md) - When to use argTypes and structure
 - [ArgTypes Examples](/storybook/argtypes/examples.md) - Real component examples
 - [Action Mocking Pattern](/storybook/mocking/actions.md) - Server action patterns
-- [Meta Object Structure](/storybook/organization/meta-object.md) - Story file configuration
