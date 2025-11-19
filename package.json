@@ -1,6 +1,6 @@
 {
   "name": "engineering-standards",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "An atomic knowledge base of engineering standards designed for efficient LLM consumption. Each note focuses on a single concept, pattern, or practice.",
   "main": "index.js",
   "directories": {

@@ -97,6 +97,6 @@ export const WithUnusualFileName = {
 4. **Consistency** - Same data across related stories
 
 ## Related Notes
-- [Action Mocking Pattern](/storybook/action-mocking-pattern.md)
-- [User Type Mocking](/storybook/user-type-mocking.md)
+- [Action Mocking Pattern](/storybook/mocking/actions.md)
+- [User Type Mocking](/storybook/mocking/user-types.md)
 - [Storybook User Journey Pattern](/storybook/storybook-user-journey-pattern.md)

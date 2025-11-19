@@ -107,4 +107,4 @@ Use DatePicker when you need single date selection...
 - [Custom Description Banner](/storybook/documentation/custom-description-banner.md) - Story-level canvas descriptions
 - [MDX Component Docs](/storybook/documentation/mdx-component-docs.md) - Component-level documentation
 - [Storybook User Journey Pattern](/storybook/storybook-user-journey-pattern.md) - Overall philosophy
-- [Story Naming](/storybook/story-naming.md) - User journey naming conventions
+- [Story Naming](/storybook/organization/story-naming.md) - User journey naming conventions

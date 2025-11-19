@@ -237,7 +237,7 @@ Don't use decorators when:
 5. **Logic belongs in component** - Decorators are for story environment, not component logic
 
 ## Related Notes
-- [Decorator Patterns](/storybook/decorator-patterns.md) - Correct decorator patterns
-- [Decorator Placement](/storybook/decorator-placement.md) - Where to put decorators
-- [Parameters Structure](/storybook/parameters-structure.md) - Alternative to decorators
-- [Meta Object Structure](/storybook/meta-object-structure.md) - Story file configuration
+- [Decorator Patterns](/storybook/decorators/patterns.md) - Correct decorator patterns
+- [Decorator Placement](/storybook/decorators/placement.md) - Where to put decorators
+- [Parameters Structure](/storybook/organization/parameters.md) - Alternative to decorators
+- [Meta Object Structure](/storybook/organization/meta-object.md) - Story file configuration

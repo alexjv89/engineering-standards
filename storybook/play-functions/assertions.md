@@ -95,7 +95,7 @@ await expect(input.className).toContain('bg-primary/5');
 ```
 
 ## Related Notes
-- [Play Functions Basics](/storybook/play-functions-basics.md)
-- [Play Functions Auto-Open Pattern](/storybook/play-functions-auto-open.md)
-- [Play Functions Portaled Components](/storybook/play-functions-portaled-components.md)
-- [Play Functions Waiting](/storybook/play-functions-waiting.md)
+- [Play Functions Basics](/storybook/play-functions/basics.md)
+- [Play Functions Auto-Open Pattern](/storybook/play-functions/auto-open.md)
+- [Play Functions Portaled Components](/storybook/play-functions/portaled-components.md)
+- [Play Functions Waiting](/storybook/play-functions/waiting.md)

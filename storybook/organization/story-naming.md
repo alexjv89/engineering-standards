@@ -83,5 +83,4 @@ export const DeveloperInteractive = { ... }       // Manual testing
 
 ## Related Notes
 - [Storybook User Journey Pattern](/storybook/storybook-user-journey-pattern.md) - Overall philosophy
-- [File Header Pattern](/storybook/documentation/file-header-pattern.md) - JSDoc file headers
-- [Meta Object Structure](/storybook/meta-object-structure.md) - Story file configuration
+- [Meta Object Structure](/storybook/organization/meta-object.md) - Story file configuration

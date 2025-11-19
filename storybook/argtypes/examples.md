@@ -181,7 +181,7 @@ argTypes: {
 - Example: TransactionsTable, FilterField
 
 ## Related Notes
-- [ArgTypes Basics](/storybook/argtypes-basics.md) - Coverage requirements and structure
-- [ArgTypes Control Types](/storybook/argtypes-control-types.md) - Complete control type reference
-- [Action Mocking Pattern](/storybook/action-mocking-pattern.md) - Event handler patterns
-- [Story Naming](/storybook/story-naming.md) - User journey patterns
+- [ArgTypes Basics](/storybook/argtypes/basics.md) - Coverage requirements and structure
+- [ArgTypes Control Types](/storybook/argtypes/control-types.md) - Complete control type reference
+- [Action Mocking Pattern](/storybook/mocking/actions.md) - Event handler patterns
+- [Story Naming](/storybook/organization/story-naming.md) - User journey patterns

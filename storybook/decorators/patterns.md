@@ -158,7 +158,7 @@ const meta = {
 - Components with different behavior per user type
 - Permission-based UI variations
 
-See also: [User Type Mocking](/storybook/user-type-mocking.md) for complete pattern.
+See also: [User Type Mocking](/storybook/mocking/user-types.md) for complete pattern.
 
 ## When NOT to Use Decorators
 
@@ -173,8 +173,8 @@ Skip decorators for:
 - src/components/AlertBox.stories.js (no decorators needed)
 
 ## Related Notes
-- [Decorator Placement](/storybook/decorator-placement.md) - Where to put decorators
-- [Decorator Anti-Patterns](/storybook/decorator-anti-patterns.md) - Common mistakes to avoid
-- [Parameters Structure](/storybook/parameters-structure.md) - Alternative to decorators
-- [User Type Mocking](/storybook/user-type-mocking.md) - Full user type pattern
-- [Meta Object Structure](/storybook/meta-object-structure.md) - Story file configuration
+- [Decorator Placement](/storybook/decorators/placement.md) - Where to put decorators
+- [Decorator Anti-Patterns](/storybook/decorators/anti-patterns.md) - Common mistakes to avoid
+- [Parameters Structure](/storybook/organization/parameters.md) - Alternative to decorators
+- [User Type Mocking](/storybook/mocking/user-types.md) - Full user type pattern
+- [Meta Object Structure](/storybook/organization/meta-object.md) - Story file configuration

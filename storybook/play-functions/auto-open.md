@@ -56,7 +56,7 @@ export const ErrorState = {
 ```
 
 ## Related Notes
-- [Play Functions Basics](/storybook/play-functions-basics.md)
-- [Play Functions Portaled Components](/storybook/play-functions-portaled-components.md)
-- [Play Functions Waiting](/storybook/play-functions-waiting.md)
+- [Play Functions Basics](/storybook/play-functions/basics.md)
+- [Play Functions Portaled Components](/storybook/play-functions/portaled-components.md)
+- [Play Functions Waiting](/storybook/play-functions/waiting.md)
 - [Storybook User Journey Pattern](/storybook/storybook-user-journey-pattern.md)

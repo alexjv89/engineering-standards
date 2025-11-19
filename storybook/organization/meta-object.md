@@ -52,8 +52,8 @@ export default {
 **Note**: We do NOT use Storybook's autodocs feature. For component-level documentation, create `.mdx` files (see [MDX Component Docs](/storybook/documentation/mdx-component-docs.md)).
 
 ## Related Notes
-- [Story Title Convention](/storybook/story-title-convention.md) - Title naming and hierarchy
-- [Parameters Structure](/storybook/parameters-structure.md) - Layout and description parameters
-- [Story File Organization](/storybook/story-file-organization.md) - File structure order
-- [ArgTypes Basics](/storybook/argtypes-basics.md) - Props documentation coverage
-- [Decorator Patterns](/storybook/decorator-patterns.md) - Layout and context providers
+- [Story Title Convention](/storybook/organization/title-convention.md) - Title naming and hierarchy
+- [Parameters Structure](/storybook/organization/parameters.md) - Layout and description parameters
+- [Story File Organization](/storybook/organization/file-structure.md) - File structure order
+- [ArgTypes Basics](/storybook/argtypes/basics.md) - Props documentation coverage
+- [Decorator Patterns](/storybook/decorators/patterns.md) - Layout and context providers

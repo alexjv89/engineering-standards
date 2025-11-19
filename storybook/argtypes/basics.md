@@ -72,7 +72,7 @@ argTypes: {
 ```
 
 ## Related Notes
-- [ArgTypes Control Types](/storybook/argtypes-control-types.md) - Control type reference catalog
-- [ArgTypes Examples](/storybook/argtypes-examples.md) - Real component examples
-- [Meta Object Structure](/storybook/meta-object-structure.md) - Story file configuration
-- [Action Mocking Pattern](/storybook/action-mocking-pattern.md) - Server action callbacks
+- [ArgTypes Control Types](/storybook/argtypes/control-types.md) - Control type reference catalog
+- [ArgTypes Examples](/storybook/argtypes/examples.md) - Real component examples
+- [Meta Object Structure](/storybook/organization/meta-object.md) - Story file configuration
+- [Action Mocking Pattern](/storybook/mocking/actions.md) - Server action callbacks

@@ -45,7 +45,5 @@ For comprehensive component documentation, create `.mdx` files instead of using 
 See [MDX Component Docs](/storybook/documentation/mdx-component-docs.md) for details.
 
 ## Related Notes
-- [Meta Object Structure](/storybook/meta-object-structure.md) - Basic meta object pattern
-- [Story File Organization](/storybook/story-file-organization.md) - File structure order
-- [Custom Description Banner](/storybook/documentation/custom-description-banner.md) - Story descriptions
-- [MDX Component Docs](/storybook/documentation/mdx-component-docs.md) - Component documentation
+- [Meta Object Structure](/storybook/organization/meta-object.md) - Basic meta object pattern
+- [Story File Organization](/storybook/organization/file-structure.md) - File structure order

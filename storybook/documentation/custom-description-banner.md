@@ -196,7 +196,7 @@ export const DeveloperInteractive = {
 ## Related Notes
 - [Documentation Patterns](/storybook/documentation/documentation.md) - Multi-layer docs approach
 - [MDX Component Docs](/storybook/documentation/mdx-component-docs.md) - Component-level MDX documentation
-- [Story Naming](/storybook/story-naming.md) - User journey naming
+- [Story Naming](/storybook/organization/story-naming.md) - User journey naming
 - [Storybook User Journey Pattern](/storybook/storybook-user-journey-pattern.md) - Overall pattern philosophy
-- [Parameters Structure](/storybook/parameters-structure.md) - Parameters configuration
+- [Parameters Structure](/storybook/organization/parameters.md) - Parameters configuration
 - [Auto-Extract Description from JSDoc](/storybook/documentation/auto-extract-description-from-jsdoc.md) - Future enhancement exploration

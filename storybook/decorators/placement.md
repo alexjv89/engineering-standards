@@ -167,7 +167,7 @@ const meta = {
 5. **Document composition** - Comment complex decorator chains
 
 ## Related Notes
-- [Decorator Patterns](/storybook/decorator-patterns.md) - Common decorator patterns
-- [Decorator Anti-Patterns](/storybook/decorator-anti-patterns.md) - What to avoid
-- [Parameters Structure](/storybook/parameters-structure.md) - Alternative to decorators
-- [Meta Object Structure](/storybook/meta-object-structure.md) - Story file configuration
+- [Decorator Patterns](/storybook/decorators/patterns.md) - Common decorator patterns
+- [Decorator Anti-Patterns](/storybook/decorators/anti-patterns.md) - What to avoid
+- [Parameters Structure](/storybook/organization/parameters.md) - Alternative to decorators
+- [Meta Object Structure](/storybook/organization/meta-object.md) - Story file configuration

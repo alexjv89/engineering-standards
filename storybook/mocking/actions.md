@@ -93,6 +93,6 @@ export const InteractiveTest = {
 4. **Named Mocks** - mockName() provides clear error messages
 
 ## Related Notes
-- [Mock Data Organization](/storybook/mock-data-organization.md)
-- [User Type Mocking](/storybook/user-type-mocking.md)
-- [Play Functions Basics](/storybook/play-functions-basics.md)
+- [Mock Data Organization](/storybook/mocking/data.md)
+- [User Type Mocking](/storybook/mocking/user-types.md)
+- [Play Functions Basics](/storybook/play-functions/basics.md)

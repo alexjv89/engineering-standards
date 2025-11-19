@@ -209,7 +209,7 @@ Added stories for: Button, Card, Input
 ### Quality Requires:
 - Following [User Journey Pattern](/storybook/storybook-user-journey-pattern.md)
 - Writing meaningful [Descriptions](/storybook/documentation/custom-description-banner.md)
-- Adding appropriate [Play Functions](/storybook/play-functions/play-functions.md)
+- Adding appropriate [Play Functions](/storybook/play-functions/basics.md)
 - Covering edge cases and error states
 
 **Example of low-quality but covered**:

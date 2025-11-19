@@ -14,6 +14,37 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Removed
 
+## [1.3.0] - 2025-11-19
+
+### Added
+- **Storybook Documentation Subfolders** - Organized 21 storybook files into 5 logical subdirectories:
+  - `argtypes/` (3 files) - ArgTypes configuration notes
+  - `decorators/` (3 files) - Decorator pattern notes
+  - `mocking/` (3 files) - Mocking patterns for actions, data, and user types
+  - `organization/` (5 files) - Story file organization and naming conventions
+  - `play-functions/` (5 files) - Play function patterns and techniques
+- **Improved Documentation Brevity**:
+  - Enhanced `principles/documentation/brevity.md` with clearer examples
+  - Added distinction between removing filler words vs preserving structure
+  - Examples showing how bullets/whitespace aid scanning
+
+### Changed
+- **Storybook Documentation Reorganization**:
+  - Restructured 21 files into emergent subfolder organization
+  - Condensed verbose files: Removed 6 duplicate files (~700 lines → ~400 lines)
+  - Updated all cross-references to use repo-root relative paths
+  - Improved atomic note structure (60-100 lines vs 130-191 lines)
+  - Better discoverability through logical grouping
+
+### Removed
+- **Verbose Duplicate Files**:
+  - Removed `play-functions.md` (130 lines → kept `basics.md` at 75 lines)
+  - Removed `play-functions-assertions.md` (191 lines → kept `assertions.md` at 101 lines)
+  - Removed `play-functions-auto-open-pattern.md` (116 lines → kept `auto-open.md` at 62 lines)
+  - Removed `play-functions-portaled-components.md` (166 lines → kept `portaled-components.md` at 69 lines)
+  - Removed `play-functions-waiting-strategies.md` (189 lines → kept `waiting.md` at 78 lines)
+  - Removed `play-functions-when-to-use.md` (71 lines → merged into `basics.md`)
+
 ## [1.2.0] - 2025-11-19
 
 ### Added

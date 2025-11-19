@@ -61,5 +61,5 @@ Keep the header focused on orientation only. Do NOT include:
 
 ## Related Notes
 - [Storybook User Journey Pattern](/storybook/storybook-user-journey-pattern.md) - Philosophy behind this pattern
-- [Story Naming](/storybook/story-naming.md) - Detailed naming conventions
+- [Story Naming](/storybook/organization/story-naming.md) - Detailed naming conventions
 - [Documentation Patterns](/storybook/documentation/documentation.md) - How this fits into the documentation strategy

@@ -88,6 +88,6 @@ Use user type mocking when:
 - Testing role-based access control
 
 ## Related Notes
-- [Decorator Patterns](/storybook/decorator-patterns.md)
-- [Mock Data Organization](/storybook/mock-data-organization.md)
-- [Action Mocking Pattern](/storybook/action-mocking-pattern.md)
+- [Decorator Patterns](/storybook/decorators/patterns.md)
+- [Mock Data Organization](/storybook/mocking/data.md)
+- [Action Mocking Pattern](/storybook/mocking/actions.md)

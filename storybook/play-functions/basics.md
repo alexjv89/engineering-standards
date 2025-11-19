@@ -68,8 +68,8 @@ Don't use for:
 - Static display-only components
 
 ## Related Notes
-- [Play Functions Auto-Open Pattern](/storybook/play-functions-auto-open.md)
-- [Play Functions Portaled Components](/storybook/play-functions-portaled-components.md)
-- [Play Functions Assertions](/storybook/play-functions-assertions.md)
-- [Play Functions Waiting](/storybook/play-functions-waiting.md)
+- [Play Functions Auto-Open Pattern](/storybook/play-functions/auto-open.md)
+- [Play Functions Portaled Components](/storybook/play-functions/portaled-components.md)
+- [Play Functions Assertions](/storybook/play-functions/assertions.md)
+- [Play Functions Waiting](/storybook/play-functions/waiting.md)
 - [Storybook User Journey Pattern](/storybook/storybook-user-journey-pattern.md)

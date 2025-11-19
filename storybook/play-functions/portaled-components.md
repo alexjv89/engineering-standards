@@ -63,7 +63,7 @@ await waitFor(() => {
 ```
 
 ## Related Notes
-- [Play Functions Basics](/storybook/play-functions-basics.md)
-- [Play Functions Auto-Open Pattern](/storybook/play-functions-auto-open.md)
-- [Play Functions Waiting](/storybook/play-functions-waiting.md)
-- [Play Functions Assertions](/storybook/play-functions-assertions.md)
+- [Play Functions Basics](/storybook/play-functions/basics.md)
+- [Play Functions Auto-Open Pattern](/storybook/play-functions/auto-open.md)
+- [Play Functions Waiting](/storybook/play-functions/waiting.md)
+- [Play Functions Assertions](/storybook/play-functions/assertions.md)

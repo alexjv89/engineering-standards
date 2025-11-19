@@ -58,7 +58,7 @@ export const StoryName = {
 **Rationale**: Consistent ordering improves readability and maintainability across all story files.
 
 ## Related Notes
-- [Meta Object Structure](/storybook/meta-object-structure.md) - Basic meta object pattern
-- [Story Title Convention](/storybook/story-title-convention.md) - Title naming
-- [Story Naming](/storybook/story-naming.md) - User journey naming conventions
-- [Parameters Structure](/storybook/parameters-structure.md) - Layout and description parameters
+- [Meta Object Structure](/storybook/organization/meta-object.md) - Basic meta object pattern
+- [Story Title Convention](/storybook/organization/title-convention.md) - Title naming
+- [Story Naming](/storybook/organization/story-naming.md) - User journey naming conventions
+- [Parameters Structure](/storybook/organization/parameters.md) - Layout and description parameters

@@ -19,6 +19,6 @@ Play function usage and story count recommendations by component type.
 **Atomic components** (buttons) → Minimal stories, play functions optional
 
 ## Related Notes
-- [Play Functions: When to Use](/storybook/play-functions/play-functions-when-to-use.md)
+- [Play Functions Basics](/storybook/play-functions/basics.md)
 - [User Journey Pattern](/storybook/storybook-user-journey-pattern.md)
-- [Story Naming](/storybook/story-naming.md)
+- [Story Naming](/storybook/organization/story-naming.md)
