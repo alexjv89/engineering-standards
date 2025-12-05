@@ -56,6 +56,6 @@ Before creating a named typedef, ask:
 - Does this type need documentation for domain understanding? If no → inline it
 
 ## Related Notes
-- [JSDoc Centralized Types](/naming/jsdoc/jsdoc-centralized-types.md)
-- [JSDoc Type Definitions](/naming/jsdoc/jsdoc-typedef.md)
-- [JSDoc Basic Annotations](/naming/jsdoc/jsdoc-basic-annotations.md)
+- [JSDoc Centralized Types](/architecture/jsdoc/types/jsdoc-centralized-types.md)
+- [JSDoc Type Definitions](/architecture/jsdoc/syntax/jsdoc-typedef.md)
+- [JSDoc Basic Annotations](/architecture/jsdoc/syntax/jsdoc-basic-annotations.md)

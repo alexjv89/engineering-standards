@@ -97,6 +97,6 @@ greet(123);
 ```
 
 ## Related Notes
-- [JSDoc Type Definitions](/naming/jsdoc/typedef.md)
+- [JSDoc Type Definitions](/architecture/jsdoc/syntax/jsdoc-typedef.md)
 - [Module Organization](/architecture/modules/module-exports-pattern.md)
 - [JavaScript with JSDoc Principle](/principles/javascript-with-jsdoc.md)

@@ -14,6 +14,7 @@ Configure jsconfig.json for opt-in type checking on a per-file basis using `@ts-
 ```json
 {
   "compilerOptions": {
+    "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": { "@/*": ["./src/*"] },
     "target": "ES2020",
@@ -25,14 +26,18 @@ Configure jsconfig.json for opt-in type checking on a per-file basis using `@ts-
     "strict": false,
     "skipLibCheck": true,
     "esModuleInterop": true,
+    "resolveJsonModule": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"]
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "src/types/**/*.d.ts"],
   "exclude": ["node_modules", ".next", "**/*.test.js"]
 }
 ```
 
-**Key setting:** `checkJs: false` means only files with `// @ts-check` are type-checked.
+**Key settings:**
+- `jsx: "react-jsx"` - React 17+ JSX transform (no React import needed)
+- `checkJs: false` - Only files with `// @ts-check` are type-checked
+- `resolveJsonModule: true` - Allow importing JSON files
 
 ## Enable Type Checking Per File
 
@@ -86,5 +91,7 @@ export async function getDevices({ cookieStore, plant }) {
 
 ## Related Notes
 - [JavaScript with JSDoc Principle](/principles/javascript-with-jsdoc.md)
-- [JSDoc Centralized Types](/naming/jsdoc/jsdoc-centralized-types.md)
-- [JSDoc Importing Types](/naming/jsdoc/jsdoc-imports.md)
+- [JSDoc Centralized Types](/architecture/jsdoc/types/jsdoc-centralized-types.md)
+- [JSDoc Importing Types](/architecture/jsdoc/syntax/jsdoc-imports.md)
+- [Type Checking Tools (VS Code vs CLI)](/architecture/jsdoc/typecheck/jsdoc-typecheck-tools.md)
+- [When to Disable @ts-check](/architecture/jsdoc/typecheck/jsdoc-disable-tscheck.md)

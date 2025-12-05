@@ -71,6 +71,6 @@ module.exports = {};
 Three similar local types are better than a premature shared abstraction.
 
 ## Related Notes
-- [JSDoc Inline Types vs @typedef](/naming/jsdoc/jsdoc-inline-vs-typedef.md)
-- [JSDoc Type Definitions](/naming/jsdoc/jsdoc-typedef.md)
-- [JSDoc API Type Prefixes](/naming/jsdoc/jsdoc-api-type-prefixes.md)
+- [JSDoc Inline Types vs @typedef](/architecture/jsdoc/types/jsdoc-inline-vs-typedef.md)
+- [JSDoc Type Definitions](/architecture/jsdoc/syntax/jsdoc-typedef.md)
+- [JSDoc API Type Prefixes](/architecture/jsdoc/types/jsdoc-api-type-prefixes.md)

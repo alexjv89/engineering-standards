@@ -9,7 +9,12 @@
       "Bash(cat:*)",
       "Bash(git rm:*)",
       "Bash(git add:*)",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "Bash(mkdir:*)",
+      "Bash(git mv:*)",
+      "Bash(mv:*)",
+      "Bash(rmdir:*)",
+      "Bash({} ;)"
     ],
     "deny": [],
     "ask": []

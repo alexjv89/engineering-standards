@@ -48,8 +48,8 @@ async function fetchData(url) {
 ```
 
 ## Related Notes
-- [JSDoc Inline Types vs @typedef](/naming/jsdoc/jsdoc-inline-vs-typedef.md)
-- [JSDoc Centralized Types](/naming/jsdoc/jsdoc-centralized-types.md)
-- [JSDoc Basic Annotations](/naming/jsdoc/basic-annotations.md)
-- [JSDoc Generic Types](/naming/jsdoc/generics.md)
-- [JSDoc Importing Types](/naming/jsdoc/imports.md)
+- [JSDoc Inline Types vs @typedef](/architecture/jsdoc/types/jsdoc-inline-vs-typedef.md)
+- [JSDoc Centralized Types](/architecture/jsdoc/types/jsdoc-centralized-types.md)
+- [JSDoc Basic Annotations](/architecture/jsdoc/syntax/jsdoc-basic-annotations.md)
+- [JSDoc Generic Types](/architecture/jsdoc/syntax/jsdoc-generics.md)
+- [JSDoc Importing Types](/architecture/jsdoc/syntax/jsdoc-imports.md)

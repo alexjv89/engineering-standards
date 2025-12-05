@@ -14,50 +14,50 @@ See [JavaScript with JSDoc Principle](/principles/javascript-with-jsdoc.md) for 
 
 ## JSDoc Topics
 
-### [Basic Annotations](/naming/jsdoc/basic-annotations.md)
+### [Basic Annotations](/architecture/jsdoc/syntax/jsdoc-basic-annotations.md)
 Document function parameters, returns, and exceptions:
 - @param for parameters
 - @returns for return values
 - @throws for exceptions
 - Optional parameters and union types
 
-### [Type Definitions](/naming/jsdoc/typedef.md)
+### [Type Definitions](/architecture/jsdoc/syntax/jsdoc-typedef.md)
 Define reusable complex types:
 - @typedef for custom types
 - Object property documentation
 - Inline object types
 
-### [Generic Types](/naming/jsdoc/generics.md)
+### [Generic Types](/architecture/jsdoc/syntax/jsdoc-generics.md)
 Work with generic type parameters:
 - @template for generics
 - Generic functions and types
 - Type-safe collections
 
-### [Callback Functions](/naming/jsdoc/callbacks.md)
+### [Callback Functions](/architecture/jsdoc/syntax/jsdoc-callbacks.md)
 Document function type parameters:
 - @callback for function types
 - Higher-order functions
 - Event handlers
 
-### [Importing Types](/naming/jsdoc/jsdoc-imports.md)
+### [Importing Types](/architecture/jsdoc/syntax/jsdoc-imports.md)
 Reuse types from other files:
 - Type imports with @typedef
 - Importing from node modules
 - Optional type checking with @ts-check
 
-### [Gradual Type Checking](/naming/jsdoc/jsdoc-gradual-typecheck.md)
+### [Gradual Type Checking](/architecture/jsdoc/typecheck/jsdoc-gradual-typecheck.md)
 Configure jsconfig.json for opt-in type checking:
 - `checkJs: false` with `@ts-check` per file
 - NPM typecheck scripts
 - Adoption strategy
 
-### [Discriminated Unions](/naming/jsdoc/jsdoc-discriminated-unions.md)
+### [Discriminated Unions](/architecture/jsdoc/types/jsdoc-discriminated-unions.md)
 Handle arrays with multiple object shapes:
 - Literal string discriminators
 - Union types with `|`
 - Type annotations for containers
 
-### [API Type Prefixes](/naming/jsdoc/jsdoc-api-type-prefixes.md)
+### [API Type Prefixes](/architecture/jsdoc/types/jsdoc-api-type-prefixes.md)
 Naming convention for external API types:
 - `SVC` prefix for service API types
 - Distinguishing API vs database types
@@ -84,5 +84,5 @@ async function getUser(userId) {
 
 ## Related Notes
 - [JavaScript with JSDoc Principle](/principles/javascript-with-jsdoc.md)
-- [Functions: camelCase](/naming/jsdoc/functions-camelcase.md)
+- [Functions: camelCase](/naming/functions-camelcase.md)
 - [Module Organization](/architecture/modules/module-exports-pattern.md)

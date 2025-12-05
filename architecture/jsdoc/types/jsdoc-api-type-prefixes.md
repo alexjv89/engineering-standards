@@ -91,6 +91,6 @@ function processDbRecord(dbDevice) { }
 - When you have both internal and external versions of similar entities
 
 ## Related Notes
-- [JSDoc Centralized Types](/naming/jsdoc/jsdoc-centralized-types.md)
-- [JSDoc Importing Types](/naming/jsdoc/jsdoc-imports.md)
+- [JSDoc Centralized Types](/architecture/jsdoc/types/jsdoc-centralized-types.md)
+- [JSDoc Importing Types](/architecture/jsdoc/syntax/jsdoc-imports.md)
 - [Module Organization](/architecture/modules/module-organization.md)

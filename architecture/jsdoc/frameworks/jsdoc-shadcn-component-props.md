@@ -52,6 +52,6 @@ Use a separate `@typedef` when:
 - You need to export the type for external use
 
 ## Related Notes
-- [JSDoc Basic Annotations](/naming/jsdoc/jsdoc-basic-annotations.md)
-- [JSDoc Generics](/naming/jsdoc/jsdoc-generics.md)
+- [JSDoc Basic Annotations](/architecture/jsdoc/syntax/jsdoc-basic-annotations.md)
+- [JSDoc Generics](/architecture/jsdoc/syntax/jsdoc-generics.md)
 - [Component Composition](/architecture/components/component-composition.md)

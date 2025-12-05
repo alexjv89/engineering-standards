@@ -153,6 +153,6 @@ greet(123); // Editor warning: Argument of type 'number' not assignable to 'stri
 ```
 
 ## Related Notes
-- [JSDoc Type Patterns](/naming/jsdoc-types.md)
+- [JSDoc Type Patterns](/architecture/jsdoc/syntax/jsdoc-types.md)
 - [Function Documentation](/naming/functions-camelcase.md)
 - [Atomic Knowledge Base Principles](/principles/atomic-knowledge-base.md)

@@ -14,6 +14,34 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Removed
 
+## [1.5.0] - 2025-12-05
+
+### Added
+- **JSDoc Type Patterns** (`architecture/jsdoc/types/` - 5 new notes):
+  - `jsdoc-function-level-types.md` - Types at function boundaries only, no inline casts
+  - `jsdoc-module-augmentation.md` - Override library types with `.d.ts` files
+  - `jsdoc-wrapper-functions.md` - Typed wrappers for generic library functions
+  - `jsdoc-server-action-results.md` - Success/error discriminated unions pattern
+- **JSDoc Type Checking** (`architecture/jsdoc/typecheck/` - 3 new notes):
+  - `jsdoc-typecheck-tools.md` - VS Code vs CLI type checking, `.vscode/settings.json` config
+  - `jsdoc-disable-tscheck.md` - When to disable `@ts-check` (SDK mismatches, async.auto)
+  - `jsdoc-gradual-typecheck.md` - Updated with `jsx`, `resolveJsonModule` options
+- **JSDoc Framework Patterns** (`architecture/jsdoc/frameworks/` - 1 new note):
+  - `jsdoc-nextjs-page.md` - Next.js App Router page component typing
+
+### Changed
+- **JSDoc Documentation Reorganization**:
+  - Moved all 19 JSDoc notes from `naming/jsdoc/` to `architecture/jsdoc/`
+  - Organized into 4 subfolders by concern:
+    - `syntax/` (6 files) - JSDoc syntax reference
+    - `types/` (8 files) - Type patterns and organization
+    - `typecheck/` (3 files) - TypeScript type checking config
+    - `frameworks/` (2 files) - React/Next.js specific patterns
+  - Updated all cross-references to new paths
+- **Enhanced Existing Notes**:
+  - `jsdoc-discriminated-unions.md` - Added success/error pattern with `undefined` trick for proper type narrowing
+  - `jsdoc-gradual-typecheck.md` - Added `jsx: "react-jsx"`, `resolveJsonModule: true`, updated include paths
+
 ## [1.4.0] - 2025-12-05
 
 ### Added
