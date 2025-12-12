@@ -2,12 +2,12 @@
 
 Organize code into functional modules using named exports rather than classes.
 
-## Pattern: Named Exports
+## Pattern: Named Exports (One Function Per File)
 
-Export related functions from a single module file:
+Each function lives in its own file with a named export matching the filename:
 
 ```javascript
-// userService.js
+// src/services/users/getUser.js
 
 /**
  * @typedef {Object} User
@@ -29,6 +29,10 @@ export async function getUser(user_id) {
   }
   return response.json();
 }
+```
+
+```javascript
+// src/services/users/createUser.js
 
 /**
  * Create new user
@@ -43,6 +47,11 @@ export async function createUser(user_data) {
   });
   return response.json();
 }
+```
+
+```javascript
+// src/services/users/listActiveUsers.js
+import { listUsers } from './listUsers';
 
 /**
  * List all active users
@@ -52,20 +61,28 @@ export async function listActiveUsers() {
   const all_users = await listUsers();
   return all_users.filter(user => user.active);
 }
+```
 
-// Private helper function (not exported)
-async function listUsers() {
+```javascript
+// src/services/users/listUsers.js
+
+/**
+ * List all users (internal helper)
+ * @returns {Promise<User[]>}
+ */
+export async function listUsers() {
   const response = await fetch('/api/users');
   return response.json();
 }
 ```
 
-## Usage: Named Imports
+## Usage: Individual Imports
 
-Import only what you need:
+Import functions directly from their files:
 
 ```javascript
-import { getUser, updateUser } from './userService.js';
+import { getUser } from '@/services/users/getUser';
+import { updateUser } from '@/services/users/updateUser';
 
 async function updateUserProfile(user_id, new_name) {
   const user = await getUser(user_id);
@@ -75,10 +92,19 @@ async function updateUserProfile(user_id, new_name) {
 
 ## Usage: Namespace Imports
 
-Or import all exports as a namespace:
+Use barrel exports for namespace-style imports:
 
 ```javascript
-import * as userService from './userService.js';
+// src/services/users/index.js
+export { getUser } from './getUser';
+export { createUser } from './createUser';
+export { updateUser } from './updateUser';
+export { listActiveUsers } from './listActiveUsers';
+```
+
+```javascript
+// Usage with namespace
+import * as userService from '@/services/users';
 
 const user = await userService.getUser('123');
 await userService.updateUser('123', { name: 'New Name' });
@@ -87,22 +113,36 @@ await userService.updateUser('123', { name: 'New Name' });
 ## Benefits
 
 ✅ **Simple** - Just functions, no `this` binding
-✅ **Testable** - Each function can be tested independently
+✅ **Testable** - Each function can be tested independently (1:1 test mapping)
 ✅ **Tree-shakeable** - Import only what you use
 ✅ **Clear dependencies** - Function parameters show what's needed
 ✅ **No state** - Functions don't carry hidden state
+✅ **Consistent** - Same pattern as UI components
+✅ **Discoverable** - Function location matches function name
+✅ **Refactorable** - Change one function without affecting others
 
-## Avoid Default Exports
+## Named Exports Only
 
-Prefer named exports for consistency:
+Always use named exports that match the filename:
 
 ```javascript
-// Good - named export
+// Good - named export matches filename
+// src/services/users/getUser.js
 export function getUser(user_id) { }
 
 // Avoid - default export
+export default function getUser(user_id) { }
+
+// Avoid - anonymous default export
 export default function(user_id) { }
 ```
+
+**Why named exports?**
+- Better IDE autocomplete and refactoring support
+- Clear function name in imports
+- Consistent with component pattern
+- Easier to grep/search codebase
+- No ambiguity about function names
 
 ## Related Notes
 - [Service Layer Pattern](/architecture/modules/service-layer-pattern.md)
