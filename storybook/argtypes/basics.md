@@ -53,21 +53,21 @@ Skip argTypes for:
 
 ## Naming Convention
 
-Use `snake_case` for argType keys (matches your variable naming standard):
+Use `camelCase` for argType keys (matches React props convention):
 
 ```javascript
 // GOOD
 argTypes: {
-  file_name: { ... },
-  on_change: { ... },
-  show_icon: { ... },
+  fileName: { ... },
+  onChange: { ... },
+  showIcon: { ... },
 }
 
 // BAD
 argTypes: {
-  fileName: { ... },
-  onChange: { ... },
-  showIcon: { ... },
+  file_name: { ... },
+  on_change: { ... },
+  show_icon: { ... },
 }
 ```
 
