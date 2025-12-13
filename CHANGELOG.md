@@ -14,6 +14,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Removed
 
+## [1.6.0] - 2025-12-13
+
+### Added
+- **Documentation Principle** (`principles/documentation/` - 1 new note):
+  - `document-density.md` - Balance specificity in docs: WHAT/WHERE over HOW for standard LLM tools
+
+### Changed
+- **Documentation Cross-References**:
+  - Updated `brevity.md` with link to document-density principle
+  - Updated `llm-benefits.md` with link to document-density principle
+
 ## [1.5.0] - 2025-12-05
 
 ### Added
