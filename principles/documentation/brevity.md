@@ -71,3 +71,4 @@ Bullets, whitespace, code blocks = visual pattern recognition = fast scanning.
 ## Related Notes
 - [Single Idea Per Note](/principles/documentation/single-idea-per-note.md)
 - [Meaningful Titles](/principles/documentation/meaningful-titles.md)
+- [Document Density](/principles/documentation/document-density.md) - What to include/exclude for LLMs
