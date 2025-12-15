@@ -31,3 +31,4 @@ Graph of linked notes reveals relationships not obvious in hierarchical docs.
 ## Related Notes
 - [Single Idea Per Note](/principles/documentation/single-idea-per-note.md)
 - [Discovery Patterns](/principles/documentation/discovery-patterns.md)
+- [Document Density](/principles/documentation/document-density.md) - Optimize specificity for LLM consumption
