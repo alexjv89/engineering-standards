@@ -14,7 +14,9 @@
       "Bash(git mv:*)",
       "Bash(mv:*)",
       "Bash(rmdir:*)",
-      "Bash({} ;)"
+      "Bash({} ;)",
+      "Bash(git tag:*)",
+      "Bash(git push:*)"
     ],
     "deny": [],
     "ask": []
