@@ -7,13 +7,54 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
-- `async-auto-workflow.md` - async.auto DAG-based workflow patterns: verb-based keys, dependency syntax, file structure
 
 ### Changed
 
 ### Fixed
 
 ### Removed
+
+## [1.7.0] - 2025-01-23
+
+### Added
+- **API Design Patterns** (`architecture/api/` - 18 new notes):
+  - `rest-url-structure.md` - RESTful URL naming conventions
+  - `http-method-mapping.md` - HTTP method to operation mapping
+  - `api-versioning.md` - API version management strategies
+  - `response-envelope.md` - Standard API response wrapper pattern
+  - `error-response-format.md` - Consistent error response structure
+  - `validation-error-pattern.md` - Field-level validation error format
+  - `pagination-pattern.md` - Cursor and offset pagination approaches
+  - `pagination-utilities.md` - Reusable pagination helper functions
+  - `field-selection.md` - Sparse fieldsets for API responses
+  - `field-selection-utilities.md` - Field selection helper functions
+  - `request-validation-pattern.md` - Input validation with Zod schemas
+  - `format-entity-pattern.md` - Entity formatting for API responses
+  - `public-fields-constant.md` - Defining public vs private fields
+  - `authentication-middleware.md` - API authentication patterns
+  - `permission-scopes.md` - Role-based permission management
+  - `nextjs-route-organization.md` - Next.js App Router API structure
+  - `response-helper-functions.md` - Standardized response builders
+  - `async-auto-workflow.md` - async.auto DAG-based workflow patterns
+- **API Documentation Patterns** (`architecture/api-documentation/` - 5 new notes):
+  - `documentation-structure.md` - API documentation organization
+  - `endpoint-doc-template.md` - Standard endpoint documentation format
+  - `cross-cutting-concerns.md` - Documenting shared API behaviors
+  - `curl-examples-pattern.md` - Executable curl example conventions
+  - `llm-access-endpoints.md` - Designing APIs for LLM consumption
+- **Architecture Patterns** (3 new notes):
+  - `code-folding-regions.md` - Code organization with editor regions
+  - `mdx-library-choice.md` - MDX library selection guidance
+  - `nextjs-generate-metadata.md` - Next.js metadata generation patterns
+- **Functional Patterns** (`architecture/functional/` - 1 new note):
+  - `async-auto-workflow.md` - async.auto DAG-based workflow patterns
+
+### Changed
+- Updated `jsdoc-disable-tscheck.md` with async.auto reference
+- Updated documentation principles with cross-references
+
+### Removed
+- `storybook/documentation/file-header-pattern.md` (consolidated)
 
 ## [1.6.0] - 2025-12-13
 
