@@ -87,3 +87,4 @@ const result = sdkMethod(complexArg);
 - [Gradual Type Checking](/architecture/jsdoc/typecheck/jsdoc-gradual-typecheck.md)
 - [shadcn Component Props](/architecture/jsdoc/frameworks/jsdoc-shadcn-component-props.md)
 - [Function-Level Types](/architecture/jsdoc/types/jsdoc-function-level-types.md)
+- [async.auto Workflow](/architecture/functional/async-auto-workflow.md)
