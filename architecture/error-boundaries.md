@@ -127,5 +127,4 @@ React error boundaries **require** class components because they use lifecycle m
 This is an exception to the functional programming principle - use it only for error boundaries.
 
 ## Related Notes
-- [Functional Programming Principle](/../principles/functional-programming.md)
-- [Testing Error Cases](/testing/error-testing.md)
+- [Functional Programming Principle](/principles/functional-programming.md)

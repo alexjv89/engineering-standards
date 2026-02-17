@@ -17,7 +17,12 @@
       "Bash({} ;)",
       "Bash(git tag:*)",
       "Bash(git push:*)",
-      "Bash(git describe:*)"
+      "Bash(git describe:*)",
+      "Bash(while read path)",
+      "Bash(do if [[ ! -f \"/Users/alex/ec2code/alex/engineering-standards$path\" ]])",
+      "Bash(then echo \"BROKEN: $path\" fi done)",
+      "Bash(do fullpath=\"/Users/alex/ec2code/alex/engineering-standards$path\" if [ ! -f \"$fullpath\" ])",
+      "Bash(xargs:*)"
     ],
     "deny": [],
     "ask": []

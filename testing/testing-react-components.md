@@ -59,9 +59,9 @@ export const AfterSuccessfulUpload = {
 
 ## See These Notes for Details
 
-- **[Storybook User Journey Pattern](/testing/storybook-user-journey-pattern.md)** - How to structure stories
-- **[Storybook Interactions](/testing/storybook-interactions.md)** - Play functions and assertions
-- **[Storybook Mock Data](/testing/storybook-mock-data.md)** - Mock data patterns
+- **[Storybook User Journey Pattern](/storybook/storybook-user-journey-pattern.md)** - How to structure stories
+- **[Play Functions Basics](/storybook/play-functions/basics.md)** - Play functions and assertions
+- **[Mock Data Organization](/storybook/mocking/data.md)** - Mock data patterns
 
 ## Jest is for Business Logic
 
@@ -78,7 +78,7 @@ See Jest-related notes:
 - [Mock External Dependencies](/testing/mock-external-dependencies.md)
 
 ## Related Notes
-- [Storybook User Journey Pattern](/testing/storybook-user-journey-pattern.md)
-- [Storybook Interactions](/testing/storybook-interactions.md)
-- [Storybook Mock Data](/testing/storybook-mock-data.md)
+- [Storybook User Journey Pattern](/storybook/storybook-user-journey-pattern.md)
+- [Play Functions Basics](/storybook/play-functions/basics.md)
+- [Mock Data Organization](/storybook/mocking/data.md)
 - [Unit vs Integration Tests](/testing/unit-vs-integration.md)

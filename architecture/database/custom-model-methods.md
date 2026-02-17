@@ -142,4 +142,4 @@ Orgs.prototype.archive = async function() {
 
 ## Related Notes
 - [Model Definition Pattern](/architecture/database/model-definition-pattern.md) - Basic model structure
-- [Functions: snake_case](/naming/functions-snake-case.md) - Function naming convention
+- [Functions: camelCase](/naming/functions-camelcase.md) - Function naming convention

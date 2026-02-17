@@ -202,4 +202,4 @@ lib/
 ```
 
 ## Related Notes
-- [Component Architecture](/architecture/components/index.md)
+- [Container/Presentational Pattern](/architecture/components/container-presentational-pattern.md)
