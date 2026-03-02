@@ -76,6 +76,8 @@ See [Config Object Anti-pattern](./config-object-anti-pattern.md) for patterns t
 
 ## Related Notes
 
-- [Environment File Structure](./environment-file-structure.md) - File structure and .gitignore
-- [Secret Management](./secret-management.md) - Security and secret manager integration
-- [Config Object Anti-pattern](./config-object-anti-pattern.md) - Why not to wrap env vars
+- [Environment File Structure](/git-workflow/environment-file-structure.md)
+- [Secret Management](/git-workflow/secret-management.md)
+- [Config Object Anti-pattern](/git-workflow/config-object-anti-pattern.md)
+- [Next.js: Startup Environment Variable Validation](/git-workflow/nextjs-env-validation.md)
+- [.env.example: Section Structure](/git-workflow/env-example-sections.md)

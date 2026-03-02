@@ -58,6 +58,8 @@ Always ignore local environment files:
 - Feature flags
 
 ## Related Notes
-- [Environment Variable Loading](/git-workflow/environment-variable-loading.md) - Loading and validation patterns
-- [Secret Management](/git-workflow/secret-management.md) - Security and secret manager integration
-- [Constants Naming](/naming/constants-screaming-snake.md) - Environment variable naming
+- [Environment Variable Loading](/git-workflow/environment-variable-loading.md)
+- [Secret Management](/git-workflow/secret-management.md)
+- [Constants Naming](/naming/constants-screaming-snake.md)
+- [.env.example: Section Structure](/git-workflow/env-example-sections.md)
+- [Next.js: NEXT_PUBLIC_ Environment Variable Naming](/git-workflow/nextjs-public-env-naming.md)
