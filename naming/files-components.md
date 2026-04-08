@@ -57,5 +57,6 @@ src/components/Button/
 
 ## Related Notes
 - [Components: PascalCase](/naming/components-pascalcase.md)
+- [CRUD Page Components: List/View/Create/Edit Prefix](/naming/files-crud-pages.md)
 - [Component Composition](/architecture/components/component-composition.md)
 - [Test File Naming](/naming/files-tests.md)
