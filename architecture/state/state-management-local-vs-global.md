@@ -10,6 +10,11 @@ Choose the right level of state management based on data sharing needs.
 - Toggle states
 - Data used by single component or siblings
 
+**URL State** - Use the query string:
+- List page filters, search, sort, pagination
+- Anything that should be shareable or survive a reload
+- See [URL as Filter State](/architecture/state/url-filter-state.md)
+
 **Global State** - Use Context or state library:
 - User authentication
 - Application theme
@@ -115,4 +120,5 @@ function UserProfile({ userId }) {
 ## Related Notes
 - [Context API Pattern](/architecture/state/context-api-pattern.md)
 - [State Colocation](/architecture/state/state-colocation.md)
+- [URL as Filter State](/architecture/state/url-filter-state.md)
 - [Custom Hooks Pattern](/architecture/components/custom-hooks.md)

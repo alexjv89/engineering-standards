@@ -94,4 +94,5 @@ Start with state in the component that needs it. Lift only when:
 ## Related Notes
 - [State Management: Local vs Global](/architecture/state/state-management-local-vs-global.md)
 - [Context API Pattern](/architecture/state/context-api-pattern.md)
+- [URL as Filter State](/architecture/state/url-filter-state.md)
 - [Component Composition](/architecture/components/component-composition.md)
