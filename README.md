@@ -22,6 +22,7 @@ These are **simple, opinionated standards** designed for **small teams** with sp
 **Philosophy documents:**
 - [JavaScript with JSDoc](/principles/javascript-with-jsdoc.md) - Why plain JavaScript
 - [Functional Programming](/principles/functional-programming.md) - When to use FP vs OOP
+- [No Hidden Side Effects](/principles/no-hidden-side-effects.md) - Functions do what their name says
 
 ## Why Atomic Notes?
 
