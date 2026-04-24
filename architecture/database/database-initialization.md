@@ -4,8 +4,39 @@ Initialize all database models through a centralized registry using a singleton 
 
 ## Pattern
 
-Create a `database/index.js` file that initializes all models and returns a database object:
+Create a `database/index.js` file that initializes all models and returns a database object.
 
+**ESM (preferred for Next.js apps):**
+```javascript
+import { getSequelizeInstance } from '@/database/sequelize.js';
+import AccountsFactory from './models/Accounts.model.js';
+import OrgsFactory from './models/Orgs.model.js';
+import TransactionsFactory from './models/Transactions.model.js';
+
+let db = null;
+
+function getDB() {
+  if (db) {
+    return db;
+  }
+
+  const sequelize = getSequelizeInstance();
+
+  db = {
+    sequelize,
+    // Application models
+    Accounts: AccountsFactory(sequelize),
+    Orgs: OrgsFactory(sequelize),
+    Transactions: TransactionsFactory(sequelize),
+  };
+
+  return db;
+}
+
+export { getDB };
+```
+
+**CommonJS (legacy apps):**
 ```javascript
 import { getSequelizeInstance } from '@/database/sequelize.js'
 
@@ -18,17 +49,12 @@ function getDB() {
 
   const sequelize = getSequelizeInstance();
 
-  // Initialize all models
   db = {
     sequelize,
     // Application models
     Accounts: require('./models/Accounts.model.js')(sequelize),
     Orgs: require('./models/Orgs.model.js')(sequelize),
     Transactions: require('./models/Transactions.model.js')(sequelize),
-
-    // Auth models
-    Users: require('./models/Users.model.js')(sequelize),
-    Sessions: require('./models/Sessions.model.js')(sequelize),
   };
 
   return db;

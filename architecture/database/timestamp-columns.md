@@ -52,18 +52,29 @@ expires_at: {
 }
 ```
 
-## Why Disable Auto-Timestamps?
+## Alternative: Sequelize auto-timestamps with mapping
 
-Sequelize's default `timestamps: true` creates `createdAt` and `updatedAt` in `camelCase`, which:
-- Doesn't match our `snake_case` convention
-- Is inconsistent with other column names
-- Creates naming confusion in the codebase
+An alternative to explicit column definitions is to use Sequelize's auto-timestamps with
+column name mapping. The result is identical — `created_at` and `updated_at` in the DB:
 
-**Avoid** the Sequelize default:
 ```javascript
-// Sequelize default (DON'T USE)
+sequelize.define('Orgs', { /* fields */ }, {
+  tableName: 'orgs',
+  timestamps: true,
+  createdAt: 'created_at',
+  updatedAt: 'updated_at',
+});
+```
+
+This can also be set globally in the Sequelize instance (see [Sequelize Initialization](/architecture/database/sequelize-initialization.md)),
+avoiding repetition across every model. Either approach is acceptable as long as it's consistent
+within the app.
+
+**Avoid** the Sequelize default with no mapping:
+```javascript
+// Creates camelCase columns (DON'T USE without mapping)
 sequelize.define('Model', { /* ... */ }, {
-  timestamps: true,  // Creates createdAt, updatedAt (camelCase)
+  timestamps: true,  // Creates createdAt, updatedAt columns — wrong naming
 });
 ```
 
