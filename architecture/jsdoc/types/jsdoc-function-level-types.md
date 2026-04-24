@@ -54,12 +54,43 @@ If a library returns the wrong type, don't cast inline. Instead:
 
 See [Module Augmentation](/architecture/jsdoc/types/jsdoc-module-augmentation.md) and [Wrapper Functions](/architecture/jsdoc/types/jsdoc-wrapper-functions.md).
 
-## Detailed Object Parameters
+## Nested Property Style
 
-Don't just type `{Object}` - document nested properties:
+Use nested properties when parameters include **business logic objects** that benefit from descriptions:
 
 ```javascript
-// BAD - too lazy
+/**
+ * @param {Object} options - Configuration options
+ * @param {Object} options.cookieStore - Cookie store for authentication
+ * @param {string} options.plant - Plant ID
+ * @param {boolean} [options.withDataItems=false] - Include data items
+ */
+```
+
+### When to Use This Style
+
+| Props are... | Style | Example |
+|--------------|-------|---------|
+| Domain/business objects | **Nested** (this style) | `workRecords`, `pricingConfig` |
+| Self-documenting UI conventions | Inline object | `className`, `variant`, `onClick` |
+
+**Nested style** - Props need context, descriptions add value:
+- `workRecords` - What kind of records? What's included?
+- `routeParams` - Which parameters? From where?
+- `pricingConfig` - What settings? What are defaults?
+
+**Inline style** - Props are framework/UI conventions, self-documenting:
+- `className`, `variant`, `size` - React/UI patterns everyone knows
+- `onClick`, `disabled` - Standard HTML attributes
+
+For React components with mostly UI props, see [shadcn Component Props](/architecture/jsdoc/frameworks/jsdoc-shadcn-component-props.md).
+
+### Don't Be Lazy
+
+Don't just type `{Object}` without nested properties:
+
+```javascript
+// BAD - no context
 /**
  * @param {Object} options
  */
@@ -69,11 +100,11 @@ Don't just type `{Object}` - document nested properties:
  * @param {Object} options - Configuration options
  * @param {Object} options.cookieStore - Cookie store for authentication
  * @param {string} options.plant - Plant ID
- * @param {boolean} [options.withDataItems=false] - Include data items
  */
 ```
 
 ## Related Notes
+- [shadcn Component Props](/architecture/jsdoc/frameworks/jsdoc-shadcn-component-props.md) - Inline style for UI components
 - [Module Augmentation](/architecture/jsdoc/types/jsdoc-module-augmentation.md)
 - [Wrapper Functions](/architecture/jsdoc/types/jsdoc-wrapper-functions.md)
 - [Gradual Type Checking](/architecture/jsdoc/typecheck/jsdoc-gradual-typecheck.md)
