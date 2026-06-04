@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
+- **Documentation Principle**: `principles/documentation/one-change-driver.md` — every artifact should have exactly one reason to change. Splits and merges are decided by rate-of-change / change driver, not topic boundaries. Complements MECE (topic) and Single Idea Per Note (concept) with a time-axis lens.
 
 ### Changed
 
