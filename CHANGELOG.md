@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ### Added
 - **Documentation Principle**: `principles/documentation/one-change-driver.md` — every artifact should have exactly one reason to change. Splits and merges are decided by rate-of-change / change driver, not topic boundaries. Complements MECE (topic) and Single Idea Per Note (concept) with a time-axis lens.
+- **Principle**: `principles/propagation-risk.md` — retired terms/identifiers/patterns left as residue (in filenames, code sketches, changelogs, in-transition WIPs) re-infect new contexts because readers and LLMs don't maintain a "translate to current" flag. Carve-outs compound. Rename completely or remove; only genuine external interfaces warrant residue, and those should be isolated behind a wrapper with a translation note.
 
 ### Changed
 
