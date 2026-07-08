@@ -55,7 +55,8 @@ Traditional comprehensive documentation is inefficient for LLM tools. This knowl
 │   ├── components/    # Component patterns
 │   ├── state/         # State management
 │   ├── modules/       # Module organization
-│   └── functional/    # Functional programming
+│   ├── functional/    # Functional programming
+│   └── pwa/           # Progressive Web App patterns (5 notes)
 ├── git-workflow/      # Git & development workflow (7 notes)
 │   ├── branch-naming.md
 │   ├── commit-format.md

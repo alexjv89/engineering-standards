@@ -67,3 +67,4 @@ For conditional rendering:
 
 ## Related Notes
 - [Error Boundaries](./error-boundaries.md)
+- [Reading Browser-Only State on Mount Without Hydration Mismatches](/architecture/state/browser-only-state-on-mount.md)

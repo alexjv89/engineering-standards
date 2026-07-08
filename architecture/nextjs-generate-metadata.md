@@ -79,3 +79,4 @@ Only add policy checks to `generateMetadata` if:
 ## Related Notes
 
 - [Error Boundaries](./error-boundaries.md)
+- [Next.js App Router Manifest and Icons](/architecture/pwa/nextjs-manifest-and-icons.md)

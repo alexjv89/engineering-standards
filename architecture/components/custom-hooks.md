@@ -103,3 +103,4 @@ function useLocalStorage(key, initial_value) {
 - [Hooks Naming: use Prefix](/naming/hooks-use-prefix.md)
 - [Container/Presentational Pattern](/architecture/components/container-presentational-pattern.md)
 - [State Colocation](/architecture/state/state-colocation.md)
+- [Reading Browser-Only State on Mount Without Hydration Mismatches](/architecture/state/browser-only-state-on-mount.md)
