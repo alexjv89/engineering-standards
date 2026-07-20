@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
+- **CI Test Reporting**: `deployment/ci-test-reporting.md` — publish JUnit results as GitHub Actions job summaries via `jest-junit` + `dorny/test-reporter`, including the `checks: write` permission gotcha for `workflow_dispatch` runs. Documented from the pattern already in use in the statements app repo.
 - **Documentation Principle**: `principles/documentation/one-change-driver.md` — every artifact should have exactly one reason to change. Splits and merges are decided by rate-of-change / change driver, not topic boundaries. Complements MECE (topic) and Single Idea Per Note (concept) with a time-axis lens.
 - **Principle**: `principles/propagation-risk.md` — retired terms/identifiers/patterns left as residue (in filenames, code sketches, changelogs, in-transition WIPs) re-infect new contexts because readers and LLMs don't maintain a "translate to current" flag. Carve-outs compound. Rename completely or remove; only genuine external interfaces warrant residue, and those should be isolated behind a wrapper with a translation note.
 - **PWA Patterns** (`architecture/pwa/` - 5 new notes), from shipping installability on a Next.js 16 app:

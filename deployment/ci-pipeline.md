@@ -50,3 +50,4 @@ Deploy workflows (`deploy-main.yml`, `deploy-develop.yml`) trigger via `workflow
 
 - [Deploy Pipeline](/deployment/deploy-pipeline.md)
 - [GitHub Secrets](/deployment/github-secrets.md)
+- [CI Test Reporting](/deployment/ci-test-reporting.md)
