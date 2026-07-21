@@ -107,6 +107,7 @@ Going over is a signal that education has crept in.
 **Dead-end commands** — if the "command" is just a tone/mode reminder ("be concise, ask questions"), it doesn't need to be a slash command. It's just a prompt.
 
 ## Related Notes
+- [Skill Writing Principles](/principles/skills.md)
 - [Document Density](/principles/documentation/document-density.md)
 - [Single Idea Per Note](/principles/documentation/single-idea-per-note.md)
 - [Brevity](/principles/documentation/brevity.md)
