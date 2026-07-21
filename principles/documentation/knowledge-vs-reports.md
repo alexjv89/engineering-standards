@@ -44,3 +44,4 @@ A knowledge note only compounds if it stops being rewritten (see [One Change Dri
 - [Actual Patterns Not Aspirational](/principles/documentation/actual-patterns-not-aspirational.md)
 - [Single Idea Per Note](/principles/documentation/single-idea-per-note.md)
 - [Skill Writing Principles](/principles/skills.md) — the same state-vs-docs split, for skills
+- [Working Docs](/principles/working-docs/README.md) — how to shape the *report* side (status / to-do / log across nested scopes)
