@@ -154,24 +154,21 @@ client appends bare `/accounts`; `cli-fobs` uses an origin-only `api_url` and ap
 the code** (cli-fobs convention) — explicit in source, no footgun where an env var must remember
 `/api/v1` or bare calls 404. Worker `.env`s drop the `/api/v1` suffix at migration.
 
-### Phase 3: Deprecate `lib-worker-statements` → `fob-stm` ❌
-Extract the statements slice into a standalone 2-in-1 `@fob/stm` (client + `fob-stm` CLI).
-Concrete plan from the cli-fobs audit:
+### Phase 3: Deprecate `lib-worker-statements` → `fob-stm` 🔄
+Extract the statements slice into a standalone 2-in-1 `@fob/stm` (client + `fob-stm` CLI) at
+`finopsbricks/cli/fob-stm` (own git repo, like the sibling CLIs).
 
-- [ ] **GATE: resolve the path mismatch first** (bare `/accounts` vs `/api/v1/accounts`) — pick
-      the canonical form; the merged client uses one.
-- [ ] **Client core** (`src/index.js` exports the functions; `src/client.js` + `src/http.js`):
-      merge `lib-worker-statements/statements.js` (function signatures + per-call `credentials`
-      override) with `cli-fobs/utils/http.js` (`ApiError`, `apiGetAll` capped pagination,
-      `buildAuthedUrl`). Workers `import { getAccounts } from '@fob/stm'`; the CLI calls the same.
-- [ ] **CLI files**: copy `cli-fobs/src/cli/statements/*` up one level (drop the `statements/`
-      app level) → `accounts/`, `transactions/`, `statements/`, `rules/`, `reports/`,
-      `categories/`, `entities/`. Copy `_helpers.js`, `format.js`, `list.js` unchanged.
-- [ ] **Collapse the tree**: `fobs statements accounts list` → `fob-stm accounts list`. Drop
-      `apps.js` / `apps list`; convert `orgs` meta-commands to `fob-stm config <add|list|use|remove>`.
-- [ ] **Credentials**: `~/.fobs/config.yml` (per-org-per-app) → `~/.fob-stm/config.yml`
-      (per-org, single tool). Env convention `FOB_STM_API_*`. First-run migration: promote
-      `orgs.*.apps.statements` from the old file. Keep the per-call override seam for workers.
+- [x] **GATE resolved**: origin-only base URL + `/api/v1` in code (see above).
+- [x] **Client core** (`src/index.js` exports; `src/client.js` + `src/http.js`): full statements
+      surface (accounts, statements, transactions, rules, work-records) with per-call
+      `credentials` override, `ApiError`, capped `apiGetAll`. Workers can import today.
+- [x] **CLI scaffold + vertical slice**: `fob-stm <resource> <action>` on yargs; `safe()`;
+      `config` (add/list/use/remove) → `~/.fob-stm/config.yml` (0600); **`accounts` list/show**
+      as the resource template (`--json`, `--fields/--format/--output`). `format.js`/`list.js`
+      copied. Tests pass; CLI smoke-tested (help tree, config flow, no-creds → exit 1). [`803c757`]
+- [ ] **Fan out remaining resources**: transactions, statements, rules, reports, categories,
+      entities (copy from `cli-fobs/src/cli/statements/*`, repoint at `@fob/stm` client).
+- [ ] **First-run migration**: promote `orgs.*.apps.statements` from `~/.fobs/config.yml`.
 - [ ] **Migrate worker consumers** of `@fob/lib-worker-statements` (e.g. `worker-alex`) to `@fob/stm`.
 - [ ] **Deprecate** `@fob/lib-worker-statements`: re-export shim → `@fob/stm` for one release, then remove.
 - [ ] Remove the statements subtree from `cli-fobs` (aggregator now down to billing/orchestrator).
