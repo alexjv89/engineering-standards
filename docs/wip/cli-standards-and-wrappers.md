@@ -147,10 +147,12 @@ Audited all three against the 8-note standard (2026-07-25).
   `.env`, by design).
 - Marked the **column selector optional** for small domain CLIs in `output-formatting.md`.
 
-**⚠️ Gating finding for Phase 3 — endpoint path mismatch:** `lib-worker-statements` calls bare
-paths (`/accounts`, `/rules`); `cli-fobs` calls versioned paths (`/api/v1/accounts`). Must
-confirm which is correct (likely a base-URL difference — one env's `api_url` includes `/api/v1`)
-BEFORE merging the two into one `fob-stm` client. Verify against the live statements API.
+**Path mismatch — RESOLVED (not a conflict).** Both hit `/api/v1/accounts`; they just split
+`/api/v1` differently. Workers set `FOB_STATEMENTS_API_URL=…/api/v1` (base includes it) and the
+client appends bare `/accounts`; `cli-fobs` uses an origin-only `api_url` and appends
+`/api/v1/accounts` in code. **Decision for `fob-stm`: origin-only base URL + `/api/v1/...` in
+the code** (cli-fobs convention) — explicit in source, no footgun where an env var must remember
+`/api/v1` or bare calls 404. Worker `.env`s drop the `/api/v1` suffix at migration.
 
 ### Phase 3: Deprecate `lib-worker-statements` → `fob-stm` ❌
 Extract the statements slice into a standalone 2-in-1 `@fob/stm` (client + `fob-stm` CLI).
