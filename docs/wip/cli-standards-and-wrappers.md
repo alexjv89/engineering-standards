@@ -1,6 +1,6 @@
 # CLI Standards & the `fob-<tool>` Wrapper Family
 
-## Status: IN PROGRESS (~15%)
+## Status: IN PROGRESS (~30%)
 
 Define a documented CLI standard (not a shared framework) and use it to build a family of
 thin, consistent command-line wrappers — `fob-<tool>` — over both FinOpsBricks apps and
@@ -87,8 +87,10 @@ Decisions locked in during brainstorming (2026-07-25):
 
 - [ ] **Realistic wrapper count?** 2–3 → the standard + copying is plenty. 10+ → revisit a
       shared lib. This number sizes how much rigor the standard needs.
-- [ ] **Does `statements` actually go standalone `fob-stm`, retiring the `fobs` aggregator?**
-      Or does `fobs` stay for internal apps while external tools are standalone? (Decision 7.)
+- [x] **Does `statements` actually go standalone `fob-stm`, retiring the `fobs` aggregator?**
+      **DECIDED 2026-07-25: YES.** statements becomes a standalone `fob-stm` 2-in-1 wrapper;
+      the `fobs` aggregator retires (billing/orchestrator follow the same path later). This
+      confirms Decision 7 and partially reverses `sor-cli-convergence.md`.
 - [ ] **Dispatcher naming:** does the new `fob` launcher absorb today's worker-context `fob`,
       or do those commands move to `fob-worker`? (Decision 5.)
 - [ ] **Who maintains a wrapper after an engagement ends** — the org or the authoring FDE? This
@@ -118,19 +120,59 @@ existing `architecture/`, `testing/` split).
 - [x] `cli/README.md` — index + "building a new wrapper" checklist.
 - [x] Linked the section into the root `README.md` topic list + structure tree.
 
-### Phase 2: Audit existing CLIs against the standard ❌
-- [ ] `cli-fob` — gap list (mostly compliant; churn/cruft in `docs/wip/`, `shared/` underused).
-- [ ] `cli-fobs` — gap list (compliant + more evolved; note the statements duplication).
-- [ ] `lib-email` — gap list (replace hand-rolled `parse()` with yargs; adopt `--json`/help).
-- [ ] Decide per-CLI: retrofit now, or grandfather and apply the standard only to new wrappers.
+### Phase 2: Audit existing CLIs against the standard ✅
+Audited all three against the 8-note standard (2026-07-25).
+
+- [x] `cli-fob` — **~80% compliant.** Grammar ✓, output ✓ (minor: list filter diagnostics go to
+      stdout, should be stderr — `stations/list.js:10`, `work-records/list.js:12`). Gaps:
+      no `safe()` wrapper (30+ handlers duplicate try/catch; debug var is `DEBUG` not `FOB_DEBUG`);
+      thin handler tests (only `stations/run.test.js`). **Two deliberate exceptions** (not a
+      2-in-1; `.env` not config file) are the *worker-context CLI* variant — now documented in
+      the standard, not gaps.
+- [x] `cli-fobs` — **compliant + more evolved**, EXCEPT the 2-in-1 gap: `src/index.js` exports
+      only `run`; client logic lives in `utils/http.js` + handlers; the worker client is the
+      *separate* `lib-worker-statements`. 4-level app-first tree collapses to 3-level on
+      extraction. Output/error/auth ✓; handler tests + `captureOutput` missing.
+- [x] `lib-email` — **the 2-in-1 shape, weakest CLI.** GAPs: `bin/cli.js` hand-rolled
+      `switch`/`parse()` (no yargs, no `src/cli/`, no per-level help); output always-JSON (no
+      toggle, no `format.js`); no `safe()`; only `filter` tested. Auth ✓ (protocol pattern).
+- [x] Per-CLI decision: **retrofit `lib-email`** (Phase 6) and **fold `cli-fobs`/statements into
+      `fob-stm`** (Phase 3). `cli-fob` gets low-effort cleanups only (`safe()`, stderr fix),
+      grandfathered as the worker-context variant.
+
+**Standard gaps the audit exposed (fixed in this pass):**
+- Added **Pattern C — protocol/connection credentials** to `auth-patterns.md` (lib-email is
+  IMAP/SMTP: live `Session`, no `http.js`/`page_context`/`ApiError`).
+- Added the **worker-context CLI exception** to `project-structure.md` (cli-fob is CLI-only +
+  `.env`, by design).
+- Marked the **column selector optional** for small domain CLIs in `output-formatting.md`.
+
+**⚠️ Gating finding for Phase 3 — endpoint path mismatch:** `lib-worker-statements` calls bare
+paths (`/accounts`, `/rules`); `cli-fobs` calls versioned paths (`/api/v1/accounts`). Must
+confirm which is correct (likely a base-URL difference — one env's `api_url` includes `/api/v1`)
+BEFORE merging the two into one `fob-stm` client. Verify against the live statements API.
 
 ### Phase 3: Deprecate `lib-worker-statements` → `fob-stm` ❌
-- [ ] Stand up `fob-stm` as a 2-in-1 wrapper (client core + `fob-stm` CLI) on the standard.
-- [ ] Move statements endpoint/pagination logic out of `cli-fobs/utils/http.js` into the client.
-- [ ] Point `cli-fobs` statements commands (or the new `fob-stm` CLI) at the shared client.
-- [ ] Migrate worker consumers (e.g. `worker-alex`, others importing `@fob/lib-worker-statements`).
-- [ ] Publish deprecation notice on `@fob/lib-worker-statements`; keep a re-export shim for one
-      release, then remove.
+Extract the statements slice into a standalone 2-in-1 `@fob/stm` (client + `fob-stm` CLI).
+Concrete plan from the cli-fobs audit:
+
+- [ ] **GATE: resolve the path mismatch first** (bare `/accounts` vs `/api/v1/accounts`) — pick
+      the canonical form; the merged client uses one.
+- [ ] **Client core** (`src/index.js` exports the functions; `src/client.js` + `src/http.js`):
+      merge `lib-worker-statements/statements.js` (function signatures + per-call `credentials`
+      override) with `cli-fobs/utils/http.js` (`ApiError`, `apiGetAll` capped pagination,
+      `buildAuthedUrl`). Workers `import { getAccounts } from '@fob/stm'`; the CLI calls the same.
+- [ ] **CLI files**: copy `cli-fobs/src/cli/statements/*` up one level (drop the `statements/`
+      app level) → `accounts/`, `transactions/`, `statements/`, `rules/`, `reports/`,
+      `categories/`, `entities/`. Copy `_helpers.js`, `format.js`, `list.js` unchanged.
+- [ ] **Collapse the tree**: `fobs statements accounts list` → `fob-stm accounts list`. Drop
+      `apps.js` / `apps list`; convert `orgs` meta-commands to `fob-stm config <add|list|use|remove>`.
+- [ ] **Credentials**: `~/.fobs/config.yml` (per-org-per-app) → `~/.fob-stm/config.yml`
+      (per-org, single tool). Env convention `FOB_STM_API_*`. First-run migration: promote
+      `orgs.*.apps.statements` from the old file. Keep the per-call override seam for workers.
+- [ ] **Migrate worker consumers** of `@fob/lib-worker-statements` (e.g. `worker-alex`) to `@fob/stm`.
+- [ ] **Deprecate** `@fob/lib-worker-statements`: re-export shim → `@fob/stm` for one release, then remove.
+- [ ] Remove the statements subtree from `cli-fobs` (aggregator now down to billing/orchestrator).
 
 ### Phase 4: Git-style dispatcher ❌
 - [ ] Resolve the `fob` naming collision (Open Questions).

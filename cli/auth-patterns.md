@@ -65,6 +65,29 @@ and a tenant/realm id. The wrapper owns this so callers never see it:
 Keep the token machinery in the client core, behind the same `getHeaders(credentials)` seam, so
 a worker can pass a stored refresh token as an override just like an api-key.
 
+## Pattern C — protocol / connection credentials (IMAP, SMTP, SSH, databases)
+
+Not every tool is an HTTP API. Protocol tools authenticate a live connection with a
+host/port/user/pass (+ TLS) tuple rather than a header, and hold a stateful session instead of
+making independent stateless calls. `finopsbricks/lib/lib-email` is the reference.
+
+- **Same override seam.** Credential resolution still layers env → config file → per-call
+  override, and the client still accepts an explicit credentials object. `resolveAccount(name)`
+  takes either a named account (resolved from `FOB_<TOOL>_ACCOUNTS` / a YAML config) or a raw
+  config object, so a worker can pass connection details directly.
+- **Validate on connect**, with a schema (lib-email uses zod), so a bad host/port fails with a
+  clear message before any protocol traffic.
+- **Expose a `Session` for reuse** alongside one-shot helpers. Stateless HTTP handlers open no
+  connection; protocol handlers should batch through a `connect() → … → close()` session and
+  offer one-shot wrappers (`listEmails`) for single operations.
+- Config file: `~/.fob-<tool>/config.yml` (0600), same as the other patterns.
+
+Where the HTTP-centric machinery doesn't map: there's no `http.js`, no `{ data, page_context }`
+envelope, and no `ApiError` with a status code — the transport is the protocol engine
+(`src/engine/imap.js`) and it throws plain `Error`s. The [`safe()`](./error-handling.md) wrapper
+still applies unchanged; typed transport errors are optional. Pagination via `page_context` is
+replaced by a simple `--limit`.
+
 ## Rules
 
 - Config files are `0600`; never log secrets. `--print-url`-style helpers must build the URL

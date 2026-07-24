@@ -56,6 +56,11 @@ canonical set (from `finopsbricks/cli/cli-fobs/src/utils/format.js`):
 
 ## List commands: the column selector
 
+The column selector is **recommended for API CLIs with many wide list endpoints**, and
+**optional for small domain CLIs** where fixed columns are clearer than a `--fields` vocabulary
+(`cli-fob` omits it deliberately). Use it when lists have enough columns that users need to
+pick, or when CSV/JSON export matters.
+
 `list` handlers are the one place worth a shared abstraction. Define a `COLUMNS` map of
 `{ header, align, render, raw }` per field, plus default and public field lists, and build a
 selector (`finopsbricks/cli/cli-fobs/src/utils/list.js`):

@@ -100,6 +100,27 @@ export async function getInvoices(params = {}, credentials) {
 }
 ```
 
+## Exception: worker-context CLIs
+
+Some CLIs are bound to a **single tenant and the local filesystem** — they load code and config
+from the current working directory and use one API key per repo. `finopsbricks/cli/cli-fob` is
+the reference: it drives a worker repo's `./src/steps`, `./.orchestrator/`, `./temp/`, and reads
+one `ORCHESTRATOR_*` key from that repo's `./.env`.
+
+For these, two rules relax deliberately — this is a recognized variant, not non-compliance:
+
+- **CLI-only, not a 2-in-1.** There's no external worker importing a client, because the CLI
+  *is* the worker-repo tool. It may still expose internal client functions
+  (`src/utils/orchestrator.js`) kept free of `console.*`, but it doesn't ship an `@fob/<tool>`
+  client for others to import.
+- **Convention-based `.env`, not a config file.** Credentials come from the worker repo's
+  `./.env` by convention, so there's no `~/.fob-<tool>/config.yml` and no per-call credentials
+  override (single tenant per process — nothing to override).
+
+Everything else — grammar, output, `safe()`, testing — applies unchanged. Reach for this
+variant only when the CLI genuinely operates on the cwd; a tool that talks to a remote API for
+arbitrary tenants is a 2-in-1.
+
 ## Related Notes
 
 - [Command Grammar](./command-grammar.md)
