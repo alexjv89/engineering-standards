@@ -1,6 +1,6 @@
 # CLI Standards & the `fob-<tool>` Wrapper Family
 
-## Status: EVALUATION
+## Status: IN PROGRESS (~15%)
 
 Define a documented CLI standard (not a shared framework) and use it to build a family of
 thin, consistent command-line wrappers — `fob-<tool>` — over both FinOpsBricks apps and
@@ -101,21 +101,22 @@ Decisions locked in during brainstorming (2026-07-25):
 
 ## Implementation Phases
 
-### Phase 1: Write the CLI standard ❌
+### Phase 1: Write the CLI standard ✅
 Author a repo-neutral `cli/` section in engineering-standards (multi-note, matching the repo's
 existing `architecture/`, `testing/` split).
-- [ ] `cli/command-grammar.md` — `resource action target options`, explicit verbs, help at
+- [x] `cli/command-grammar.md` — `resource action target options`, explicit verbs, help at
       every level, relationships-as-flags-on-edit. Distilled from `cli-design-style.md`.
-- [ ] `cli/project-structure.md` — the dual lib+CLI 2-in-1 shape; `src/` client vs `bin/` +
+- [x] `cli/project-structure.md` — the dual lib+CLI 2-in-1 shape; `src/` client vs `bin/` +
       `src/cli/` shell; file-per-action layout; naming conventions.
-- [ ] `cli/output-formatting.md` — `--json` everywhere, table/field/date helpers, column
+- [x] `cli/output-formatting.md` — `--json` everywhere, table/field/date helpers, column
       selector, presentation-separated-from-logic (link `principles/scripting/…`).
-- [ ] `cli/error-handling.md` — `safe()` wrapper, exit codes, stderr vs stdout, debug env var.
-- [ ] `cli/auth-patterns.md` — api-key example + OAuth2-refresh example; creds file location
+- [x] `cli/error-handling.md` — `safe()` wrapper, exit codes, stderr vs stdout, debug env var.
+- [x] `cli/auth-patterns.md` — api-key example + OAuth2-refresh example; creds file location
       (`~/.fob-<tool>/`), 0600, per-call `credentials` override for multi-tenant workers.
-- [ ] `cli/subcommand-dispatch.md` — the git-style `fob <tool>` launcher spec.
-- [ ] `cli/testing.md` — Jest ESM + `captureOutput()`/`safe()` harness, mock the client.
-- [ ] `cli/README.md` — index + "building a new wrapper" checklist.
+- [x] `cli/subcommand-dispatch.md` — the git-style `fob <tool>` launcher spec.
+- [x] `cli/testing.md` — Jest ESM + `captureOutput()`/`safe()` harness, mock the client.
+- [x] `cli/README.md` — index + "building a new wrapper" checklist.
+- [x] Linked the section into the root `README.md` topic list + structure tree.
 
 ### Phase 2: Audit existing CLIs against the standard ❌
 - [ ] `cli-fob` — gap list (mostly compliant; churn/cruft in `docs/wip/`, `shared/` underused).

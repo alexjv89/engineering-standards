@@ -1,0 +1,107 @@
+# Project Structure — the 2-in-1 lib+CLI
+
+A wrapper is **one package that is both an importable client and a CLI over the same
+functions**. This is what makes the prototype→production path a copy-paste: an FDE explores
+`fob-qbo invoices list` in the terminal, then a worker does `import { getInvoices } from
+'@fob/qbo'` — the *same function*.
+
+## Three layers, kept separate
+
+| Layer | Responsibility | Where |
+|---|---|---|
+| **Client core** | data in → data out. No formatting, no `console`. Takes an optional per-call credentials override. | `src/index.js` + `src/<domain>.js` / `src/utils/http.js` |
+| **CLI presentation** | grammar, arg parsing, formatting, help | `bin/`, `src/cli/` |
+| **Credential source** | where keys come from (env for workers, config file for the CLI) | `src/utils/config.js` |
+
+Only the client core is imported by workers. The CLI is a thin shell that parses args, calls
+the client, and formats. Keep `console.*` out of the client entirely — see
+[Separate Presentation from Logic](/principles/scripting/separate-presentation-from-logic.md).
+
+## Directory layout
+
+```
+bin/
+  cli.js                     # #!/usr/bin/env node — imports run() from src/cli/index.js
+src/
+  index.js                   # CLIENT exports — what workers import
+  <domain>.js                # client functions (getInvoices, createInvoice, …)
+  cli/
+    index.js                 # yargs root: builds the command tree, calls .parse()
+    _helpers.js              # safe(), shared option builders
+    <resource>/
+      list.js                # one file per action; exports <verb><Resource>Handler(argv)
+      show.js
+      create.js
+  utils/
+    http.js                  # HTTP/client transport (or protocol engine for non-API tools)
+    format.js                # output helpers (copied from a sibling wrapper)
+    config.js                # credential resolution
+test/ | tests/
+```
+
+File-per-action keeps handlers small and greppable. Handlers are named
+`<verb><Resource>Handler` (`listInvoicesHandler`, `showAccountHandler`).
+
+## package.json
+
+Expose both faces:
+
+```json
+{
+  "name": "@fob/qbo",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": { ".": "./src/index.js" },
+  "bin": { "fob-qbo": "./bin/cli.js" }
+}
+```
+
+`main`/`exports` serve the importable client; `bin` registers the CLI so the
+[dispatcher](./subcommand-dispatch.md) finds `fob-qbo` on `PATH`.
+
+## Wiring: bin → yargs root → resource subtrees
+
+`bin/cli.js` is trivial:
+
+```js
+#!/usr/bin/env node
+import { run } from '../src/cli/index.js';
+run(process.argv.slice(2));
+```
+
+`src/cli/index.js` builds the tree; each resource is a subtree builder that registers its
+actions with `safe()`-wrapped handlers:
+
+```js
+function buildInvoicesSubcommands(yargs) {
+  return yargs
+    .usage('$0 invoices <action> [options]')
+    .command('list', 'List invoices',
+      (y) => y.option('json', { describe: 'Output raw JSON', type: 'boolean' }),
+      safe(listInvoicesHandler))
+    .command('show <id>', 'Show one invoice',
+      (y) => y.positional('id', { type: 'string' }),
+      safe(showInvoiceHandler))
+    .demandCommand(1, 'Specify an action: list, show, …');
+}
+```
+
+The root ends with `.demandCommand(1).strict().help().alias('h','help').version()`.
+
+## The client core
+
+Pure functions that return parsed data and accept a per-call credentials override — the seam
+that lets one worker process reach multiple tenants, and lets the CLI inject creds from its
+config file. Reference: `finopsbricks/lib/lib-worker-statements/src/statements.js`.
+
+```js
+export async function getInvoices(params = {}, credentials) {
+  return apiGet('/invoices', params, credentials); // creds ?? process.env
+}
+```
+
+## Related Notes
+
+- [Command Grammar](./command-grammar.md)
+- [Auth Patterns](./auth-patterns.md) — the credentials override in detail
+- [Output & Formatting](./output-formatting.md)

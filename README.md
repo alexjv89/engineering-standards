@@ -9,6 +9,7 @@ This repository contains **47+ atomic notes** organized into focused topics:
 - **Testing** (9 notes) - Test patterns, coverage, mocking, React testing
 - **Architecture** (20 notes) - Components, state, modules, database patterns
 - **Git Workflow** (7 notes) - Branches, commits, PRs, background tasks
+- **CLI** (8 notes) - Command grammar, 2-in-1 lib+CLI structure, output, auth, dispatch
 
 ### For Small Teams
 
@@ -62,6 +63,10 @@ Traditional comprehensive documentation is inefficient for LLM tools. This knowl
 │   ├── branch-naming.md
 │   ├── commit-format.md
 │   └── ... (5 more)
+├── cli/               # Command-line tool standard (8 notes)
+│   ├── command-grammar.md
+│   ├── project-structure.md
+│   └── ... (6 more)
 ├── examples/          # Complex code examples (future)
 └── templates/         # Project templates
     └── CLAUDE.md.template
