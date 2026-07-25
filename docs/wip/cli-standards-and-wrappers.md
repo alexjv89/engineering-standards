@@ -166,8 +166,11 @@ Extract the statements slice into a standalone 2-in-1 `@fob/stm` (client + `fob-
       `config` (add/list/use/remove) → `~/.fob-stm/config.yml` (0600); **`accounts` list/show**
       as the resource template (`--json`, `--fields/--format/--output`). `format.js`/`list.js`
       copied. Tests pass; CLI smoke-tested (help tree, config flow, no-creds → exit 1). [`803c757`]
-- [ ] **Fan out remaining resources**: transactions, statements, rules, reports, categories,
-      entities (copy from `cli-fobs/src/cli/statements/*`, repoint at `@fob/stm` client).
+- [x] **Fan out remaining resources** [`f50b7a9`]: transactions, statements (14 actions incl.
+      upload/download/submit-*), rules (+_rule-args), reports, categories, entities — plus the
+      full accounts CRUD/admin set. Ported from `cli-fobs/src/cli/statements/*`, repointed at the
+      credential-pure transport (creds threaded per call), app level dropped. Full `fob-stm`
+      help tree walks; 59 files syntax-clean; accounts test passing.
 - [ ] **First-run migration**: promote `orgs.*.apps.statements` from `~/.fobs/config.yml`.
 - [ ] **Migrate worker consumers** of `@fob/lib-worker-statements` (e.g. `worker-alex`) to `@fob/stm`.
 - [ ] **Deprecate** `@fob/lib-worker-statements`: re-export shim → `@fob/stm` for one release, then remove.
