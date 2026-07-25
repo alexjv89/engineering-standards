@@ -171,10 +171,22 @@ Extract the statements slice into a standalone 2-in-1 `@fob/stm` (client + `fob-
       full accounts CRUD/admin set. Ported from `cli-fobs/src/cli/statements/*`, repointed at the
       credential-pure transport (creds threaded per call), app level dropped. Full `fob-stm`
       help tree walks; 59 files syntax-clean; accounts test passing.
-- [ ] **First-run migration**: promote `orgs.*.apps.statements` from `~/.fobs/config.yml`.
-- [ ] **Migrate worker consumers** of `@fob/lib-worker-statements` (e.g. `worker-alex`) to `@fob/stm`.
-- [ ] **Deprecate** `@fob/lib-worker-statements`: re-export shim → `@fob/stm` for one release, then remove.
-- [ ] Remove the statements subtree from `cli-fobs` (aggregator now down to billing/orchestrator).
+- [x] **First-run migration** [`2539fc5`]: promotes `orgs.*.apps.statements` from
+      `~/.fobs/config.yml` → `~/.fob-stm/config.yml` on first run (non-destructive). Tested.
+- [ ] **CHECKPOINT (in progress): validate the CLI use case first.** `fob-stm` is `npm link`ed
+      alongside `fobs`; comparing `fob-stm <args>` vs `fobs stm <args>` byte-for-byte before
+      extending to the library/worker use case. Library-superset work (below) is paused.
+- [ ] **Migrate worker consumers** via a compat shim (deferred until CLI validated + `fob-stm`
+      published to GitHub). Plan: make `@fob/stm` a superset of `lib-worker-statements`
+      (add `getAllStatementsForAccount`, `updateChecks`; `getAll*` return arrays; accept legacy
+      `FOB_STATEMENTS_*` env; tolerate a `/api/v1` base URL), then rewrite
+      `lib-worker-statements` as a thin re-export shim over `@fob/stm` so the 16 worker files
+      (worker-alex ×13, worker-sarveda ×3) migrate with zero code changes. Superset was
+      prototyped then reverted to keep the CLI state clean during validation.
+- [ ] **Deprecate** `@fob/lib-worker-statements`: shim → `@fob/stm` for one release, then remove.
+- [ ] Remove the statements subtree from `cli-fobs` — **reserved for the very end**: keep
+      `cli-fobs` intact so `fob-stm` can be tested side-by-side; it's abandoned (not modified),
+      not refactored.
 
 ### Phase 4: Git-style dispatcher ❌
 - [ ] Resolve the `fob` naming collision (Open Questions).
