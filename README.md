@@ -26,6 +26,7 @@ These are **simple, opinionated standards** designed for **small teams** with sp
 - [No Hidden Side Effects](/principles/no-hidden-side-effects.md) - Functions do what their name says
 - [Propagation Risk](/principles/propagation-risk.md) - Retired terms left as residue re-infect new contexts; rename completely or remove
 - [No Backward Compatibility](/principles/no-backward-compatibility.md) - Hard refactor over compat shims; delete the old shape, don't alias it
+- [Abstraction Must Earn Its Keep](/principles/abstraction-earns-its-keep.md) - Add indirection only when it buys more than it costs; inline unearned constants and delete ceremony
 
 ## Why Atomic Notes?
 
