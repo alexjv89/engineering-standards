@@ -187,7 +187,7 @@ const config = deepFreeze({
 
 ## Immutability Libraries
 
-For complex state updates, consider libraries:
+For complex nested updates, use a library like Immer:
 
 ```javascript
 // Using Immer

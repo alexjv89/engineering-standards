@@ -68,9 +68,9 @@ export async function generateMetadata({ params }) {
 }
 ```
 
-## When You Might Want Policy Check
+## When to Add a Policy Check
 
-Only add policy checks to `generateMetadata` if:
+Add policy checks to `generateMetadata` only if:
 
 - The metadata itself contains sensitive information beyond what the URL reveals
 - You want to show different metadata to authorized vs unauthorized users

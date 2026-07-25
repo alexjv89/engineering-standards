@@ -157,7 +157,7 @@ function StatusFilter({ searchParams }) {
 | Code complexity | Lower (one hook) | Higher (filter utils + WHERE builders) |
 | Migration path to scale | Swap inner `filter()` for server fetch later | Already scaled |
 
-**Default to hybrid** for new list pages. Switch a page to server fetch only when the in-memory filter starts feeling slow or the up-front payload gets uncomfortably large.
+**Default to hybrid** for new list pages. Switch a page to server fetch only when the in-memory filter starts feeling slow or the up-front payload gets too large.
 
 ## Common conventions
 

@@ -1,6 +1,6 @@
 # MDX Library Choice for Next.js
 
-When rendering markdown content in Next.js applications, choose the right library based on your needs.
+When rendering markdown content in Next.js applications, choose the library from the decision tree below.
 
 ## Decision Tree
 
@@ -20,7 +20,7 @@ When rendering markdown content in Next.js applications, choose the right librar
 
 ## Practical Trade-offs (Tested)
 
-We tested both `@next/mdx` and `next-mdx-remote` for a docs site. Here's what we found:
+We tested both `@next/mdx` and `next-mdx-remote` for a docs site.
 
 ### @next/mdx
 

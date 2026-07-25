@@ -67,7 +67,7 @@ Use DatePicker when you need:
 
 ### Basic Usage
 
-The simplest way to use DatePicker:
+Basic usage:
 
 <Canvas of={DatePickerStories.BeforeSelectingDate} />
 
@@ -79,7 +79,7 @@ Pre-select a date by passing `default_value`:
 
 ### With Validation
 
-You can restrict selectable dates using `min_date` and `max_date`:
+Restrict selectable dates with `min_date` and `max_date`:
 
 <Canvas of={DatePickerStories.WithDateRestrictions} />
 

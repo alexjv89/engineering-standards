@@ -1,6 +1,6 @@
 # Jest Setup for ES Modules Projects
 
-How to configure Jest for projects using native ES modules (`"type": "module"` in package.json).
+Configure Jest for projects using native ES modules (`"type": "module"` in package.json).
 
 ---
 

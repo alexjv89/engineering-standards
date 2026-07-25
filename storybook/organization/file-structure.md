@@ -51,7 +51,7 @@ export const StoryName = {
 };
 ```
 
-**Rationale**: Consistent ordering improves readability and maintainability across all story files.
+**Rationale**: Consistent ordering is faster to scan across story files.
 
 ## Related Notes
 - [Story Title Convention](/storybook/organization/title-convention.md) - Title naming

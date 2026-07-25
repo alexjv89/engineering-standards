@@ -23,7 +23,7 @@ fetch(config.api_url, { headers: { 'Authorization': config.api_key } });
 1. **Adds indirection** - Now you need to check config.js to understand what env var maps to what
 2. **Hides defaults** - Defaults buried in code instead of `.env.example`
 3. **No real benefit** - Just renaming `process.env.API_URL` to `config.api_url`
-4. **False sense of encapsulation** - The config object doesn't provide any actual abstraction
+4. **False sense of encapsulation** - The config object provides no abstraction
 
 ## The Better Pattern
 

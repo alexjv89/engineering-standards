@@ -1,6 +1,6 @@
 # Storybook ArgTypes Basics
 
-ArgTypes define the controls and documentation for component props in Storybook. This note covers when to include argTypes and their standard structure.
+ArgTypes define the controls and documentation for component props in Storybook.
 
 ## Coverage Requirements
 
@@ -8,7 +8,7 @@ ArgTypes define the controls and documentation for component props in Storybook.
 
 ### Complex Components (Full ArgTypes)
 
-Components with significant interaction or configuration should document all props:
+Document all props for components with interaction or configuration:
 
 - **Forms and inputs** (DatePicker, MultiSelect, FilterField)
 - **Data display** (Table, TransactionsTable)

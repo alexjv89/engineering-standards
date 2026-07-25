@@ -199,7 +199,7 @@ const flattened = nested.flat();
 
 ## Performance Considerations
 
-For long chains, consider combining operations:
+For long chains, combine operations into one pass:
 
 ```javascript
 // Less efficient - multiple iterations

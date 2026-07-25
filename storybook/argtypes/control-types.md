@@ -1,6 +1,6 @@
 # Storybook ArgTypes Control Types
 
-Complete reference catalog of all control types available in Storybook argTypes.
+Control types available in Storybook argTypes.
 
 ## Text Input
 

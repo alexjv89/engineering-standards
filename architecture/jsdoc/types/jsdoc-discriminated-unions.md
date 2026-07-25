@@ -73,16 +73,16 @@ filters.push({
 2. **Combine with union** using `|` operator
 3. **Annotate the container** with `@type`
 
-## Success/Error Pattern with Proper Narrowing
+## Success/Error Pattern with Narrowing
 
-For functions returning success or error, use the `undefined` trick to enable proper type narrowing:
+For functions returning success or error, use the `undefined` trick to enable type narrowing:
 
 ```javascript
 /**
  * @typedef {Object} FetchDataSuccess
  * @property {true} success
  * @property {DataType} data
- * @property {undefined} [error]  // Key for proper narrowing!
+ * @property {undefined} [error]  // Key for narrowing!
  */
 
 /**
@@ -94,7 +94,7 @@ For functions returning success or error, use the `undefined` trick to enable pr
 /** @typedef {FetchDataSuccess | FetchDataError} FetchDataResult */
 ```
 
-The `@property {undefined} [error]` on the success type tells TypeScript that `error` doesn't exist on success objects, enabling proper narrowing:
+The `@property {undefined} [error]` on the success type tells TypeScript that `error` doesn't exist on success objects, enabling narrowing:
 
 ```javascript
 const result = await fetchData();
@@ -108,7 +108,7 @@ if (result.success) {
 }
 ```
 
-Without the `undefined` property, TypeScript may not narrow correctly in the else branch.
+Without the `undefined` property, TypeScript fails to narrow in the else branch.
 
 ## When to Use
 

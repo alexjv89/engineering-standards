@@ -17,7 +17,7 @@ title: 'components/Filters/FilterField'
 title: 'app/orgs/[o_id]/transactions/TransactionsTable'
 ```
 
-**Rationale**: Titles should mirror the actual folder structure for consistency and easy navigation in Storybook's sidebar.
+**Rationale**: Titles that mirror the folder structure are easy to navigate in Storybook's sidebar.
 
 ## Multi-User Story Files
 

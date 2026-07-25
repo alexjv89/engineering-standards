@@ -1,6 +1,6 @@
 # AI SDK Chat Persistence
 
-Manage chat history and message persistence using localStorage and the useChat hook.
+Persist chat history to localStorage with the useChat hook.
 
 ## Automatic Persistence
 

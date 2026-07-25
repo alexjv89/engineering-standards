@@ -1,6 +1,6 @@
 # Storybook Decorator Patterns
 
-Decorators wrap story components to provide layout constraints, context providers, or other environmental setup. This note covers common decorator patterns.
+Decorators wrap story components to provide layout constraints, context providers, or other environmental setup.
 
 ## When to Use Decorators
 

@@ -1,6 +1,6 @@
 # JSDoc: When to Disable @ts-check
 
-Some files legitimately cannot use `@ts-check` due to third-party library type issues or complex patterns.
+Some files can't use `@ts-check`. Two valid reasons: third-party library type issues, and complex patterns.
 
 ## Valid Reasons to Disable
 
@@ -60,7 +60,7 @@ This helps future developers understand it's intentional, not forgotten.
 
 ## Patterns That Work
 
-These typically work with `@ts-check`:
+These work with `@ts-check`:
 
 | File Type | Usually Works |
 |-----------|---------------|

@@ -63,7 +63,7 @@ function calculateComplexValue() {
 
 ## React Components
 
-Both work, but arrow functions common for simple components:
+Both work; arrow functions are common for simple components:
 
 ```javascript
 // Arrow function (common)

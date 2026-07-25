@@ -1,6 +1,6 @@
 # AI SDK Error Recovery Patterns
 
-Implement robust error handling and recovery mechanisms for chat interactions using the useChat hook.
+Handle and recover from chat errors using the useChat hook.
 
 ## Error State Management
 

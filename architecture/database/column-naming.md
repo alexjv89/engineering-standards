@@ -37,7 +37,7 @@ sequelize.define('Members', {
 });
 ```
 
-**Recommendation**: Use `snake_case` with `timestamps: false` for consistency:
+Use `snake_case` with `timestamps: false`:
 
 ```javascript
 // Preferred approach

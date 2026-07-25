@@ -31,7 +31,7 @@ Run type checking from the command line:
 
 ## Ensuring Consistent Results
 
-Both tools use the TypeScript compiler engine, but VS Code may use a different version than your project. To ensure identical behavior:
+Both tools use the TypeScript compiler engine, but VS Code can use a different version than your project, which changes results. To get identical behavior:
 
 ### Pin VS Code to Project TypeScript
 

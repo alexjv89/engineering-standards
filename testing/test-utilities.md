@@ -2,7 +2,7 @@
 
 Create reusable test utilities to reduce duplication and ensure consistent validation.
 
-## Test Utilities File Structure
+## File Structure
 
 Organize test utilities in a dedicated file:
 

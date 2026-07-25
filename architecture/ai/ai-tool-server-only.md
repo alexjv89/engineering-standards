@@ -4,7 +4,13 @@ Enforce server-side execution of AI tools by importing "server-only" at the top 
 
 ## Pattern Overview
 
-AI tools must execute exclusively on the server because they access sensitive resources like authentication cookies, backend services, and database connections. The "server-only" import prevents accidental client-side bundling.
+AI tools run server-only because they access sensitive resources:
+
+- Authentication cookies
+- Backend services
+- Database connections
+
+The "server-only" import prevents accidental client-side bundling.
 
 ## Implementation
 

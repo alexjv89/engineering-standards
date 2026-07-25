@@ -166,7 +166,7 @@ The custom decorator:
 
 ## Customization Options
 
-If you want to modify the banner appearance, edit the decorator in `.storybook/preview.js`:
+To modify the banner appearance, edit the decorator in `.storybook/preview.js`:
 
 ```javascript
 // Change colors

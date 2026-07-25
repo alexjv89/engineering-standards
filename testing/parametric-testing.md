@@ -90,7 +90,7 @@ test.each([
 
 ## With describe.each()
 
-Test multiple scenarios with nested test cases:
+Nest test cases under each scenario:
 
 ```javascript
 describe.each([

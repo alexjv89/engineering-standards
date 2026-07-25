@@ -1,6 +1,6 @@
 # AI SDK Dynamic Model Selection
 
-Allow users to switch between different AI models at runtime based on their needs.
+Let users switch AI models at runtime.
 
 ## Model Selection State
 
