@@ -64,6 +64,24 @@ fob-qbo invoices tag 123 urgent                                 # wrong — inve
 Precedent: `gh issue edit 23 --add-label bug --remove-label stale`. CRUD on the relationship's
 *own* resource stays standalone (`fob-qbo tags create urgent`); linking is a flag on the entity.
 
+## The `config` namespace and profiles
+
+`config` is a **namespace, not a resource** — it groups meta/setup commands, kept apart from data
+resources. Credential profiles are managed under it:
+
+```
+fob-<tool> config profiles <list|add|use|remove|refresh>
+```
+
+- The object noun is the blanket **`profiles`**, family-wide — the stored thing is a named
+  credential set, not inherently a domain entity. Precedent: gcloud `config configurations list`.
+  Avoid the ambiguous flat form (`config list` reads as "list settings" but lists accounts).
+- Each CLI **may** add a domain alias where it reads better: `orgs` (fob-stm), `mailboxes`
+  (fob-email). One yargs line: `.command(['profiles', 'orgs'], …)`.
+- `profiles list` prints a table with a current-`*` marker and a `config: <path>` footer.
+
+Storage, precedence, and identity-caching details: [Config & Secrets](./config-and-secrets.md).
+
 ## `--json` everywhere
 
 Every read command supports `--json` to emit the raw response instead of formatted text. This

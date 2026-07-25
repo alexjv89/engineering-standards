@@ -27,6 +27,7 @@ plus the two reference CLIs that predate it (`fob`, `fobs`).
 | [Output & Formatting](./output-formatting.md) | `--json`, table/field helpers, column selector, stdout vs stderr |
 | [Error Handling](./error-handling.md) | `safe()` wrapper, exit codes, validation messages |
 | [Auth Patterns](./auth-patterns.md) | api-key and OAuth2-refresh; creds file; per-call override |
+| [Config & Secrets](./config-and-secrets.md) | `~/.fob/<tool>/` location, plaintext-`0600` baseline + keychain layering, profiles, identity caching |
 | [Subcommand Dispatch](./subcommand-dispatch.md) | git-style `fob <tool>` launcher |
 | [Testing](./testing.md) | Jest ESM, `captureOutput()`, mock the client |
 
@@ -38,7 +39,9 @@ plus the two reference CLIs that predate it (`fob`, `fobs`).
    workers import and what the CLI calls.
 3. Copy `src/utils/format.js`, `src/cli/_helpers.js` (`safe()`), and the test
    `captureOutput()` helper from the nearest existing wrapper.
-4. Pick the [auth pattern](./auth-patterns.md) that matches the tool (api-key vs OAuth2-refresh).
+4. Pick the [auth pattern](./auth-patterns.md) that matches the tool (api-key vs OAuth2-refresh),
+   and set up [config & secrets](./config-and-secrets.md): `~/.fob/<tool>/config.yml` (`0600`), the
+   `config profiles` surface, plaintext baseline behind the `config.js` seam.
 5. Map the tool's resources/actions onto the [grammar](./command-grammar.md). Not every
    resource needs every verb.
 6. Add `--json` to every read command; keep data on stdout, diagnostics on stderr.

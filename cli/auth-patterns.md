@@ -26,13 +26,13 @@ const getHeaders = (credentials) => ({
 Static key + secret sent as headers. The CLI stores them in a YAML config file and passes them
 as the override.
 
-- **Config file:** `~/.fob-<tool>/config.yml`, mode `0600`, created on first write. (The
-  `fobs` aggregator uses one `~/.fobs/config.yml` keyed per org-per-app.)
-- **Resolution precedence** (from `cli-fobs`): `--org`/flag override → local `./.env` → config
-  file's current selection. Each step is explicit; no silent fallback.
+- **Config file:** `~/.fob/<tool>/config.yml`, mode `0600`, created on first write. See
+  [Config & Secrets](./config-and-secrets.md) for the family root, storage layering, and profile model.
+- **Resolution precedence:** flag override → `FOB_<TOOL>_API_*` env → config file's current
+  profile. Each step is explicit; no silent fallback.
 
 ```yaml
-# ~/.fob-stm/config.yml
+# ~/.fob/fob-stm/config.yml
 current_org: alex
 orgs:
   alex:
@@ -47,7 +47,7 @@ External vendors use OAuth2. The gnarly parts are refresh-token exchange, access
 and a tenant/realm id. The wrapper owns this so callers never see it:
 
 1. Store the long-lived **refresh token** + **tenant id** (QBO `realmId`, Zoho `organization_id`)
-   in `~/.fob-<tool>/config.yml` (0600).
+   in `~/.fob/<tool>/config.yml` (0600).
 2. On each call, if the cached **access token** is missing or expired, exchange the refresh
    token at the vendor's token endpoint and cache the new access token with its expiry.
 3. Send `Authorization: Bearer <access_token>` + the tenant id.
@@ -55,7 +55,7 @@ and a tenant/realm id. The wrapper owns this so callers never see it:
    `fob-<tool> auth status` (shows tenant + token expiry).
 
 ```
-~/.fob-qbo/config.yml
+~/.fob/fob-qbo/config.yml
   realm_id: 1234567890
   refresh_token: <long-lived>
   access_token: <cached>          # refreshed automatically
@@ -80,7 +80,7 @@ making independent stateless calls. `finopsbricks/lib/lib-email` is the referenc
 - **Expose a `Session` for reuse** alongside one-shot helpers. Stateless HTTP handlers open no
   connection; protocol handlers should batch through a `connect() → … → close()` session and
   offer one-shot wrappers (`listEmails`) for single operations.
-- Config file: `~/.fob-<tool>/config.yml` (0600), same as the other patterns.
+- Config file: `~/.fob/<tool>/config.yml` (0600), same as the other patterns.
 
 Where the HTTP-centric machinery doesn't map: there's no `http.js`, no `{ data, page_context }`
 envelope, and no `ApiError` with a status code — the transport is the protocol engine
@@ -97,5 +97,6 @@ replaced by a simple `--limit`.
 
 ## Related Notes
 
+- [Config & Secrets](./config-and-secrets.md) — config file location, storage layering, profiles model
 - [Project Structure](./project-structure.md) — where the client core lives
 - [Error Handling](./error-handling.md) — surfacing "no credentials" clearly
