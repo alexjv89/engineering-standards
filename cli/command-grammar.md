@@ -97,6 +97,54 @@ fob-qbo invoices edit      # usage and flags for edit
 
 `yargs` gives this for free with `.demandCommand()` + `.help()` at each subtree.
 
+### Group a command's own options above the global ones
+
+A command's help must separate **its own options** from the **global options**
+every command inherits (`--profile`, `--help`, `--version`). Command options
+come first under `Options:`; globals sit below under `Global Options:`. Order:
+`Positionals:` → `Options:` → `Global Options:`.
+
+```
+fob-qbo config profiles add <name>
+
+Positionals:
+  name  Profile name                                         [string] [required]
+
+Options:                          ← the command's own flags, first
+      --api-key     API key                                  [string] [required]
+      --api-secret  API secret                               [string] [required]
+
+Global Options:                   ← inherited by every command, last
+      --profile  Use credentials from a specific profile (overrides current)
+  -h, --help     Show help
+  -v, --version  Show version number
+```
+
+Without this, yargs interleaves the two — globals defined at the root sandwich
+the command's flags — and there's no ordering logic to fall back on.
+
+**yargs mechanics.** yargs merges a command's instance groups *before* the
+inherited (preserved) global groups, and otherwise materialises the default
+`Options:` group last. So:
+
+1. At the root, name the global group once:
+   `.group(['profile', 'help', 'version'], 'Global Options:')`.
+2. In each command's builder, pre-register the command's own `Options:` group so
+   it renders ahead of the globals — a one-line `localOptions()` helper:
+   ```js
+   export function localOptions(yargs) {
+     return yargs.group([], 'Options:');   // instance group ⇒ sorts before globals
+   }
+   ```
+   Ungrouped options then fall into that already-first group. Call it **after**
+   `.positional()` (positionals register the `Positionals:` group when declared,
+   and must stay first): `localOptions(y.positional('name', …)).option(…)`.
+
+Empty groups aren't preserved into subcommands, so the `Options:` group must be
+registered per-command, not once at the root. A command with no options of its
+own simply shows no `Options:` heading. Guard the ordering with a help-output
+test (see [Testing](./testing.md)).
+
 ## Naming conventions
 
 - **Resources**: plural, kebab-case (`work-records`, not `workRecords`).
