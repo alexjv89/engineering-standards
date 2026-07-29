@@ -37,8 +37,10 @@ plus the two reference CLIs that predate it (`fob`, `fobs`).
    exports), `src/cli/` (yargs shell), `src/utils/`.
 2. Write the **client** first (pure data in/out, per-call credentials override). This is what
    workers import and what the CLI calls.
-3. Copy `src/utils/format.js`, `src/cli/_helpers.js` (`safe()`), and the test
-   `captureOutput()` helper from the nearest existing wrapper.
+3. Copy `src/utils/format.js`, `src/cli/_helpers.js` (`safe()`, `localOptions()`), and the test
+   `captureOutput()` helper from the nearest existing wrapper. Wire `localOptions()` into every
+   command builder and add the root `Global Options:` group per
+   [command grammar](./command-grammar.md) so a command's own options render above the globals.
 4. Pick the [auth pattern](./auth-patterns.md) that matches the tool (api-key vs OAuth2-refresh),
    and set up [config & secrets](./config-and-secrets.md): `~/.fob/<tool>/config.yml` (`0600`), the
    `config profiles` surface, plaintext baseline behind the `config.js` seam.
