@@ -57,7 +57,8 @@ Expose both faces:
 ```
 
 `main`/`exports` serve the importable client; `bin` registers the CLI so the
-[dispatcher](./subcommand-dispatch.md) finds `fob-qbo` on `PATH`.
+[dispatcher](./subcommand-dispatch.md) finds `fob-qbo` on `PATH`. For the publish-time fields
+(`files` allow-list, `publishConfig`, repo metadata), see [Publishing & Packaging](./publishing.md).
 
 ## Wiring: bin → yargs root → resource subtrees
 

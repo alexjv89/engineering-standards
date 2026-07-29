@@ -30,6 +30,7 @@ plus the two reference CLIs that predate it (`fob`, `fobs`).
 | [Config & Secrets](./config-and-secrets.md) | `~/.fob/<tool>/` location, plaintext-`0600` baseline + keychain layering, profiles, identity caching |
 | [Subcommand Dispatch](./subcommand-dispatch.md) | git-style `fob <tool>` launcher |
 | [Testing](./testing.md) | Jest ESM, `captureOutput()`, mock the client |
+| [Publishing & Packaging](./publishing.md) | `files` allow-list, what never ships, scoped publish, `npm pack` check |
 
 ## Building a new `fob-<tool>` wrapper — checklist
 
@@ -48,6 +49,8 @@ plus the two reference CLIs that predate it (`fob`, `fobs`).
    resource needs every verb.
 6. Add `--json` to every read command; keep data on stdout, diagnostics on stderr.
 7. Register the binary as `fob-<tool>` so the [dispatcher](./subcommand-dispatch.md) finds it.
+8. Before publishing, set the [packaging](./publishing.md) `files` allow-list and verify the
+   tarball with `npm pack --dry-run` — no `.claude`/`.env`/`docs`/`tests` may ship.
 
 ## Reference implementations
 
