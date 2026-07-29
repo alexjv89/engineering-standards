@@ -72,10 +72,14 @@ Also set the discoverability/repo metadata for a public package:
 "repository": { "type": "git", "url": "git+https://github.com/finopsbricks/fob-<tool>.git" },
 "homepage": "https://github.com/finopsbricks/fob-<tool>#readme",
 "bugs": "https://github.com/finopsbricks/fob-<tool>/issues",
-"license": "MIT"
+"license": "Apache-2.0"
 ```
 
-Add a `LICENSE` file to match the declared `license`.
+**License: default to `Apache-2.0`** for these company-authored wrappers. It's permissive (a
+thin client over our API — a restrictive license buys no business protection; the `@finopsbricks`
+npm scope + trademark law are what protect the brand), but unlike MIT it adds an explicit patent
+grant (§3) and an explicit trademark reservation (§6) — the right posture for company OSS. Ship
+the full `LICENSE` text plus a short `NOTICE` file, and add both to the `files` allow-list.
 
 ## Publish flow
 
