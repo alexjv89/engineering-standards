@@ -152,3 +152,4 @@ The command references the WIP file and guides step-by-step execution.
 - [Branch Naming](/git-workflow/branch-naming.md) - Branch names may reference WIP tasks
 - [Commit Format](/git-workflow/commit-format.md) - Commit messages for WIP updates
 - [Pull Request Guidelines](/git-workflow/pull-request-guidelines.md) - PRs often close WIP work
+- [Retrospectives](/git-workflow/retrospectives.md) - the "after" counterpart; reflect on the work once the WIP is done
