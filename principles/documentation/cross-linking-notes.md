@@ -42,6 +42,8 @@ Use repo-root relative paths:
 
 **Format**: `/directory/file.md` (starts with `/` from repo root)
 
+This applies **within one repo**. To link a file in *another* repo, a root-relative path breaks — use a GitHub URL instead. See [Cross-Repo Links](/principles/documentation/cross-repo-links.md).
+
 **Benefits**:
 - Links never break when moving files between directories
 - Works everywhere: GitHub web preview, local editors, IDEs, LLM consumption
@@ -77,3 +79,4 @@ Put related links at **end** of note:
 - [Emergent Structure](/principles/documentation/emergent-structure.md)
 - [Discovery Patterns](/principles/documentation/discovery-patterns.md)
 - [Single Idea Per Note](/principles/documentation/single-idea-per-note.md)
+- [Cross-Repo Links](/principles/documentation/cross-repo-links.md) — linking to a *different* repo (GitHub URLs)
