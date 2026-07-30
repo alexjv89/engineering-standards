@@ -2,7 +2,7 @@
 
 Working docs are the **mutable operational records** a process keeps about its own runs — the live answer to "where are we, what's left, what happened." They are distinct from **documentation** (timeless knowledge): a working doc changes every time you *do* the work; a knowledge note changes only when you *learn* something new. See [Knowledge Base vs. Activity Report](/principles/documentation/knowledge-vs-reports.md) for that split — working docs are the "report" side, and these notes standardize their shape.
 
-They come in two shapes: **standing** docs that track an operation which never ends (the scope × type grid below), and **[jobs](/principles/working-docs/jobs.md)** — bounded, checklist-first efforts that open, get worked, and close (the operational counterpart to an engineer's [WIP file](/git-workflow/wip-files.md)).
+They come in two shapes: **standing** docs that track an operation which never ends (the scope × type grid below), and **[jobs](/principles/working-docs/jobs.md)** — checklist-first efforts owned by the doer that **repeat** each cycle (the operational counterpart to an engineer's one-time [WIP file](/git-workflow/wip-files.md)). A job and the status report may state the same thing on purpose — maker and checker — so they cross-check.
 
 ## Two axes: scope × type
 

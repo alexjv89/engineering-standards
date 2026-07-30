@@ -1,46 +1,65 @@
-# Jobs: A Bounded Piece of Work
+# Jobs: A Repeating Piece of Work
 
-A **job** is one discrete piece of work with a beginning and an end — an investigation, a tie-out, a data cleanup, a period close. It is a **mutable, checklist-first** working doc that guides that one effort from start to finish, then closes. It is the operational-work counterpart to an engineer's [WIP file](/git-workflow/wip-files.md).
+A **job** is a piece of operational work that **recurs** — a reconciliation, a period close, a tie-out run each cycle. It is a **mutable, checklist-first** working doc, owned by the doer, that guides one *run* of that work. It is the operational counterpart to an engineer's [WIP file](/git-workflow/wip-files.md) — the same shape, except a WIP is one-time and a **job repeats**.
 
-## Standing vs bounded
+## Definition + runs (not "bounded")
 
-The other working docs — [status, to-do, log](/principles/working-docs/report-types.md) — are **standing**: they track an operation that never ends (an account is reconciled this month, and again next month). A job is **bounded**: it opens, gets worked, and closes. That is a different axis, not a fourth type.
+A job is not one-and-done. Split it:
 
-| | Standing docs | Job |
+- **Definition** — what the job is: its stages, method, and done-when. Stable, versioned, committed.
+- **Run** — one cycle's execution: the checklist worked, findings, the doer's status claim. Each run resets the checklist and **is a commit**, so git history is the run log.
+
+The *definition* is standing (permanent, per scope); each *run* is bounded (opens → worked → complete). A job is therefore **never deleted** — the next cycle re-runs it.
+
+| | Standing report docs | Job |
 |---|---|---|
-| Answers | "where are we / what's left / what happened" on an ongoing operation | "how do I get this one piece of work done" |
-| Lifespan | permanent, per scope | opens → worked → closes |
-| Shape | fixed (snapshot / checklist / append-only) | free — starts as a checklist, edited as you learn |
-| Ends by | never | deletion, once its lasting parts have flowed out |
+| Answers | "where are we / what's left / what happened" | "how do I get this run of the work done" |
+| Owned by | generated / asserted about the operation | the **doer** |
+| Lifespan | permanent, per scope | definition persists; re-runs each cycle |
+| Shape | fixed (snapshot / checklist / append-only) | free — a checklist, edited as you learn |
+
+## Maker and checker: a job is not the record
+
+A job and a [status report](/principles/working-docs/report-types.md) may describe the **same** state — deliberately. They are two independent sources:
+
+- **Job (maker)** — the doer's claim: "I reconciled 10/10; here's the checklist and what I did."
+- **Status (checker)** — an independent representation of system state, generated, never hand-edited.
+
+The overlap is the **control**: the two must **converge**, and a real divergence carries a written explanation (in the job). One source can't audit itself — so a job keeps the doer's summary status *claim*, but never copies the report's row-by-row *detail* (that would drift).
 
 ## Shape
 
-Start it as a **checklist** — the plan as you understand it now. As you work, edit freely: add steps you didn't foresee, drop the ones that turn out moot, check off what's done, and record decisions and dead-ends inline. A typical job carries a one-line status, why the work is needed, the data sources, the plan as phased checkboxes, and links to its outputs (a findings report, derived tables, raw evidence).
+Start it as a **checklist** — the plan as you understand it now. As you work, edit freely: add steps you didn't foresee, drop the moot ones, check off what's done, record decisions and dead-ends inline. A run carries a one-line status (the doer's claim), why the work is needed, the data sources, the plan as phased checkboxes, and links to its outputs and to the independent report.
 
 Reuse the WIP conventions for status and phase markers (`IN PROGRESS` / `COMPLETE` / `BLOCKED`; ✅ 🔄 ❌) — a job and a WIP file are the same shape aimed at different work.
 
+## Jobs nest, and don't block each other
+
+- **Nest.** A job decomposes into sub-jobs at finer scope (client/period → accounts → per-account checks). The job tree is the scope tree.
+- **Non-blocking.** No job gates another. The doer does each to the **best of the data it has now**, and re-runs it better as more arrives. Priority between jobs is guidance, not a lock.
+
 ## Where it lives
 
-On the **reports** side, under the client/org it serves: `clients/<org>/jobs/<name>.md`. Not in `docs/` — that is [knowledge, not reports](/principles/documentation/knowledge-vs-reports.md). Not in an engineering `docs/wip/` — that is for code changes; an accounting effort is neither code nor knowledge.
+On the **reports** side, under the client/org it serves: `clients/<org>/jobs/<name>.md`. Not in `docs/` — that is [knowledge, not reports](/principles/documentation/knowledge-vs-reports.md). Not in an engineering `docs/wip/` — that is for code changes; operational work is neither code nor knowledge.
 
 ## A job is not a to-do
 
-A [to-do](/principles/working-docs/report-types.md) is a single desired change, sitting in a standing list; it leaves that list when done. A job is a whole bounded *effort* that may run many steps, hold working notes, and produce a findings report. A job can *spawn* to-do items (app changes it uncovers); it is not itself one.
+A [to-do](/principles/working-docs/report-types.md) is a single desired change in a standing list; it leaves when done. A job is a whole *effort* that runs many steps, holds working notes, and produces outputs. A job can *spawn* to-do items (app changes it uncovers); it is not itself one.
 
-## Closing a job
+## Completing a run
 
-When the work is done, its durable parts flow **out** to where they belong, and the job itself is deleted — it was scaffolding, not the permanent home of any fact:
+When a run is done: mark it `COMPLETE` and commit — that commit *is* the run record. Durable parts flow **out** to where they belong:
 
 - a lasting *outcome* → a line in the relevant [log](/principles/working-docs/log-entry-format.md)
 - an app change still owed → a [to-do](/principles/working-docs/report-types.md) item
 - something learned about a *class* of problem → a knowledge note ([knowledge vs. reports](/principles/documentation/knowledge-vs-reports.md))
-- the findings themselves → kept as the effort's output artifact, referenced from the log
 
-Don't let finished jobs accumulate — like WIP files, delete them once distilled.
+The job's definition and its worked instance **stay** — the next cycle resets the checklist and runs again. (Only a one-time effort — an engineering [WIP file](/git-workflow/wip-files.md) — is deleted when done.)
 
 ## Related Notes
 - [Working Docs](/principles/working-docs/README.md)
-- [Working-Doc Report Types](/principles/working-docs/report-types.md) — the standing types a job feeds into
-- [WIP Files](/git-workflow/wip-files.md) — the engineering counterpart
+- [Working-Doc Report Types](/principles/working-docs/report-types.md) — the standing report a job cross-checks against
+- [WIP Files](/git-workflow/wip-files.md) — the one-time engineering counterpart
+- [Retrospectives](/git-workflow/retrospectives.md) — reflect on completed runs
 - [Keep Derivations Out of Operations](/principles/working-docs/derivations-stay-out-of-operations.md)
 - [Knowledge Base vs. Activity Report](/principles/documentation/knowledge-vs-reports.md)
