@@ -26,4 +26,4 @@ Layout lives in a `.md`/`.html` template with holes; the script passes in a prep
 ## Related Notes
 - [One Change Driver Per Artifact](/principles/documentation/one-change-driver.md)
 - [No Hidden Side Effects](/principles/no-hidden-side-effects.md)
-- [Working Docs](/principles/working-docs/README.md) — status/report files are a common thing scripts render
+- [Working Docs](https://github.com/finopsbricks/fde-handbook/blob/main/working-docs/README.md) — status/report files are a common thing scripts render
