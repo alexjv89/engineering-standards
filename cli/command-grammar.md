@@ -145,6 +145,42 @@ registered per-command, not once at the root. A command with no options of its
 own simply shows no `Options:` heading. Guard the ordering with a help-output
 test (see [Testing](./testing.md)).
 
+### Hang-indent wrapped descriptions
+
+A description too long for one line must continue at the **description column**,
+never at column 0:
+
+```
+Commands:
+  status [id]        Snapshot of live bin state for one station
+                     (reads temp/stations/)          ← aligned: one entry
+  empty-bins [id]    Wipe selected bin directories under
+temp/stations/<STATION>/ (destructive)               ← wrong: reads as a new command
+```
+
+The name column is the visual gutter. Text starting left of it parses as a new
+row; a continuation at column 0 makes the list unscannable.
+
+**yargs mechanics.** yargs hang-indents correctly *by default* — so the rule in
+practice is **don't disable wrapping**:
+
+```js
+.wrap(null)                            // ✗ no wrapping; the terminal wraps instead, unindented
+.wrap(process.stdout.columns || 100)   // ✓ wraps to terminal width, hang-indented
+```
+
+`.wrap(null)` is the trap: it reads like "let the terminal handle it," but the
+terminal has no notion of the description column and breaks at column 0.
+
+One caveat yargs does *not* solve: when the name column is wide, the description
+column gets narrow and yargs falls back to breaking **mid-word**
+(`temp/station|s/`). Yargs exposes no help-formatter API, and it deliberately
+prefixes nested rows with the full parent command path
+([yargs#990](https://github.com/yargs/yargs/commit/cd1ca15)), which is what
+consumes the width — unlike Cobra (`kubectl`, `gh`, `docker`), which renders bare
+names. Shortening descriptions is the cheap fix; a hand-rolled renderer is the
+expensive one. Prefer the former.
+
 ## Naming conventions
 
 - **Resources**: plural, kebab-case (`work-records`, not `workRecords`).
