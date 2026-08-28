@@ -34,6 +34,15 @@ shared abstraction — each app owns its copy and may extend it (add supporting 
 customize one where it must reference domain, e.g. `EntityTags.entity_type`'s `isIn` enum).
 Start from the `app-template` copy; diverge only where the app requires it.
 
+**App-unique ≠ supporting.** The tempting mistake is to reason "this table is specific to one app
+and will never be shared, so it's supporting." Uniqueness is irrelevant — the test is *resource
+vs. plumbing*. A model can be 100% app-specific and still be **core** if the app exposes it as a
+resource. Worked example: orchestrator's `WorkerSessions` is entirely orchestrator-specific, yet
+it's **core** — orchestrator exposes Workers via `/api/v1/worker-sessions` and a Workers page, so
+it *has a CRUD API resource*. Contrast `EventLogs`: also per-app, but no resource → supporting.
+The mirror image is an auth service's `sessions` table: auth-unique, central to the app, but pure
+plumbing (auto-created, no managed resource) → supporting.
+
 ## Postgres Schemas
 
 Realize the split at the DB layer — `core.*` and `supporting.*`, alongside the existing
