@@ -50,8 +50,14 @@ sequelize.define('EventLogs', { /* ... */ }, {
 
 - **Cross-schema joins are free** — `SELECT … FROM core.transactions t JOIN supporting.tags g`
   works with no penalty; foreign keys and transactions span schemas normally.
-- **`search_path`** — include both schemas so unqualified names resolve; prefer qualifying
-  names in raw SQL for clarity.
+- **`search_path`** — set it on the connection so unqualified names (raw SQL, associations)
+  resolve; prefer qualifying names in raw SQL for clarity:
+
+  ```javascript
+  new Sequelize(process.env.DB_APP, {
+    dialectOptions: { options: '-c search_path=core,supporting,public' },
+  });
+  ```
 - **`db-setup.sql`** — `CREATE SCHEMA core; CREATE SCHEMA supporting;` then schema-qualify each
   `CREATE TABLE`. Leave `pgboss` untouched.
 - **Migration** — move an existing table with `ALTER TABLE <name> SET SCHEMA <schema>;`.
