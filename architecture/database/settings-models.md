@@ -56,6 +56,21 @@ With auth-lite, app-level settings live in the app that uses them:
 Writing app-specific config into a console-hosted org model creates a synchronous
 cross-service dependency that doesn't scale. Keep app settings self-contained.
 
+**What counts as "genuinely cross-app"?** A setting stays in console only if the org has *one*
+value for it that every app should see the same way — an identity-level property, not a per-app
+preference.
+
+| Setting | Cross-app? | Home |
+|---|---|---|
+| `timezone` | Yes — an org operates in one timezone; all apps format dates against it | Console (org) |
+| Webhook URL/secret | No — specific to one app's integration | That app's `OrgSetting.details` |
+| Process-graph layout, other UI state | No — meaningless in other apps | That app's `OrgSetting.details` |
+| `show_onboarding` / UX flags | No — each app has its own onboarding; a shared flag wrongly dismisses all at once | Each app's `OrgSetting.details` |
+
+Rule of thumb: if sharing the value across apps would ever be *wrong* (drift, or one app's action
+silently changing another's behavior), it's app-level. Feature flags are not automatically
+platform-level — classify per flag by this test.
+
 ## Why This Convention?
 
 - **No schema churn** — new settings are JSONB keys, not migrations.
