@@ -55,7 +55,7 @@ Traditional comprehensive documentation is inefficient for LLM tools. This knowl
 │   ├── coverage-requirements.md
 │   └── ... (7 more)
 ├── architecture/      # Architecture patterns (20 notes)
-│   ├── database/      # Database patterns (11 notes)
+│   ├── database/      # Database patterns (14 notes)
 │   ├── components/    # Component patterns
 │   ├── state/         # State management
 │   ├── modules/       # Module organization
