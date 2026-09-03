@@ -15,7 +15,7 @@ GET /api/v1/statements?created_at_from=2026-08-01T00:00:00Z&created_at_to=2026-0
 | Name | `{column}_from` / `{column}_to`, the column name verbatim (`date`, `created_at`, `updated_at`) |
 | Bounds | Inclusive on both ends (`>=` / `<=`); either may be omitted |
 | `DATE` column | `YYYY-MM-DD` |
-| `TIMESTAMP` column | ISO 8601 instant with `Z` or an offset — `2026-09-01T00:00:00Z`, `2026-09-01T05:30:00+05:30` |
+| `TIMESTAMP` column | ISO 8601 instant with seconds and `Z` or an offset — `2026-09-01T00:00:00Z`, `2026-09-01T05:30:00+05:30`, fractional seconds allowed |
 | Date-only on a timestamp | **Rejected** (`400`). The server never guesses a timezone or widens to end-of-day; a client wanting "the whole of Sept 1 in IST" sends the instants. Same rule as [AI Tool Date Validation](/architecture/ai/ai-tool-date-validation.md) |
 | Validation | Malformed value or `from > to` → `400 VALIDATION_ERROR` with a message naming the parameter and the expected format. Never pass the raw string to the ORM (a bad date becomes a Postgres cast error, i.e. a `500`) |
 | Ordering | Not implied by the filter — pair with [Sorting](/architecture/api/sorting-pattern.md) |
@@ -28,7 +28,14 @@ One helper per app, used by every route that filters on a date or timestamp:
 
 ```javascript
 const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
-const INSTANT_RE = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}(:\d{2}(\.\d{1,6})?)?(Z|[+-]\d{2}:\d{2})$/;
+const INSTANT_RE = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d{1,6})?(Z|[+-]\d{2}:\d{2})$/;
+
+// Date.parse alone is not enough: V8 rolls "2026-02-30" forward to March 2 instead of rejecting it.
+function hasRealCalendarDate(value) {
+  const [y, m, d] = value.slice(0, 10).split('-').map(Number);
+  const probe = new Date(Date.UTC(y, m - 1, d));
+  return probe.getUTCFullYear() === y && probe.getUTCMonth() === m - 1 && probe.getUTCDate() === d;
+}
 
 /**
  * Parse `{column}_from` / `{column}_to` into a Sequelize range, or an error response.
@@ -47,12 +54,12 @@ export function parseDateRange(params, column, { type }) {
     const key = `${column}_${edge}`;
     const raw = (params.get(key) || '').trim();
     if (!raw) continue;
-    if (!re.test(raw) || Number.isNaN(Date.parse(raw))) {
+    if (!re.test(raw) || !hasRealCalendarDate(raw) || Number.isNaN(Date.parse(raw))) {
       return { response: errorResponse(`${key} expects ${expected}`, 'VALIDATION_ERROR', 400) };
     }
     bounds[edge] = raw;
   }
-  if (bounds.from && bounds.to && bounds.from > bounds.to) {
+  if (bounds.from && bounds.to && Date.parse(bounds.from) > Date.parse(bounds.to)) {
     return { response: errorResponse(`${column}_from must be on or before ${column}_to`, 'VALIDATION_ERROR', 400) };
   }
   const where = {};
