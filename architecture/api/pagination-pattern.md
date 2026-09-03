@@ -75,3 +75,4 @@ async function getAllItems() {
 - [Response Envelope Pattern](/architecture/api/response-envelope.md)
 - [Pagination Utilities](/architecture/api/pagination-utilities.md)
 - [Field Selection](/architecture/api/field-selection.md)
+- [Sorting](/architecture/api/sorting-pattern.md) - the stable order pagination depends on

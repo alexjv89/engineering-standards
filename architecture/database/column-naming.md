@@ -37,7 +37,7 @@ sequelize.define('Members', {
 });
 ```
 
-Use `snake_case` with `timestamps: false`:
+Use `snake_case` with `timestamps: false` (the DB keeps `updated_at` current — see [Timestamp Columns](/architecture/database/timestamp-columns.md)):
 
 ```javascript
 // Preferred approach
@@ -60,5 +60,6 @@ to_be_deleted: DataTypes.BOOLEAN,    // Pending action
 ## Related Notes
 - [Table Naming](/architecture/database/table-naming.md) - Table naming uses lowercase plural
 - [Timestamp Columns](/architecture/database/timestamp-columns.md) - Standard timestamp patterns
+- [Required Columns](/architecture/database/required-columns.md) - The columns every model carries
 - [Foreign Key Pattern](/architecture/database/foreign-key-pattern.md) - FK naming conventions
 - [Variables: snake_case](/naming/variables-snake-case.md) - JavaScript variable naming

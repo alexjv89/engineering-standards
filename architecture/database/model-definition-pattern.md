@@ -66,3 +66,4 @@ module.exports = function(sequelize) {
 - [Database Initialization](/architecture/database/database-initialization.md) - Calling these factory functions
 - [Model File Naming](/architecture/database/model-file-naming.md) - How to name model files
 - [Table Naming](/architecture/database/table-naming.md) - tableName option convention
+- [Required Columns](/architecture/database/required-columns.md) - `id`, `org`, `created_at`, `updated_at` on every core model

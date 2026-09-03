@@ -1,6 +1,6 @@
 # Timestamp Columns
 
-Manually define timestamp columns using `snake_case` naming and disable Sequelize's automatic timestamp management.
+Declare `created_at` and `updated_at` explicitly as `snake_case`, `NOT NULL DEFAULT now()`, `TIMESTAMPTZ` columns with `timestamps: false`; the database keeps `updated_at` current, application code never sets it.
 
 ## Standard Pattern
 
@@ -13,84 +13,42 @@ sequelize.define('Transactions', {
   },
   updated_at: {
     type: DataTypes.DATE,
-    allowNull: true,
+    allowNull: false,
     defaultValue: DataTypes.NOW,
   },
   // ... other fields
 }, {
   tableName: 'transactions',
-  timestamps: false,  // Disable Sequelize auto-timestamps
+  timestamps: false,  // Sequelize does not manage these
 });
+```
+
+```sql
+created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 ```
 
 ## Key Points
 
-- **Naming**: Use `snake_case` (`created_at`, `updated_at`)
-- **Disable auto-timestamps**: Set `timestamps: false` in options
-- **Explicit definition**: Define timestamp columns manually
-- **Default value**: Use `DataTypes.NOW` for automatic timestamps
-- **Nullable**: `created_at` usually NOT NULL, `updated_at` can be nullable
+- **Naming**: `snake_case`, `{action}_at` — `created_at`, `updated_at`, `expires_at`
+- **Explicit**: define the attributes in the model; `timestamps: false`
+- **Never null**: both default to `now()`. A row that has never changed has `updated_at = created_at`, not `NULL`, so consumers can always sort and filter on it
+- **`TIMESTAMPTZ`** for new columns. Zoneless `TIMESTAMP` silently takes the session timezone on `now()`; existing columns are converted in their own migration
+- **`updated_at` is maintained by a trigger** — see [Updated-at Trigger](/architecture/database/updated-at-trigger.md). Do not write `updated_at: new Date()` in application code, and do not enable Sequelize's `timestamps: true` (even with `createdAt`/`updatedAt` mapping): two mechanisms for one fact is how the column drifts, and neither ORM path covers raw SQL or backfills
 
-## Common Timestamp Columns
-
-```javascript
-created_at: {
-  type: DataTypes.DATE,
-  allowNull: false,
-  defaultValue: DataTypes.NOW,
-}
-
-updated_at: {
-  type: DataTypes.DATE,
-  allowNull: true,
-  defaultValue: DataTypes.NOW,
-}
-
-expires_at: {
-  type: DataTypes.DATE,
-  allowNull: true,
-}
-```
-
-## Alternative: Sequelize auto-timestamps with mapping
-
-An alternative to explicit column definitions is to use Sequelize's auto-timestamps with
-column name mapping. The result is identical — `created_at` and `updated_at` in the DB:
+## Avoid
 
 ```javascript
-sequelize.define('Orgs', { /* fields */ }, {
-  tableName: 'orgs',
-  timestamps: true,
-  createdAt: 'created_at',
-  updatedAt: 'updated_at',
-});
-```
+// Wrong column names — Sequelize defaults create createdAt / updatedAt
+sequelize.define('Model', { /* ... */ }, { timestamps: true });
 
-This can also be set globally in the Sequelize instance (see [Sequelize Initialization](/architecture/database/sequelize-initialization.md)),
-avoiding repetition across every model. Either approach is acceptable as long as it's consistent
-within the app.
-
-**Avoid** the Sequelize default with no mapping:
-```javascript
-// Creates camelCase columns (DON'T USE without mapping)
-sequelize.define('Model', { /* ... */ }, {
-  timestamps: true,  // Creates createdAt, updatedAt columns — wrong naming
-});
-```
-
-## Updating `updated_at` Manually
-
-Since auto-timestamps are disabled, update `updated_at` explicitly:
-
-```javascript
-await db.Orgs.update({
-  name: 'New Name',
-  updated_at: new Date(),
-}, {
-  where: { id: org_id }
-});
+// Second mechanism — the trigger already does this, and this misses every non-ORM write
+await db.Orgs.update({ name, updated_at: new Date() }, { where: { id } });
 ```
 
 ## Related Notes
-- [Column Naming](/architecture/database/column-naming.md) - All columns use snake_case
-- [Model Definition Pattern](/architecture/database/model-definition-pattern.md) - Model structure
+- [Required Columns](/architecture/database/required-columns.md) — which models must carry these
+- [Updated-at Trigger](/architecture/database/updated-at-trigger.md) — the maintenance mechanism
+- [Column Naming](/architecture/database/column-naming.md) — all columns use snake_case
+- [Model Definition Pattern](/architecture/database/model-definition-pattern.md) — model structure
+- [Date Range Filtering](/architecture/api/date-range-filtering.md) — filtering on these columns over the API

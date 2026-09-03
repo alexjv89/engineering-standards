@@ -52,3 +52,4 @@ execute: async ({ start, end }) => {
 ## Related Notes
 - [AI Tool Definition Pattern](/architecture/ai/ai-tool-definition-pattern.md)
 - [AI Tool Input Pattern](/architecture/ai/ai-tool-input-pattern.md)
+- [Date Range Filtering](/architecture/api/date-range-filtering.md) - the same instant-only rule at the HTTP edge

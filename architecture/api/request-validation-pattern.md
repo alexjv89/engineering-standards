@@ -117,3 +117,4 @@ export async function PUT(request, { params }) {
 - [Validation Error Pattern](/architecture/api/validation-error-pattern.md)
 - [Error Response Format](/architecture/api/error-response-format.md)
 - [Response Helper Functions](/architecture/api/response-helper-functions.md)
+- [Date Range Filtering](/architecture/api/date-range-filtering.md) - validating `{column}_from` / `{column}_to` query params
