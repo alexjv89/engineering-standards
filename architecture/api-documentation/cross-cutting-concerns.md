@@ -79,7 +79,16 @@ curl -X GET "https://api.example.com/api/v1/resource" \
 
 ## Filtering
 
-[List filter params per resource]
+[List equality filter params per resource]
+
+## Date ranges
+
+Any date or timestamp column can be filtered with `{column}_from` / `{column}_to` (inclusive).
+`DATE` columns take `YYYY-MM-DD`; timestamp columns take an ISO 8601 instant with `Z` or an offset.
+
+## Sorting
+
+`sort_by` (one of: [list per resource]) and `sort_order` (`ASC` | `DESC`, default `DESC`).
 ```
 
 ### errors.mdx
@@ -134,3 +143,5 @@ See [Pagination & Filtering](/docs/api/pagination) for pagination details.
 - [Documentation Structure](/architecture/api-documentation/documentation-structure.md)
 - [Endpoint Doc Template](/architecture/api-documentation/endpoint-doc-template.md)
 - [Error Response Format](/architecture/api/error-response-format.md)
+- [Date Range Filtering](/architecture/api/date-range-filtering.md)
+- [Sorting](/architecture/api/sorting-pattern.md)

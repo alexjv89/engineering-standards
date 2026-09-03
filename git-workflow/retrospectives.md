@@ -103,3 +103,4 @@ frozen** — a dated snapshot of learning, kept for the record.
 - [Commit Format](/git-workflow/commit-format.md) — commit-range retros read the history these produce
 - [Knowledge Base vs. Activity Report](/principles/documentation/structure/knowledge-vs-reports.md) — a retro is activity (history); its lessons graduate to knowledge
 - [Jobs](https://github.com/finopsbricks/fde-handbook/blob/main/working-docs/jobs.md) — a retro often reflects on a completed job run
+- [Decision Records](/git-workflow/decision-records.md) — a retro reflects on *how* work went; a decision record fixes *what was ruled*

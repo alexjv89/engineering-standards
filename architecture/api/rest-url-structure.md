@@ -30,10 +30,10 @@ Use consistent URL patterns for API endpoints.
 ## Query Parameters
 
 Use query params for:
-- Filtering: `?category=income&date_from=2025-01-01`
+- Filtering: `?category=income` for equality; date and timestamp ranges follow [Date Range Filtering](/architecture/api/date-range-filtering.md) (`?date_from=2025-01-01`)
 - Pagination: `?page=2&limit=50`
 - Field selection: `?fields=id,name,date`
-- Sorting: `?sort_order=ASC`
+- Sorting: `?sort_by=date&sort_order=ASC` — see [Sorting](/architecture/api/sorting-pattern.md)
 
 ## Special Endpoints
 
@@ -50,3 +50,5 @@ Use POST for actions that have side effects or complex request bodies.
 - [HTTP Method Mapping](/architecture/api/http-method-mapping.md)
 - [API Versioning](/architecture/api/api-versioning.md)
 - [Pagination Pattern](/architecture/api/pagination-pattern.md)
+- [Date Range Filtering](/architecture/api/date-range-filtering.md)
+- [Sorting](/architecture/api/sorting-pattern.md)
