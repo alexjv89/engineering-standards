@@ -15,7 +15,7 @@ GET /api/v1/statements?created_at_from=2026-08-01T00:00:00Z&created_at_to=2026-0
 | Name | `{column}_from` / `{column}_to`, the column name verbatim (`date`, `created_at`, `updated_at`) |
 | Bounds | Inclusive on both ends (`>=` / `<=`); either may be omitted |
 | `DATE` column | `YYYY-MM-DD` |
-| `TIMESTAMP` column | ISO 8601 instant with seconds and `Z` or an offset — `2026-09-01T00:00:00Z`, `2026-09-01T05:30:00+05:30`, fractional seconds allowed |
+| `TIMESTAMP` column | ISO 8601 instant with seconds and `Z` or an offset — `2026-09-01T00:00:00Z`, `2026-09-01T05:30:00+05:30`, fractional seconds allowed. Prefer `Z`; an offset's `+` must be sent as `%2B` (a bare `+` in a query string is a space) |
 | Date-only on a timestamp | **Rejected** (`400`). The server never guesses a timezone or widens to end-of-day; a client wanting "the whole of Sept 1 in IST" sends the instants. Same rule as [AI Tool Date Validation](/architecture/ai/ai-tool-date-validation.md) |
 | Validation | Malformed value or `from > to` → `400 VALIDATION_ERROR` with a message naming the parameter and the expected format. Never pass the raw string to the ORM (a bad date becomes a Postgres cast error, i.e. a `500`) |
 | Ordering | Not implied by the filter — pair with [Sorting](/architecture/api/sorting-pattern.md) |
