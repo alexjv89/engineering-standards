@@ -1,6 +1,6 @@
 # Required Columns
 
-Every core model has `id`, `org`, `created_at`, and `updated_at`. Supporting models always have `created_at`, and `updated_at` whenever the row can change.
+Every core model has `id`, `org`, `created_at`, and `updated_at`. Supporting models always have `created_at`, and `updated_at` whenever the row can change. (Core vs supporting: [Model Organization](/architecture/database/model-organization.md).)
 
 ## The set
 
@@ -30,6 +30,7 @@ A column that exists in `db-setup.sql` but not in the model is not "present" —
 
 ## Related Notes
 
+- [Model Organization](/architecture/database/model-organization.md) — which models are core
 - [Timestamp Columns](/architecture/database/timestamp-columns.md) — how `created_at` / `updated_at` are declared
 - [Updated-at Trigger](/architecture/database/updated-at-trigger.md) — how `updated_at` is kept true
 - [Primary Key Strategies](/architecture/database/primary-key-strategies.md) — choosing the `id` type

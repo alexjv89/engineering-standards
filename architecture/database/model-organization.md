@@ -80,6 +80,7 @@ sequelize.define('EventLogs', { /* ... */ }, {
 
 ## Related Notes
 - [Settings Models](/architecture/database/settings-models.md) - Settings as supporting JSONB models
+- [Required Columns](/architecture/database/required-columns.md) - `id`, `org`, `created_at`, `updated_at` on every core model
 - [Table Naming](/architecture/database/table-naming.md) - snake_case table names within a schema
 - [Model File Naming](/architecture/database/model-file-naming.md) - `{ModelName}.model.js`
 - [Foreign Key Pattern](/architecture/database/foreign-key-pattern.md) - FKs (incl. cross-schema)
