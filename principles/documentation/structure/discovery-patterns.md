@@ -11,6 +11,7 @@ naming/          # Naming conventions
 testing/         # Testing practices
 architecture/    # Architecture patterns
 ```
+If the folder has a `readme.md`, it's optional orientation — read it if the folder's purpose isn't obvious, skip it otherwise.
 
 ### 2. Identify Relevant Notes
 List files in directory to see all available notes.
@@ -25,7 +26,7 @@ Navigate through cross-references at end of each note.
 
 ### Discovery Methods
 
-**Browse directories**: List files in topic folders (`ls naming/`, `ls testing/`)
+**Browse directories**: List files in topic folders (`ls naming/`, `ls testing/`); check for a `readme.md` if the folder's purpose isn't already clear
 **Follow links**: Navigate through related notes
 **Search**: Use grep or IDE search for keywords
 
@@ -42,6 +43,7 @@ Navigate through cross-references at end of each note.
 3. Follow links if need related info
 
 ## Related Notes
-- [LLM Benefits](/principles/documentation/llm-benefits.md)
-- [Cross-Linking Notes](/principles/documentation/cross-linking-notes.md)
-- [Meaningful Titles](/principles/documentation/meaningful-titles.md)
+- [LLM Benefits](/principles/documentation/llm/llm-benefits.md)
+- [Cross-Linking Notes](/principles/documentation/linking/cross-linking-notes.md)
+- [Meaningful Titles](/principles/documentation/voice/meaningful-titles.md)
+- [Folder README, Not Index](/principles/documentation/structure/folder-readme.md) - optional first stop before browsing, not a required one

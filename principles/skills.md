@@ -55,9 +55,9 @@ A skill that keeps growing is usually absorbing docs or state. If it's past a pa
 
 ## Related Notes
 - [Slash Command Writing Principles](/principles/slash-commands.md)
-- [Knowledge Base vs. Activity Report](/principles/documentation/knowledge-vs-reports.md) — the same state-vs-docs split, generalized to all documentation
-- [Hub-Spoke Doc Placement](/principles/documentation/hub-spoke-doc-placement.md)
-- [One Change Driver](/principles/documentation/one-change-driver.md)
-- [Single Idea Per Note](/principles/documentation/single-idea-per-note.md)
-- [Document Density](/principles/documentation/document-density.md)
-- [Brevity](/principles/documentation/brevity.md)
+- [Knowledge Base vs. Activity Report](/principles/documentation/structure/knowledge-vs-reports.md) — the same state-vs-docs split, generalized to all documentation
+- [Hub-Spoke Doc Placement](/principles/documentation/structure/hub-spoke-doc-placement.md)
+- [One Change Driver](/principles/documentation/structure/one-change-driver.md)
+- [Single Idea Per Note](/principles/documentation/structure/single-idea-per-note.md)
+- [Document Density](/principles/documentation/llm/document-density.md)
+- [Brevity](/principles/documentation/voice/brevity.md)

@@ -84,5 +84,5 @@ Keep together when:
 
 ## Related Notes
 
-- [MECE](/principles/documentation/mece.md) — Organize without overlap or gaps
-- [Single Idea Per Note](/principles/documentation/single-idea-per-note.md) — Atomic, focused notes
+- [MECE](/principles/documentation/structure/mece.md) — Organize without overlap or gaps
+- [Single Idea Per Note](/principles/documentation/structure/single-idea-per-note.md) — Atomic, focused notes

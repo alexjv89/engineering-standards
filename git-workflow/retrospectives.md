@@ -101,5 +101,5 @@ frozen** — a dated snapshot of learning, kept for the record.
 ## Related Notes
 - [WIP Files](/git-workflow/wip-files.md) — the "during" counterpart; a retro reflects on the finished work a WIP guided
 - [Commit Format](/git-workflow/commit-format.md) — commit-range retros read the history these produce
-- [Knowledge Base vs. Activity Report](/principles/documentation/knowledge-vs-reports.md) — a retro is activity (history); its lessons graduate to knowledge
+- [Knowledge Base vs. Activity Report](/principles/documentation/structure/knowledge-vs-reports.md) — a retro is activity (history); its lessons graduate to knowledge
 - [Jobs](https://github.com/finopsbricks/fde-handbook/blob/main/working-docs/jobs.md) — a retro often reflects on a completed job run

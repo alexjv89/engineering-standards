@@ -9,7 +9,7 @@ Two dials, both turned up:
 - **Simple** — the smallest, most ordinary word that is still exact. No jargon for its own sake, no clever phrasing, no throat-clearing.
 - **Sharp** — say the thing directly. Lead with the point, cut hedges, and let structure (bullets, tables) carry the load instead of prose.
 
-This is the *tone* layer. It sits on top of the structural rules — [Brevity](/principles/documentation/brevity.md) governs length, [Single Idea Per Note](/principles/documentation/single-idea-per-note.md) governs scope, [Meaningful Titles](/principles/documentation/meaningful-titles.md) governs naming. Voice is *how the sentences sound*.
+This is the *tone* layer. It sits on top of the structural rules — [Brevity](/principles/documentation/voice/brevity.md) governs length, [Single Idea Per Note](/principles/documentation/structure/single-idea-per-note.md) governs scope, [Meaningful Titles](/principles/documentation/voice/meaningful-titles.md) governs naming. Voice is *how the sentences sound*.
 
 ## The Rules
 
@@ -57,7 +57,7 @@ It also compounds: when every doc, issue, and message shares one voice, the body
 - **Meta/explanatory docs are the exception.** A note whose *job* is to explain a system (a principle write-up, an onboarding overview) can carry more connective prose. The "no meta-commentary" rule targets reference and content notes, where explanation-of-the-doc is pure overhead.
 
 ## Related Notes
-- [Brevity](/principles/documentation/brevity.md) - Cut filler words, keep structure
-- [Single Idea Per Note](/principles/documentation/single-idea-per-note.md) - One concept per note
-- [Meaningful Titles](/principles/documentation/meaningful-titles.md) - Titles that state the idea
-- [MECE](/principles/documentation/mece.md) - Non-overlapping, complete coverage
+- [Brevity](/principles/documentation/voice/brevity.md) - Cut filler words, keep structure
+- [Single Idea Per Note](/principles/documentation/structure/single-idea-per-note.md) - One concept per note
+- [Meaningful Titles](/principles/documentation/voice/meaningful-titles.md) - Titles that state the idea
+- [MECE](/principles/documentation/structure/mece.md) - Non-overlapping, complete coverage

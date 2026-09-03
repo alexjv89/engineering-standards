@@ -108,6 +108,6 @@ Going over is a signal that education has crept in.
 
 ## Related Notes
 - [Skill Writing Principles](/principles/skills.md)
-- [Document Density](/principles/documentation/document-density.md)
-- [Single Idea Per Note](/principles/documentation/single-idea-per-note.md)
-- [Brevity](/principles/documentation/brevity.md)
+- [Document Density](/principles/documentation/llm/document-density.md)
+- [Single Idea Per Note](/principles/documentation/structure/single-idea-per-note.md)
+- [Brevity](/principles/documentation/voice/brevity.md)

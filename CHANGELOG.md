@@ -10,7 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - **CLI help hanging indent**: `cli/command-grammar.md` — a wrapped command/option description must continue at the description column, never at column 0, or the continuation reads as a new command entry. yargs hang-indents by default, so the rule is "don't disable wrapping" (`.wrap(null)` is the trap). Notes the residual mid-word-break case: yargs has no help-formatter API and deliberately prefixes nested rows with the full parent command path, which consumes the width Cobra-based CLIs give to descriptions. Found via a `.wrap(null)` in `finopsbricks/cli/fob-worker`.
 - **CLI help option grouping**: `cli/command-grammar.md` — a command's own options must render under `Options:` above a dedicated `Global Options:` heading (`--profile`/`--help`/`--version`), never interleaved. Documents the yargs mechanics (`localOptions()` helper, positional-first ordering, per-command group registration). Extracted from the highlyreco-cli implementation. Added `localOptions()` to the new-wrapper checklist in `cli/README.md`.
 - **CI Test Reporting**: `deployment/ci-test-reporting.md` — publish JUnit results as GitHub Actions job summaries via `jest-junit` + `dorny/test-reporter`, including the `checks: write` permission gotcha for `workflow_dispatch` runs. Documented from the pattern already in use in the statements app repo.
-- **Documentation Principle**: `principles/documentation/one-change-driver.md` — every artifact should have exactly one reason to change. Splits and merges are decided by rate-of-change / change driver, not topic boundaries. Complements MECE (topic) and Single Idea Per Note (concept) with a time-axis lens.
+- **Documentation Principle**: `principles/documentation/structure/one-change-driver.md` — every artifact should have exactly one reason to change. Splits and merges are decided by rate-of-change / change driver, not topic boundaries. Complements MECE (topic) and Single Idea Per Note (concept) with a time-axis lens.
 - **Principle**: `principles/propagation-risk.md` — retired terms/identifiers/patterns left as residue (in filenames, code sketches, changelogs, in-transition WIPs) re-infect new contexts because readers and LLMs don't maintain a "translate to current" flag. Carve-outs compound. Rename completely or remove; only genuine external interfaces warrant residue, and those should be isolated behind a wrapper with a translation note.
 - **PWA Patterns** (`architecture/pwa/` - 5 new notes), from shipping installability on a Next.js 16 app:
   - `nextjs-manifest-and-icons.md` - App Router manifest.js convention, required icon sizes/purposes, `viewport.themeColor` vs `metadata`
@@ -19,8 +19,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - `install-prompt-ux.md` - beforeinstallprompt (Android/desktop) vs iOS Safari's manual Add-to-Home-Screen-only path
   - `web-push-overview.md` - VAPID subscribe/send flow and the iOS installed-PWA-only constraint (reference; not yet implemented)
 - **State Pattern**: `architecture/state/browser-only-state-on-mount.md` - use `useSyncExternalStore` (not a lazy `useState` guard, not `setState` in an effect) to read `localStorage`/`matchMedia`/`userAgent` on mount without a hydration mismatch or tripping the `react-hooks/set-state-in-effect` lint rule
+- **Documentation Principle**: `principles/documentation/structure/changelog-not-inline-history.md` — a knowledge note states current understanding; it never narrates "originally X, now Y" about itself. That's a report fact (changes when we edit), not a knowledge fact (changes when the world changes) — put it in `CHANGELOG.md` instead. Prompted by a real instance found in the `mdm` repo's PO Types notes.
+- **Documentation Principle**: `principles/documentation/structure/folder-readme.md` — an optional folder-level `readme.md` for orientation, explicitly not a file index or relationship map (those live in `ls` + Meaningful Titles + each note's own Related section).
+- **Naming Pattern**: `principles/documentation/voice/meaningful-titles.md` extended with a `facet-code-description.md` convention for notes anchored to one coded identifier (a field code, config key, error code) — e.g. `field-pstyp-item-category.md`.
 
 ### Changed
+- **`principles/documentation/` reorganized into subfolders** — 15 notes had accumulated flat in one directory. Split by what each note governs: `voice/` (brevity, simple-sharp-voice, meaningful-titles), `structure/` (single-idea-per-note, mece, emergent-structure, one-change-driver, knowledge-vs-reports, hub-spoke-doc-placement, discovery-patterns, folder-readme, changelog-not-inline-history), `linking/` (cross-linking-notes, cross-repo-links), `llm/` (document-density, llm-benefits). `actual-patterns-not-aspirational.md` stays flat — it cuts across all four. Added `principles/documentation/readme.md` orienting the split. All in-repo cross-links updated; consuming repos (`mdm`, `sap`, `databricks`, `shadow-ledger`) link these paths directly and need their own link updates before this is pushed.
 
 ### Fixed
 
@@ -149,7 +153,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
   - `organization/` (5 files) - Story file organization and naming conventions
   - `play-functions/` (5 files) - Play function patterns and techniques
 - **Improved Documentation Brevity**:
-  - Enhanced `principles/documentation/brevity.md` with clearer examples
+  - Enhanced `principles/documentation/voice/brevity.md` with clearer examples
   - Added distinction between removing filler words vs preserving structure
   - Examples showing how bullets/whitespace aid scanning
 

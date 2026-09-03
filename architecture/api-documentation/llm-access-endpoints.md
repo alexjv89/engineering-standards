@@ -109,4 +109,4 @@ return new Response(content, {
 
 - [Documentation Structure](/architecture/api-documentation/documentation-structure.md)
 - [Endpoint Doc Template](/architecture/api-documentation/endpoint-doc-template.md)
-- [Brevity](/principles/documentation/brevity.md)
+- [Brevity](/principles/documentation/voice/brevity.md)

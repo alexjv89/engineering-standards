@@ -52,5 +52,6 @@ storybook/
 **No artificial constraints**: Don't force wrong categories
 
 ## Related Notes
-- [Cross-Linking Notes](/principles/documentation/cross-linking-notes.md)
-- [Single Idea Per Note](/principles/documentation/single-idea-per-note.md)
+- [Cross-Linking Notes](/principles/documentation/linking/cross-linking-notes.md)
+- [Single Idea Per Note](/principles/documentation/structure/single-idea-per-note.md)
+- [Folder README, Not Index](/principles/documentation/structure/folder-readme.md) - optional orientation once a folder has enough notes to need it

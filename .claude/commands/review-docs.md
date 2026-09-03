@@ -9,12 +9,12 @@ Review all markdown files against documentation principles: brevity, MECE, singl
 ## Reference Documents
 
 Read documentation principles:
-- `principles/documentation/single-idea-per-note.md`
-- `principles/documentation/meaningful-titles.md`
-- `principles/documentation/brevity.md`
-- `principles/documentation/mece.md`
-- `principles/documentation/cross-linking-notes.md`
-- `principles/documentation/emergent-structure.md`
+- `principles/documentation/structure/single-idea-per-note.md`
+- `principles/documentation/voice/meaningful-titles.md`
+- `principles/documentation/voice/brevity.md`
+- `principles/documentation/structure/mece.md`
+- `principles/documentation/linking/cross-linking-notes.md`
+- `principles/documentation/structure/emergent-structure.md`
 
 ## Step 1: Inventory Files
 

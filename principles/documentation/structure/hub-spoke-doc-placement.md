@@ -58,5 +58,5 @@ All "architecture docs" in one place ignores where you actually need them.
   - Pick the primary audience; link from other repos
 
 ## Related Notes
-- [Single Idea Per Note](/principles/documentation/single-idea-per-note.md)
+- [Single Idea Per Note](/principles/documentation/structure/single-idea-per-note.md)
 - [Module Organization](/architecture/modules/module-organization.md)

@@ -145,7 +145,7 @@ Documentation that indicates aspirational patterns:
 
 ## Related Notes
 
-- [Single Idea Per Note](/principles/documentation/single-idea-per-note.md) - One concept per file
-- [Meaningful Titles](/principles/documentation/meaningful-titles.md) - Clear, descriptive filenames
-- [Discovery Patterns](/principles/documentation/discovery-patterns.md) - How LLMs find notes
-- [LLM Benefits](/principles/documentation/llm-benefits.md) - Why this structure helps LLMs
+- [Single Idea Per Note](/principles/documentation/structure/single-idea-per-note.md) - One concept per file
+- [Meaningful Titles](/principles/documentation/voice/meaningful-titles.md) - Clear, descriptive filenames
+- [Discovery Patterns](/principles/documentation/structure/discovery-patterns.md) - How LLMs find notes
+- [LLM Benefits](/principles/documentation/llm/llm-benefits.md) - Why this structure helps LLMs

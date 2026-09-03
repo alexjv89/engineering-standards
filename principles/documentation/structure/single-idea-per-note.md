@@ -50,6 +50,6 @@ Split when topics can stand alone:
 - `forms/styling.md`
 
 ## Related Notes
-- [Meaningful Titles](/principles/documentation/meaningful-titles.md)
-- [Brevity](/principles/documentation/brevity.md)
-- [Cross-Linking Notes](/principles/documentation/cross-linking-notes.md)
+- [Meaningful Titles](/principles/documentation/voice/meaningful-titles.md)
+- [Brevity](/principles/documentation/voice/brevity.md)
+- [Cross-Linking Notes](/principles/documentation/linking/cross-linking-notes.md)

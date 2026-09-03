@@ -1,6 +1,6 @@
 # Knowledge Base vs. Activity Report
 
-A knowledge-base document records **timeless facts** — what a thing is, how it works, how to recognize or reproduce or remediate a *class* of problem. An activity report records **what happened on a specific run** — what we did, what we found on this account, whether this instance is fixed yet. They have different change drivers (see [One Change Driver](/principles/documentation/one-change-driver.md)), so they belong in different homes.
+A knowledge-base document records **timeless facts** — what a thing is, how it works, how to recognize or reproduce or remediate a *class* of problem. An activity report records **what happened on a specific run** — what we did, what we found on this account, whether this instance is fixed yet. They have different change drivers (see [One Change Driver](/principles/documentation/structure/one-change-driver.md)), so they belong in different homes.
 
 ## The Boundary
 
@@ -31,7 +31,7 @@ The reverse is just as wrong: a run report that re-explains the whole methodolog
 
 ## Why It Matters
 
-A knowledge note only compounds if it stops being rewritten (see [One Change Driver](/principles/documentation/one-change-driver.md)). Bundling per-run status guarantees churn: the note co-changes with the activity and stops being an anchor. Separating the two lets the slow-changing knowledge accumulate trust while the fast-changing report stays honest about the present.
+A knowledge note only compounds if it stops being rewritten (see [One Change Driver](/principles/documentation/structure/one-change-driver.md)). Bundling per-run status guarantees churn: the note co-changes with the activity and stops being an anchor. Separating the two lets the slow-changing knowledge accumulate trust while the fast-changing report stays honest about the present.
 
 ## Applying It
 
@@ -40,8 +40,9 @@ A knowledge note only compounds if it stops being rewritten (see [One Change Dri
 - A knowledge note may name a real example for teaching; it must not maintain the census of instances.
 
 ## Related Notes
-- [One Change Driver](/principles/documentation/one-change-driver.md)
+- [One Change Driver](/principles/documentation/structure/one-change-driver.md)
+- [Changelog, Not Inline Revision History](/principles/documentation/structure/changelog-not-inline-history.md) — where a note's own revision history goes instead
 - [Actual Patterns Not Aspirational](/principles/documentation/actual-patterns-not-aspirational.md)
-- [Single Idea Per Note](/principles/documentation/single-idea-per-note.md)
+- [Single Idea Per Note](/principles/documentation/structure/single-idea-per-note.md)
 - [Skill Writing Principles](/principles/skills.md) — the same state-vs-docs split, for skills
 - [Working Docs](https://github.com/finopsbricks/fde-handbook/blob/main/working-docs/README.md) — how to shape the *report* side (status / to-do / log across nested scopes)

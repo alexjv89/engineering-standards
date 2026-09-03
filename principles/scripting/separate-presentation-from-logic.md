@@ -4,7 +4,7 @@ A script that both **computes** something and **emits formatted output** (a repo
 
 ## Why
 
-- **Different rates of change.** Presentation (wording, columns, layout) is tweaked often and casually — sometimes by non-engineers. Business logic is correctness-critical and changes rarely. Coupling them means a formatting tweak risks a correctness bug. (See [One Change Driver](/principles/documentation/one-change-driver.md).)
+- **Different rates of change.** Presentation (wording, columns, layout) is tweaked often and casually — sometimes by non-engineers. Business logic is correctness-critical and changes rarely. Coupling them means a formatting tweak risks a correctness bug. (See [One Change Driver](/principles/documentation/structure/one-change-driver.md).)
 - **Safe manual edits.** When the layout lives in its own file, someone can restyle the output without reading — or endangering — the computation.
 - **Testability.** Pure business logic is easy to unit-test; presentation is easy to snapshot.
 
@@ -24,6 +24,6 @@ Layout lives in a `.md`/`.html` template with holes; the script passes in a prep
 - When extracting presentation from existing code, prove it's behavior-preserving: regenerate and **diff for byte-identical output** before trusting the refactor.
 
 ## Related Notes
-- [One Change Driver Per Artifact](/principles/documentation/one-change-driver.md)
+- [One Change Driver Per Artifact](/principles/documentation/structure/one-change-driver.md)
 - [No Hidden Side Effects](/principles/no-hidden-side-effects.md)
 - [Working Docs](https://github.com/finopsbricks/fde-handbook/blob/main/working-docs/README.md) — status/report files are a common thing scripts render

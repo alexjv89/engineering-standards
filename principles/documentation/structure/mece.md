@@ -55,5 +55,5 @@ Missing: constants, files, functions, etc.
 **Do boundaries feel arbitrary?** → Rethink categorization
 
 ## Related Notes
-- [Single Idea Per Note](/principles/documentation/single-idea-per-note.md)
-- [Emergent Structure](/principles/documentation/emergent-structure.md)
+- [Single Idea Per Note](/principles/documentation/structure/single-idea-per-note.md)
+- [Emergent Structure](/principles/documentation/structure/emergent-structure.md)

@@ -53,7 +53,8 @@ Specs and design docs only compound when they stop being rewritten. An artifact 
 
 ## Related Notes
 
-- [Knowledge Base vs. Activity Report](/principles/documentation/knowledge-vs-reports.md) — a specific, high-value application of this principle
-- [MECE](/principles/documentation/mece.md)
-- [Single Idea Per Note](/principles/documentation/single-idea-per-note.md)
+- [Knowledge Base vs. Activity Report](/principles/documentation/structure/knowledge-vs-reports.md) — a specific, high-value application of this principle
+- [Changelog, Not Inline Revision History](/principles/documentation/structure/changelog-not-inline-history.md) — same split, applied to a note's own edit history
+- [MECE](/principles/documentation/structure/mece.md)
+- [Single Idea Per Note](/principles/documentation/structure/single-idea-per-note.md)
 - [Actual Patterns Not Aspirational](/principles/documentation/actual-patterns-not-aspirational.md)

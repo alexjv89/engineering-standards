@@ -52,6 +52,6 @@ Everything needed: what, where, why implicit. No tool instructions.
 
 ## Related Notes
 
-- [Brevity](/principles/documentation/brevity.md) - Remove filler, keep structure
-- [LLM Benefits](/principles/documentation/llm-benefits.md) - Why this helps LLMs
+- [Brevity](/principles/documentation/voice/brevity.md) - Remove filler, keep structure
+- [LLM Benefits](/principles/documentation/llm/llm-benefits.md) - Why this helps LLMs
 - [Actual Patterns Not Aspirational](/principles/documentation/actual-patterns-not-aspirational.md) - Document what exists

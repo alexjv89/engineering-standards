@@ -69,6 +69,6 @@ Bullets, whitespace, code blocks = visual pattern recognition = fast scanning.
 - Section headings (navigational anchors)
 
 ## Related Notes
-- [Single Idea Per Note](/principles/documentation/single-idea-per-note.md)
-- [Meaningful Titles](/principles/documentation/meaningful-titles.md)
-- [Document Density](/principles/documentation/document-density.md) - What to include/exclude for LLMs
+- [Single Idea Per Note](/principles/documentation/structure/single-idea-per-note.md)
+- [Meaningful Titles](/principles/documentation/voice/meaningful-titles.md)
+- [Document Density](/principles/documentation/llm/document-density.md) - What to include/exclude for LLMs
