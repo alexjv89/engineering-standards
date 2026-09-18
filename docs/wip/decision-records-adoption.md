@@ -1,11 +1,13 @@
 # Decision-Records Standard — Cross-Repo Adoption
 
-## Status: IN PROGRESS (~90%)
+## Status: COMPLETE
 
-Roll the [decision-records standard](/git-workflow/decision-records.md) out across the finopsbricks
-repos: standardize on `docs/decisions/` + unique per-repo `NNNN`, and converge section headings. The
-structural work (folder names, ID collisions) is done; only soft heading convergence remains, and it
-happens going-forward rather than by editing immutable records.
+Rolled the [decision-records standard](/git-workflow/decision-records.md) out across the finopsbricks
+repos: one convention for every decision, technical or business — `docs/decisions/` (root `decisions/`
+in a docs-only repo) with unique per-repo `NNNN`. All structural work (folder names, ID collisions,
+folding in the founders' business log) is done and pushed. Only going-forward section-heading
+convergence remains, which is a review-time policy rather than a task — this WIP can be deleted once
+that's acknowledged.
 
 ---
 
@@ -25,11 +27,13 @@ standard's own immutability rule by rewriting already-accepted records.
 | `apps/orchestrator` | `docs/decisions/` | 0001–0003 | ✅ Conformant |
 | `cli/fob-cli` | `docs/decisions/` | 0001 | ✅ Conformant |
 | `cli/fob-email` | `docs/decisions/` | 0001–0002 | ✅ Conformant |
-| `ops/company-ops` | `decision-logs/` (`YYYY-MM-DD-`) | 1 | ⏸️ **Out of scope** — *business* decision log, not architectural rulings. Different convention by design (date-prefix, Reversibility, Review). It is the source of the Reversibility/Review ideas now in the standard. |
+| `ops/company-ops` | ~~`decision-logs/` (`YYYY-MM-DD-`)~~ → `decisions/` (`NNNN-`) | 1 | ✅ **Fixed** — a decision is a decision whether business or technical; folded into the one standard (folder + `NNNN` + Status/Decision/Why, keeping Decider(s)/Reversibility/Review) |
 | `workers/worker-agilitas` | `docs/.../decision-rules/` | — | ⏸️ **Out of scope** — domain P2P-mapping rules, not decision records. |
 
-Structural conformance across the five code repos is now complete: all use `docs/decisions/`, all
-`NNNN` are unique, no collisions remain.
+Structural conformance is now complete across all six decision logs (five code repos on
+`docs/decisions/`, plus `company-ops` on root `decisions/`): all use the standard folder, all `NNNN`
+are unique, no collisions remain. Business and technical decisions now share one convention — see the
+["technical or business" clause](/git-workflow/decision-records.md) in the standard.
 
 ## Remaining: soft heading convergence (going-forward only)
 
@@ -60,11 +64,17 @@ logic applied to the records themselves.
 - [x] `apps/statements`: resolve duplicate `0002` (umami keeps 0002; decouple-ocr → 0003)
 - [x] `apps/statements`: update inbound refs (`ocr-extraction.md`, 2 WIPs); committed + pushed
 - [x] Confirm ledger / orchestrator / fob-cli / fob-email already conformant (no action)
+- [x] `ops/company-ops`: fold the founders' log into the one standard — `decision-logs/` → root
+  `decisions/`, date filename → `0001-`, entry reshaped to Status/Decision/Why, `_TEMPLATE`/`README`
+  aligned, 6 inbound refs fixed; committed + pushed
+- [x] Broaden the standard to say a decision is a decision whether technical or business, add
+  optional `Decider(s)`, and document root `decisions/` for docs-only repos
 
 ### Phase 3: Going-forward convergence ❌ (no active work — policy, not a task list)
 - [ ] New records follow the standard headings; reviewers flag divergence at write time
-- [ ] (Open question) Does `ops/company-ops` want the standard's `Reversibility`/`Review` fields
-  formally referenced, or stay an independent business-decision convention? Raise with founders.
+- Section-heading convergence on the already-accepted code-repo records (`Consequences` →
+  `Honest costs`, `Not foreclosed`/`Still open` → `Revisit when`) is deliberately *not* done —
+  reformatting immutable records is churn; they converge only if reopened for a real reason.
 
 ## Related Files
 

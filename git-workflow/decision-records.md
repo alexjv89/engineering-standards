@@ -12,6 +12,8 @@ docs/decisions/NNNN-kebab-case-slug.md
 
 `NNNN` is a 4-digit, zero-padded, **per-repo sequential** number starting at `0001`. It is the decision's identity — cite it as "decision `0002`". Because the series is per-repo, `0001` in two repos are unrelated; cross-repo references need the repo name or a GitHub URL.
 
+In a docs-only repo (no code, so no `docs/` split), the folder is `decisions/` at the repo root — same leaf name, same `NNNN` scheme.
+
 While a decision is still in flight it may carry a `D<n>` label in the WIP's working list. **Once pegged to an `NNNN`, drop the `D<n>`** — one identity, not two.
 
 ## Structure
