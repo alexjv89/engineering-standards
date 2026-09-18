@@ -1,6 +1,8 @@
 # Decision Records
 
-Settled architectural rulings live in `docs/decisions/` as numbered, immutable records. A WIP explores; a decision record concludes.
+Settled decisions live in `docs/decisions/` as numbered, immutable records. A WIP explores; a decision record concludes.
+
+A decision is a decision whether it is **technical** (a schema, an API shape, a framework) or **business** (pricing, hiring, positioning, a go/no-go). Both earn the same record, in the same place, in the same shape — the only difference is who the decider is and which repo the series lives in. Don't invent a second convention for "business" decisions.
 
 ## Location and Naming
 
@@ -50,7 +52,9 @@ happened vs. what "Why" predicted, and what you'd decide differently.]
 
 **Title**: `# NNNN — <conclusion>`, em-dash, never a colon. State the conclusion, not the topic, and put the negative case in it — `No offline writes.` / `blocked, not coordinated`.
 
-**Metadata**: `- **Key:** value`. `Status:` first, always `Accepted — YYYY-MM-DD`; add `(recorded retroactively; the choice was made YYYY-MM-DD)` for a past decision. Optional: `Reversibility:`, `Scope:`, `Builds on:`, `Governs:`, `Supersedes:`.
+**Metadata**: `- **Key:** value`. `Status:` first, always `Accepted — YYYY-MM-DD`; add `(recorded retroactively; the choice was made YYYY-MM-DD)` for a past decision. Optional: `Decider(s):`, `Reversibility:`, `Scope:`, `Builds on:`, `Governs:`, `Supersedes:`.
+
+**Decider(s)**: name who made the call. Skip it for a technical ruling where the answer is "whoever owns this repo"; include it for a business decision, or any decision an outside reader would want to attribute to a person rather than to the codebase.
 
 **Reversibility**: one-way door (hard/costly to reverse) or two-way door (cheap/fast to reverse). Naming it up front sizes the rigor the ruling deserved — a two-way door does not need the same steelmanning as a one-way one, and a reader deciding whether to relitigate needs to know which they're touching.
 
