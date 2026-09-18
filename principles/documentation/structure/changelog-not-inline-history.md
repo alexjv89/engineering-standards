@@ -41,6 +41,7 @@ Rarely, and only when the history itself is evidence a reader needs — e.g. "SA
 
 ## Related Notes
 
+- [Changelog](/git-workflow/changelog.md) — the format and boundaries of the `CHANGELOG.md` this note routes revision history to
 - [Knowledge Base vs. Activity Report](/principles/documentation/structure/knowledge-vs-reports.md)
 - [One Change Driver Per Artifact](/principles/documentation/structure/one-change-driver.md)
 - [Simple, Sharp Voice](/principles/documentation/voice/simple-sharp-voice.md) — no meta-commentary

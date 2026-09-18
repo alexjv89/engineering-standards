@@ -8,7 +8,7 @@ This repository contains **47+ atomic notes** organized into focused topics:
 - **Naming** (11 notes) - Variables, functions, components, files, types
 - **Testing** (9 notes) - Test patterns, coverage, mocking, React testing
 - **Architecture** (20 notes) - Components, state, modules, database patterns
-- **Git Workflow** (7 notes) - Branches, commits, PRs, background tasks
+- **Git Workflow** (19 notes) - Branches, commits, PRs, changelog, decision records, background tasks
 - **CLI** (8 notes) - Command grammar, 2-in-1 lib+CLI structure, output, auth, dispatch
 
 ### For Small Teams
@@ -61,8 +61,9 @@ Traditional comprehensive documentation is inefficient for LLM tools. This knowl
 │   ├── modules/       # Module organization
 │   ├── functional/    # Functional programming
 │   └── pwa/           # Progressive Web App patterns (5 notes)
-├── git-workflow/      # Git & development workflow (18 notes)
+├── git-workflow/      # Git & development workflow (19 notes)
 │   ├── branch-naming.md
+│   ├── changelog.md
 │   ├── commit-format.md
 │   ├── decision-records.md
 │   ├── wip-files.md
