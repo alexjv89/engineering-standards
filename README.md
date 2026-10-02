@@ -28,6 +28,8 @@ These are **simple, opinionated standards** designed for **small teams** with sp
 - [No Backward Compatibility](/principles/no-backward-compatibility.md) - Hard refactor over compat shims; delete the old shape, don't alias it
 - [Abstraction Must Earn Its Keep](/principles/abstraction-earns-its-keep.md) - Add indirection only when it buys more than it costs; inline unearned constants and delete ceremony
 - [No Ambient Configuration](/principles/no-ambient-configuration.md) - Libraries take config/credentials as explicit args; only the app edge reads the environment and injects
+- [Solve Problems You Have Seen](/principles/solve-problems-you-have-seen.md) - Fix problems you've hit or your change causes; note imagined ones, don't build for them
+- [Try It to Decide](/principles/try-it-to-decide.md) - When a decision depends on behaviour, run the smallest version and look instead of debating on paper
 
 ## Why Atomic Notes?
 
