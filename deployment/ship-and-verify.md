@@ -1,6 +1,6 @@
 # Ship and Verify
 
-A change is **done** when it is running in production and has been checked there, not when it's pushed. Deploys only happen through CI/CD.
+A change is **done** when it is running in production and has been checked there, not when it's pushed. Apps with a CI/CD deploy workflow are deployed only through it. (Workers on a personal machine deployed by sync + `pm2 restart` follow that machine's own runbook.)
 
 ## Done Means
 
