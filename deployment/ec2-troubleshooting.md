@@ -47,7 +47,7 @@ The deploy step runs rsync first, then SSH. If rsync succeeds but the SSH comman
 1. **Which line failed** — The error shows `bash: line N:` which helps locate the failing command
 2. **File ownership** — Most common cause (see above)
 3. **npm ci failure** — Check if Node version on server matches the workflow (`node -v`)
-4. **git pull conflict** — Check if there are uncommitted changes on the server
+4. **Checkout update failed** — Older workflows ran `git pull`, which aborts when a commit adds files under `public/`: rsync has already put them there as untracked files (`untracked working tree files would be overwritten by merge`). PM2 is then never restarted, and the old process serves HTML pointing at chunks rsync deleted ("Application error" in the browser). Fix the workflow to `git fetch` + `git reset --hard` (see [Deploy Pipeline](/deployment/deploy-pipeline.md)) and push; don't clean the server by hand
 
 ## Node Version Mismatch
 
@@ -58,3 +58,4 @@ Server runs Node v20.18.0. Some packages warn about requiring >= 20.19.0 (`EBADE
 - [EC2 Server Layout](/deployment/ec2-server-layout.md)
 - [Deploy Pipeline](/deployment/deploy-pipeline.md)
 - [GitHub Secrets](/deployment/github-secrets.md)
+- [Ship and Verify](/deployment/ship-and-verify.md)

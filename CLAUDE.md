@@ -33,8 +33,9 @@ These standards are designed for **small teams** with specific preferences:
 ├── testing/           # Testing practices (9 atomic notes)
 ├── architecture/      # Architecture patterns (9 atomic notes)
 │   └── pwa/           # Progressive Web App patterns (5 atomic notes)
+├── ui/                # UI behaviour, mobile layout, UI change discipline (8 atomic notes; start at ui/README.md)
 ├── git-workflow/      # Git & dev workflow (7 atomic notes)
-├── deployment/        # CI/CD and deployment patterns (5 atomic notes)
+├── deployment/        # CI/CD and deployment patterns (7 atomic notes)
 ├── examples/          # Complex code examples (referenced by notes)
 ├── templates/         # Templates for consuming projects
 └── README.md          # Human-facing introduction

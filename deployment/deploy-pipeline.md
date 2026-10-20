@@ -36,7 +36,7 @@ The `workflow_dispatch` trigger allows manual re-runs from the GitHub Actions UI
 6. **Deploy to EC2** via SSH:
    - Rsync `.next/` and `public/` to the server (with `--delete`)
    - SSH into server:
-     - `git pull` to sync source code
+     - `git fetch origin <branch> && git reset --hard origin/<branch>` to sync source code
      - `npm ci` to install dependencies
      - Write runtime `.env.local` from GitHub secret
      - Restart PM2 process (or start fresh if not found)
@@ -45,11 +45,20 @@ The `workflow_dispatch` trigger allows manual re-runs from the GitHub Actions UI
 ## Key Design Decisions
 
 - **Build on runner, not on EC2** — Avoids memory/CPU pressure on the server
-- **Rsync build artifacts** — Only `.next/` and `public/` are synced; source code comes from `git pull`
+- **Rsync build artifacts** — Only `.next/` and `public/` are synced; source code comes from git
+- **Reset, don't pull** — rsync runs first, so a commit that adds a file under `public/` leaves it on the server as an untracked file, and `git pull` aborts (`untracked working tree files would be overwritten by merge`). Because the steps are chained with `&&`, PM2 is never restarted and production keeps an old process serving HTML for chunks rsync just deleted. `git reset --hard` overwrites those files with identical tracked content. The server checkout must never carry local edits, so nothing is lost.
 - **Same secret for build and runtime env vars** — Future plan to separate these
+
+```bash
+cd ~/app.finopsbricks.com &&
+git fetch origin main && git reset --hard origin/main &&
+npm ci --include=optional &&
+pm2 restart app.finopsbricks.com
+```
 
 ## Related Notes
 
 - [CI Pipeline](/deployment/ci-pipeline.md)
 - [EC2 Server Layout](/deployment/ec2-server-layout.md)
 - [GitHub Secrets](/deployment/github-secrets.md)
+- [Ship and Verify](/deployment/ship-and-verify.md)

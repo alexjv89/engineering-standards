@@ -7,6 +7,17 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
+- **UI standards** (`ui/` - 8 new notes, from the txn mobile session of 2026-10-20, where a UI change shipped an unasked rewrite, two regressions and a broken deploy). Each note ends with a **Check** list a reviewer or role runs:
+  - `README.md` - index: which note to load for which kind of UI change; `md` (768px) as the phone/desktop line; verify at 390 / 834 / 1440
+  - `change-scope.md` - asked / caused / noticed: do the first two, propose the third; working components aren't rewritten
+  - `visual-verification.md` - before/after screenshot pairs at every breakpoint, read back; emulation can't show iOS browser chrome, so those changes need a real-device check
+  - `regression-stories.md` - every changed component gets Storybook stories at mobile (and desktop if it changes at `md`) so CI's storybook test covers it
+  - `mobile-document-scroll.md` - phones scroll the document; the `100vh` + `overflow: hidden` app shell is desktop-only; `dvh`; `overflow: clip` so sticky headers work
+  - `ios-viewport-and-safe-areas.md` - keep Safari's default insets (no `viewport-fit=cover`); 16px inputs; padding under floating buttons
+  - `page-header-mobile.md` - title and actions on one row at phone width; fix belongs in lib-ui `PageHeader`
+  - `tables-on-mobile.md` - when a table becomes cards, and what a card must show
+- **Ship and Verify**: `deployment/ship-and-verify.md` - done = pushed + CI green + deploy green + production smoke check; deploys only through CI/CD; never SSH around the pipeline, report server-state problems to a person
+
 - **Principle**: `principles/solve-problems-you-have-seen.md` — fix problems you have seen or your own change causes; write imagined ones down as known limitations instead of building safeguards for them. Exceptions: one-way doors and trivial local fixes. Counters premature optimisation and over-engineering.
 - **Principle**: `principles/try-it-to-decide.md` — sort open questions into answerable now / answerable by trying / not blocking; only the first is debated up front, the second gets a default and an experiment. Exceptions: one-way doors, expensive experiments, questions that block the next step. Counters analysis paralysis.
 - **Date Range Filtering**: `architecture/api/date-range-filtering.md` — list endpoints filter a date or timestamp column with `{column}_from` / `{column}_to`, both optional, both inclusive, named after the column (`date_from`, `created_at_from`, `updated_at_from`). Format follows the column type: `YYYY-MM-DD` for `DATE`, an ISO 8601 instant with `Z`/offset for timestamps — date-only on a timestamp column is a `400`, never widened server-side. Names the rejected spellings (`_since`, `_after`, `start_`, bare `from`) and the two estate exceptions (`as_of`, statements' `period_from`/`period_to`). Codifies what a survey found on 27 live endpoints; `since`/`until` had zero occurrences.
@@ -34,6 +45,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - **Naming Pattern**: `principles/documentation/voice/meaningful-titles.md` extended with a `facet-code-description.md` convention for notes anchored to one coded identifier (a field code, config key, error code) — e.g. `field-pstyp-item-category.md`.
 
 ### Changed
+- **Deploy Pipeline**: `deployment/deploy-pipeline.md` - the server checkout uses `git fetch` + `git reset --hard` instead of `git pull`. rsync puts new `public/` files on the server first, so `git pull` aborted, PM2 never restarted and production served HTML for deleted chunks.
+- **EC2 Troubleshooting**: `deployment/ec2-troubleshooting.md` - the "git pull conflict" entry now describes the untracked-`public/` failure and points to the workflow fix instead of cleaning the server by hand
 - **`principles/documentation/` reorganized into subfolders** — 15 notes had accumulated flat in one directory. Split by what each note governs: `voice/` (brevity, simple-sharp-voice, meaningful-titles), `structure/` (single-idea-per-note, mece, emergent-structure, one-change-driver, knowledge-vs-reports, hub-spoke-doc-placement, discovery-patterns, folder-readme, changelog-not-inline-history), `linking/` (cross-linking-notes, cross-repo-links), `llm/` (document-density, llm-benefits). `actual-patterns-not-aspirational.md` stays flat — it cuts across all four. Added `principles/documentation/readme.md` orienting the split. All in-repo cross-links updated; consuming repos (`mdm`, `sap`, `databricks`, `shadow-ledger`) link these paths directly and need their own link updates before this is pushed.
 - **Timestamp Columns**: `architecture/database/timestamp-columns.md` — `updated_at` is now `NOT NULL DEFAULT now()` (was "can be nullable"), new columns are `TIMESTAMPTZ`, and the "update `updated_at` manually" section is gone: the DB trigger is the single mechanism. The `timestamps: true` + column-mapping alternative is withdrawn for the same reason; `sequelize-initialization.md` no longer offers the global `define` mapping.
 - **REST URL Structure** / **Cross-cutting Concerns**: filtering and sorting bullets now point at the new notes instead of a bare example; the `[List filter params per resource]` placeholder gains date-range and sorting sections.
