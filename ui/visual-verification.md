@@ -4,7 +4,7 @@ A UI change is verified by comparing screenshots taken **before** and **after** 
 
 ## Procedure
 
-1. **Before.** Screenshot every affected page or story at 390, 834 and 1440 wide, in each state that matters (default, empty, loading, long content).
+1. **Before.** Screenshot every affected page or story at 390, 834 and 1440 wide, in each state that matters (default, empty, loading, long content), and in light and dark mode when the change touches colour ([Surface-Relative Colour](/ui/surface-relative-colour.md)).
 2. **Change.**
 3. **After.** Same pages, same widths, same states.
 4. **Compare pairs.** For each pair, ask:

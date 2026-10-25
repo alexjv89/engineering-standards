@@ -11,6 +11,7 @@ How FinOpsBricks app UIs must behave and how UI changes are made and checked. Vi
 | Touching `viewport`, safe areas, PWA or iOS behaviour | [iOS Viewport and Safe Areas](/ui/ios-viewport-and-safe-areas.md), `/architecture/pwa/` |
 | Building or changing a page header | [Page Header on Mobile](/ui/page-header-mobile.md) |
 | Showing a list or table | [Tables on Mobile](/ui/tables-on-mobile.md) |
+| Picking a colour, or making a component work in dark mode | [Surface-Relative Colour](/ui/surface-relative-colour.md) |
 
 Shipping the change afterwards: [Ship and Verify](/deployment/ship-and-verify.md).
 

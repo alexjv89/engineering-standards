@@ -7,6 +7,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ## [Unreleased]
 
 ### Added
+- **Surface-Relative Colour**: `ui/surface-relative-colour.md` — every colour has a role defined by its distance from the surface it sits on (surface, quiet structure, secondary, data, ordered ramp); dark mode keeps the same distances in the opposite direction, not the same or inverted colours. Ramps reverse their lightness order in dark. Surface-role pixels use the surface token; canvas charts keep one light/dark pair per role chosen by `resolvedTheme`. From the txn dashboard charts (2026-10-25): `#fff` heatmap gaps went 1.00 → 17.72:1 in dark, `#eee` gridlines 1.16 → 15.27:1, and the heatmap ramp read backwards.
 - **UI standards** (`ui/` - 8 new notes, from the txn mobile session of 2026-10-20, where a UI change shipped an unasked rewrite, two regressions and a broken deploy). Each note ends with a **Check** list a reviewer or role runs:
   - `README.md` - index: which note to load for which kind of UI change; `md` (768px) as the phone/desktop line; verify at 390 / 834 / 1440
   - `change-scope.md` - asked / caused / noticed: do the first two, propose the third; working components aren't rewritten
