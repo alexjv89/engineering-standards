@@ -47,4 +47,4 @@ The first time an app gets a version with its own chrome, the root layout's head
 - [Change Scope](/ui/change-scope.md): one dimension per version is change scope applied to landing pages
 - [Visual Verification](/ui/visual-verification.md)
 - [Try It to Decide](/principles/try-it-to-decide.md): a version is the smallest thing that answers a taste question
-- Role that works this way: `~/ec2code/finopsbricks/roles/landing-page-designer`
+- Role that works this way: `~/ec2code/finopsbricks/roles/roles/landing-page-designer`
