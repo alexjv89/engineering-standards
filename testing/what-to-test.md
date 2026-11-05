@@ -142,7 +142,7 @@ it.each([
 | Symptom | Problem |
 |---------|---------|
 | Testing every permutation of input validation | Test one validation error, not every field |
-| Testing internal helper functions through parent | Extract helper and test separately, or don't test |
+| Testing internal helper functions through parent | Export the helper and test it directly, or don't test |
 | Many tests, low behavior coverage | Focus on outcomes, not code paths |
 | Tests break when refactoring (but behavior unchanged) | Testing implementation, not behavior |
 | Testing framework/library behavior | Trust your dependencies |
@@ -221,7 +221,7 @@ describe('send_email', () => {
 });
 ```
 
-If `parseRecipients` needs thorough testing, extract to `utils/` and test separately.
+If `parseRecipients` needs thorough testing, export it and test it directly. [Where a Piece of Code Lives](/architecture/modules/where-code-lives.md) decides where it lives.
 
 ---
 
@@ -231,3 +231,4 @@ If `parseRecipients` needs thorough testing, extract to `utils/` and test separa
 - [Parametric Testing](/testing/parametric-testing.md)
 - [Mock External Dependencies](/testing/mock-external-dependencies.md)
 - [Coverage Requirements](/testing/coverage-requirements.md)
+- [Where a Piece of Code Lives](/architecture/modules/where-code-lives.md)

@@ -4,7 +4,7 @@ Organize code into functional modules using named exports rather than classes.
 
 ## Pattern: Named Exports (One Function Per File)
 
-Each function lives in its own file with a named export matching the filename:
+In a shared module, each function lives in its own file with a named export matching the filename. [Where a Piece of Code Lives](/architecture/modules/where-code-lives.md) decides whether code belongs in a shared module at all.
 
 ```javascript
 // src/services/users/getUser.js

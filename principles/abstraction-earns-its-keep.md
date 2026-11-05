@@ -76,6 +76,7 @@ Before adding (or keeping) an abstraction, ask:
 
 ## Related Notes
 
+- [Where a Piece of Code Lives](/architecture/modules/where-code-lives.md) — applies this principle to where code goes
 - [JavaScript with JSDoc](/principles/javascript-with-jsdoc.md) — the same minimize-moving-parts philosophy applied to tooling
 - [No Backward Compatibility](/principles/no-backward-compatibility.md) — delete the old shape rather than keep a second path; fewer moving parts
 - [No Hidden Side Effects](/principles/no-hidden-side-effects.md) — functions that do what their name says need no indirection to explain them

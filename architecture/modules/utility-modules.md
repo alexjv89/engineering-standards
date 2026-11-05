@@ -1,6 +1,6 @@
 # Utility Modules
 
-Organize utility functions following the same pattern as UI components: one function per file with named exports.
+Organize utility functions following the same pattern as UI components: one function per file with named exports. This note covers how to arrange code that belongs in `utils/`; [Where a Piece of Code Lives](/architecture/modules/where-code-lives.md) decides whether it belongs there.
 
 ## Pattern: One Function Per File
 

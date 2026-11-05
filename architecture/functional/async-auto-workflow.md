@@ -92,10 +92,7 @@ async function processStatement(statement_id) {
 }
 ```
 
-**When to extract functions:**
-- Implementation exceeds ~20 lines
-- Logic is reused elsewhere in the codebase
-- Complex logic that benefits from unit testing in isolation
+[Where a Piece of Code Lives](/architecture/modules/where-code-lives.md) decides when to extract a function.
 
 ## Dependency Syntax
 

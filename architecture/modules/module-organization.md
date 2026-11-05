@@ -35,6 +35,11 @@ Organizing utility functions:
 - Pure utility functions
 - Object transformation helpers
 
+### [Where a Piece of Code Lives](/architecture/modules/where-code-lives.md)
+Deciding where code goes:
+- Inline, named function, adjacent file or central folder
+- What counts as a caller
+
 ## Quick Example
 
 ```javascript
