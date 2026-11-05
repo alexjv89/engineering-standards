@@ -1,6 +1,6 @@
-# Utility Files: camelCase
+# Utility Files: camelCase in Apps, kebab-case in Factories
 
-Utility and helper files that export functions or modules use `camelCase`.
+Utility and helper files in apps use `camelCase`. Factory and worker repos use `kebab-case` (`statement-rename-script.js`, `email-filing.js`). Follow the repo you are in; don't rename across the split.
 
 ## Pattern
 

@@ -2,6 +2,8 @@
 
 Organize utility functions following the same pattern as UI components: one function per file with named exports. This note covers how to arrange code that belongs in `utils/`; [Where a Piece of Code Lives](/architecture/modules/where-code-lives.md) decides whether it belongs there.
 
+The one-function-per-file layout below is for apps, where `utils/` holds dozens of files. Factory and worker repos keep `src/utils/` flat, one file per topic, because they hold only a handful of shared helpers.
+
 ## Pattern: One Function Per File
 
 Each utility function lives in its own file, with the function name matching the filename:

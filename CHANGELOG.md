@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Changed
+- `naming/files-utilities.md` and `architecture/modules/utility-modules.md` now describe both real conventions: camelCase and one function per file in apps, flat kebab-case in factories and workers
+
 ### Added
 - **Where a Piece of Code Lives**: `architecture/modules/where-code-lives.md` — the one note that decides between inline, named function, adjacent file and central folder. `what-to-test`, `async-auto-workflow`, `module-exports-pattern` and `utility-modules` now link to it instead of deciding it themselves
 - **Landing Page Versions**: `ui/landing-page-versions.md` — a landing page changes through frozen versions at `/landing/<version>` (noindex, canonical `/`, out of the sitemap), one dimension per version; `/` is an independent copy, never a pointer to a version; versions copy what they change and scope their theme under `[data-landing]`. From the 2026-10 one-shot redesigns of statements, internalops.ai and assemblyline.sh, where nobody could tell which change caused the reaction.
