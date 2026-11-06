@@ -75,6 +75,10 @@ Write one when someone would otherwise relitigate the decision. Not every choice
 
 `Revisit when` names the triggers that reopen a decision. `## Review` is the backward-looking counterpart: once the decision has played out, come back and record what actually happened against what `## Why` predicted. It is optional and left blank at first — but it is what turns a wall of decision *announcements* into a record you can learn from, because the only way to decide better is to check predictions against outcomes.
 
+## Records Point at Notes, Not Back
+
+A decision record links to the knowledge notes it governs. Those notes state the rule and never cite the record: no "decision `0002`", no link, no evidence copied from `## Why`. A reader using the rule gets it without the history; a reader questioning it goes to `decisions/` (see [Knowledge Notes Carry No History](/principles/documentation/structure/knowledge-notes-carry-no-history.md)).
+
 ## Immutability
 
 A record is a point-in-time ruling. Do not edit it to reflect a later change of mind — write a new record that supersedes it, and add `**Supersedes:**` to the new one. Editing is for facts that were wrong when written.
@@ -83,6 +87,7 @@ The one sanctioned later addition is `## Review` — it *appends* the outcome, i
 
 ## Related Notes
 
+- [Knowledge Notes Carry No History](/principles/documentation/structure/knowledge-notes-carry-no-history.md) — why the notes a record governs don't cite it
 - [WIP Files](/git-workflow/wip-files.md) — the exploration a decision record concludes
 - [Retrospectives](/git-workflow/retrospectives.md) — reflects on the work; a decision record fixes a rule
 - [Changelog](/git-workflow/changelog.md) — records *what* changed; a decision record records *why*

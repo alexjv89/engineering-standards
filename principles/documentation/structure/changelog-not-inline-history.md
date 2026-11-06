@@ -41,6 +41,7 @@ Rarely, and only when the history itself is evidence a reader needs — e.g. "SA
 
 ## Related Notes
 
+- [Knowledge Notes Carry No History](/principles/documentation/structure/knowledge-notes-carry-no-history.md) — the general rule this is one case of
 - [Changelog](/git-workflow/changelog.md) — the format and boundaries of the `CHANGELOG.md` this note routes revision history to
 - [Knowledge Base vs. Activity Report](/principles/documentation/structure/knowledge-vs-reports.md)
 - [One Change Driver Per Artifact](/principles/documentation/structure/one-change-driver.md)

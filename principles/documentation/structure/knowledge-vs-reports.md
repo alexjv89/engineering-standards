@@ -35,12 +35,13 @@ A knowledge note only compounds if it stops being rewritten (see [One Change Dri
 
 ## Applying It
 
-- Writing a doc and about to add a date, an account id, or a "fixed/open" state? That's a report line — move it to the report side and leave (at most) a generic pointer: "instances and their status are tracked in the run reports."
+- Writing a doc and about to add a date, an account id, or a "fixed/open" state? That's a report line — move it to the report side. The knowledge note doesn't point to the reports (see [Knowledge Notes Carry No History](/principles/documentation/structure/knowledge-notes-carry-no-history.md)).
 - Writing a report and about to explain *why* something is a known pattern? Link to the knowledge note instead of restating it.
 - A knowledge note may name a real example for teaching; it must not maintain the census of instances.
 
 ## Related Notes
 - [One Change Driver](/principles/documentation/structure/one-change-driver.md)
+- [Knowledge Notes Carry No History](/principles/documentation/structure/knowledge-notes-carry-no-history.md) — the general rule: knowledge notes never cite logs
 - [Changelog, Not Inline Revision History](/principles/documentation/structure/changelog-not-inline-history.md) — where a note's own revision history goes instead
 - [Actual Patterns Not Aspirational](/principles/documentation/actual-patterns-not-aspirational.md)
 - [Single Idea Per Note](/principles/documentation/structure/single-idea-per-note.md)
