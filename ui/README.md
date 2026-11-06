@@ -1,24 +1,21 @@
 # UI Standards
 
-How FinOpsBricks app UIs must behave and how UI changes are made and checked. Visual tokens and components come from `@fob/lib-ui`. These notes cover layout behaviour, mobile and the discipline around UI changes. Each note ends with a **Check** list that a reviewer or role runs against the change.
+How UI changes are made and checked. **What the UI looks like and how it behaves** (layout, responsive rules, colour, components, patterns) lives in the design system, [design-standards](https://design.echoalex.com) (repo `~/ec2code/alex/design-standards`). Tokens and components come from `@fob/lib-ui`. These notes cover the discipline around a UI change. Each ends with a **Check** list that a reviewer or role runs against the change.
 
 ## Which Notes to Load
 
 | You are… | Read |
 |---|---|
 | Making any UI change | [Change Scope](/ui/change-scope.md), [Visual Verification](/ui/visual-verification.md), [Regression Stories](/ui/regression-stories.md) |
-| Touching page layout, scrolling or the app shell | [Mobile Document Scroll](/ui/mobile-document-scroll.md) |
-| Touching `viewport`, safe areas, PWA or iOS behaviour | [iOS Viewport and Safe Areas](/ui/ios-viewport-and-safe-areas.md), `/architecture/pwa/` |
-| Building or changing a page header | [Page Header on Mobile](/ui/page-header-mobile.md) |
-| Showing a list or table | [Tables on Mobile](/ui/tables-on-mobile.md) |
-| Picking a colour, or making a component work in dark mode | [Surface-Relative Colour](/ui/surface-relative-colour.md) |
+| Touching page layout, scrolling, the app shell, viewport or safe areas, page headers, or tables on phones | design-standards [Responsive](https://design.echoalex.com/foundations/responsive) |
+| Picking a colour, or making a component work in dark mode | design-standards [Colour is a distance from the surface](https://design.echoalex.com/primitives/colour-is-a-distance-from-the-surface) |
 | Changing a landing page (design or content) | [Landing Page Versions](/ui/landing-page-versions.md) |
 
 Shipping the change afterwards: [Ship and Verify](/deployment/ship-and-verify.md).
 
 ## Breakpoints
 
-Use Tailwind's `md` (768px) as the phone/desktop line. It matches `useIsMobile()` and the lib-ui sidebar. Verify at **390** (phone), **834** (tablet) and **1440** (desktop).
+The phone/desktop line and the widths to check are a design rule: [md is the phone/desktop line](https://design.echoalex.com/foundations/responsive/md-is-the-phone-desktop-line).
 
 ## Related Notes
 

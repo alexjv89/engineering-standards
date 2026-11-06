@@ -6,6 +6,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+### Removed
+- `ui/page-header-mobile.md`, `ui/mobile-document-scroll.md`, `ui/ios-viewport-and-safe-areas.md`, `ui/tables-on-mobile.md`, `ui/surface-relative-colour.md` moved to design-standards (`foundations/responsive/*`, `primitives/colour-is-a-distance-from-the-surface`): what the UI looks like and how it behaves is the design system's job. `ui/` keeps the process notes (change scope, visual verification, regression stories, landing page versions); `ui/README.md` links to the moved rules
+
 ### Changed
 - `naming/files-utilities.md` and `architecture/modules/utility-modules.md` now describe both real conventions: camelCase and one function per file in apps, flat kebab-case in factories and workers
 

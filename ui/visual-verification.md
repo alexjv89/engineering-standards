@@ -4,7 +4,7 @@ A UI change is verified by comparing screenshots taken **before** and **after** 
 
 ## Procedure
 
-1. **Before.** Screenshot every affected page or story at 390, 834 and 1440 wide, in each state that matters (default, empty, loading, long content), and in light and dark mode when the change touches colour ([Surface-Relative Colour](/ui/surface-relative-colour.md)).
+1. **Before.** Screenshot every affected page or story at 390, 834 and 1440 wide, in each state that matters (default, empty, loading, long content), and in light and dark mode when the change touches colour ([Colour is a distance from the surface](https://design.echoalex.com/primitives/colour-is-a-distance-from-the-surface)).
 2. **Change.**
 3. **After.** Same pages, same widths, same states.
 4. **Compare pairs.** For each pair, ask:
@@ -22,7 +22,7 @@ Playwright's iPhone emulation has the right viewport and engine, but no iOS brow
 - Safari's floating toolbar and whether it collapses
 - home-indicator overlap, standalone (home-screen) PWA mode
 
-Changes that depend on these ([iOS Viewport and Safe Areas](/ui/ios-viewport-and-safe-areas.md)) need a **real-device check by a person** before shipping. Ask for it explicitly; never report them as verified from emulation.
+Changes that depend on these ([Keep iOS default safe areas](https://design.echoalex.com/foundations/responsive/keep-ios-default-safe-areas)) need a **real-device check by a person** before shipping. Ask for it explicitly; never report them as verified from emulation.
 
 ## Check
 
