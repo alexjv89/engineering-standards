@@ -15,7 +15,7 @@ Shipping the change afterwards: [Ship and Verify](/deployment/ship-and-verify.md
 
 ## Breakpoints
 
-The phone/desktop line and the widths to check are a design rule: [md is the phone/desktop line](https://design.echoalex.com/foundations/responsive/md-is-the-phone-desktop-line).
+`sm` (640px) is the one line between the phone and desktop layouts; `md` (768px) is only an optional roomier step. Check at 390, 640, 744 and 1440 wide. The rule and why each width is a design rule: design-standards [Responsive: phone and desktop layouts](https://design.echoalex.com/foundations/responsive#phone-and-desktop-layouts).
 
 ## Related Notes
 

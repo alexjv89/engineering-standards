@@ -4,7 +4,7 @@ A UI change is verified by comparing screenshots taken **before** and **after** 
 
 ## Procedure
 
-1. **Before.** Screenshot every affected page or story at 390, 834 and 1440 wide, in each state that matters (default, empty, loading, long content), and in light and dark mode when the change touches colour ([Colour is a distance from the surface](https://design.echoalex.com/primitives/colour-is-a-distance-from-the-surface)).
+1. **Before.** Screenshot every affected page or story at 390, 640, 744 and 1440 wide, in each state that matters (default, empty, loading, long content), and in light and dark mode when the change touches colour ([Colour is a distance from the surface](https://design.echoalex.com/primitives/colour-is-a-distance-from-the-surface)).
 2. **Change.**
 3. **After.** Same pages, same widths, same states.
 4. **Compare pairs.** For each pair, ask:
@@ -26,7 +26,7 @@ Changes that depend on these ([Keep iOS default safe areas](https://design.echoa
 
 ## Check
 
-- [ ] Before and after screenshots exist for 390 / 834 / 1440 and were read back
+- [ ] Before and after screenshots exist for 390 / 640 / 744 / 1440 and were read back
 - [ ] Every difference between the pairs is either asked for or explained
 - [ ] Problems visible in the after shots of the requested pages are fixed or raised
 - [ ] iOS-chrome-dependent changes have a real-device confirmation, or are reported as unverified

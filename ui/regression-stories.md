@@ -32,7 +32,7 @@ export const PhoneEmptyCounterparty = {
 - **The test runner must honour the story's viewport.** Apps whose `.storybook/test-runner.js` sets one fixed size in `preVisit` render every story at desktop width in CI, so a phone story passes without ever showing the phone layout. Size the page from `storyGlobals.viewport` instead (the `regression-stories` skill in `roles/ux-designer` has the snippet).
 - A **play function asserts the layout for that width** (cards vs table, no sideways scroll). Without an assertion, a story rendered at the wrong width still passes.
 
-- Components that switch layout at `md` need a story **on each side** of the breakpoint.
+- Components that switch layout at the phone/desktop line (`sm`, 640px) need a story **on each side** of it: 639 and 640 wide.
 - Use realistic fixtures: long counterparties, multiple currencies, empty fields.
 - Add `play` steps for behaviour (edit a comment, press "Show more").
 
@@ -42,7 +42,7 @@ export const PhoneEmptyCounterparty = {
 
 ## Check
 
-- [ ] Each added or changed component has stories, at mobile width and, if it changes at `md`, at desktop width
+- [ ] Each added or changed component has stories, at mobile width and, if it changes at `sm`, at 639 and 640
 - [ ] `test-runner.js` sizes the page from the story's viewport, and each phone story's play function would fail at desktop width (break it once to confirm)
 - [ ] Fixtures include long text, missing fields and every variant the component branches on
 - [ ] `npm run storybook:test:ci` passes locally before pushing

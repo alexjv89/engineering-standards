@@ -10,6 +10,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 - `ui/page-header-mobile.md`, `ui/mobile-document-scroll.md`, `ui/ios-viewport-and-safe-areas.md`, `ui/tables-on-mobile.md`, `ui/surface-relative-colour.md` moved to design-standards (`foundations/responsive/*`, `primitives/colour-is-a-distance-from-the-surface`): what the UI looks like and how it behaves is the design system's job. `ui/` keeps the process notes (change scope, visual verification, regression stories, landing page versions); `ui/README.md` links to the moved rules
 
 ### Changed
+- `ui/README.md`, `ui/regression-stories.md`, `ui/visual-verification.md`: the phone/desktop line is `sm` (640px), not `md` (768px), following design-standards; check widths are 390 / 640 / 744 / 1440, and components that switch at the line get stories at 639 and 640. Half a laptop screen is 735–864 CSS px on MacBooks, under 768
 - `naming/files-utilities.md` and `architecture/modules/utility-modules.md` now describe both real conventions: camelCase and one function per file in apps, flat kebab-case in factories and workers
 
 ### Added
