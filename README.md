@@ -64,11 +64,12 @@ Traditional comprehensive documentation is inefficient for LLM tools. This knowl
 │   ├── functional/    # Functional programming
 │   └── pwa/           # Progressive Web App patterns (5 notes)
 ├── ui/                # UI behaviour, mobile layout, UI change discipline (8 notes)
-├── git-workflow/      # Git & development workflow (19 notes)
+├── git-workflow/      # Git & development workflow (20 notes)
 │   ├── branch-naming.md
 │   ├── changelog.md
 │   ├── commit-format.md
 │   ├── decision-records.md
+│   ├── priority-levels.md
 │   ├── wip-files.md
 │   └── ... (14 more)
 ├── cli/               # Command-line tool standard (8 notes)

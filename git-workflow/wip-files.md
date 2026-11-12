@@ -32,6 +32,7 @@ api-endpoint-planning.md          # Planning document
 # [Clear Descriptive Title]
 
 ## Status: [STATE]
+## Priority: [P0–P4]: [one-line reason]
 
 [One-paragraph summary of what this work accomplishes]
 
@@ -75,6 +76,19 @@ api-endpoint-planning.md          # Planning document
 | `BLOCKED` | Waiting on dependency | `Status: BLOCKED - awaiting API` |
 | `EVALUATION` | Analysis/research phase | `Status: EVALUATION` |
 
+## Priority
+
+Every WIP states its priority on the line after the status, with a one-line reason:
+
+```markdown
+## Status: NOT STARTED
+## Priority: P4: no user is affected today; needed before console runs in several pods
+```
+
+The levels and how to choose one are in [Priority Levels](/git-workflow/priority-levels.md).
+Priority is independent of status: a `COMPLETE` WIP keeps its last priority until it's deleted,
+and a `BLOCKED` P1 is still a P1. Change the level (and its reason) when the facts change.
+
 ## Phase Markers
 
 | Marker | Meaning |
@@ -91,7 +105,7 @@ api-endpoint-planning.md          # Planning document
 Create when starting non-trivial work:
 
 1. Create `docs/wip/task-name.md`
-2. Add status, problem statement, proposed solution
+2. Add status, priority (with its reason), problem statement, proposed solution
 3. Break into phases with checkboxes
 4. Commit: `docs: add WIP for task-name`
 
@@ -100,7 +114,7 @@ Create when starting non-trivial work:
 Update as you progress:
 
 1. Check off completed items `[x]`
-2. Update status percentage
+2. Update status percentage (and priority, if the facts behind it changed)
 3. Add notes about decisions or blockers
 4. Commit changes with regular work
 
@@ -121,6 +135,7 @@ Periodically review WIP files to identify:
 - **Partial**: Some work done, needs continuation
 - **Stale**: No progress for extended period - continue or abandon
 - **Unclear**: Cannot determine status - needs manual review
+- **Unprioritised or stale priority**: no `## Priority:` line, or a reason that no longer holds
 
 ## Integration with Claude Commands
 
@@ -137,6 +152,7 @@ The command references the WIP file and guides step-by-step execution.
 
 **DO:**
 - Keep status current - update as you work
+- Give every WIP a priority with a reason; work the highest priority first
 - Use specific, verifiable completion criteria
 - Include file paths for related code
 - Delete when complete - don't let WIP files accumulate
@@ -153,4 +169,5 @@ The command references the WIP file and guides step-by-step execution.
 - [Commit Format](/git-workflow/commit-format.md) - Commit messages for WIP updates
 - [Pull Request Guidelines](/git-workflow/pull-request-guidelines.md) - PRs often close WIP work
 - [Retrospectives](/git-workflow/retrospectives.md) - the "after" counterpart; reflect on the work once the WIP is done
+- [Priority Levels](/git-workflow/priority-levels.md) - P0–P4, the `## Priority:` line every WIP carries
 - [Decision Records](/git-workflow/decision-records.md) - where a WIP's settled decisions graduate to; the WIP links out rather than repeating the rationale
