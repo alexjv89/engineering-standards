@@ -31,7 +31,7 @@ Name an issue after where the fix would land and what's wrong: `ledger-…`, `fo
 ## Status: OPEN
 ## Priority: [P0–P4]: [one-line reason]
 ## Bet: [the bet of the work that hit it, or none]
-## App: [where the fix would land: an app, library, CLI, or a company's data]
+## App: [the app, library or CLI where the fix would land], or ## Company: [whose data it is] for a problem in a company's own data
 
 ## Summary
 
