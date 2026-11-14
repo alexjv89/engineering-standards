@@ -106,8 +106,9 @@ Create when starting non-trivial work:
 
 1. Create `docs/wip/task-name.md`
 2. Add status, priority (with its reason), problem statement, proposed solution
-3. Break into phases with checkboxes
-4. Commit: `docs: add WIP for task-name`
+3. If it solves [issues](/git-workflow/issue-files.md), link each one from the problem statement, and set each issue's status to `IN WIP: <path to this file>`
+4. Break into phases with checkboxes
+5. Commit: `docs: add WIP for task-name`
 
 ### Updating During Work
 
@@ -171,3 +172,4 @@ The command references the WIP file and guides step-by-step execution.
 - [Retrospectives](/git-workflow/retrospectives.md) - the "after" counterpart; reflect on the work once the WIP is done
 - [Priority Levels](/git-workflow/priority-levels.md) - P0–P4, the `## Priority:` line every WIP carries
 - [Decision Records](/git-workflow/decision-records.md) - where a WIP's settled decisions graduate to; the WIP links out rather than repeating the rationale
+- [Issue Files](/git-workflow/issue-files.md) - a problem someone noticed; it becomes a WIP only once someone decides to fix it, in the repo where the fix lands
