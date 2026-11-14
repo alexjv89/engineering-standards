@@ -33,6 +33,7 @@ api-endpoint-planning.md          # Planning document
 
 ## Status: [STATE]
 ## Priority: [P0–P4]: [one-line reason]
+## Bet: [the bet this work serves, or none]
 
 [One-paragraph summary of what this work accomplishes]
 
@@ -88,6 +89,17 @@ Every WIP states its priority on the line after the status, with a one-line reas
 The levels and how to choose one are in [Priority Levels](/git-workflow/priority-levels.md).
 Priority is independent of status: a `COMPLETE` WIP keeps its last priority until it's deleted,
 and a `BLOCKED` P1 is still a P1. Change the level (and its reason) when the facts change.
+
+## Bet
+
+The line after the priority names the bet the WIP serves: the payoff it moves, as a key from the owner's list of bets, or `none` for upkeep and fixes no bet needs:
+
+```markdown
+## Priority: P2: the main path for a new user; nobody can try it in one command yet
+## Bet: assembly-line-public
+```
+
+A WIP serves at most one bet. Priority ranks work inside a repo; the bet says why the work exists, across repos. Neither adjusts the other.
 
 ## Phase Markers
 
