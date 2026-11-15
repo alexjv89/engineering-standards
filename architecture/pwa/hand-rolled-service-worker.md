@@ -59,3 +59,4 @@ useEffect(() => {
 ## Related Notes
 - [Turbopack/Service Worker Incompatibility](/architecture/pwa/turbopack-service-worker-incompatibility.md)
 - [Web Push Overview](/architecture/pwa/web-push-overview.md)
+- [Open the Last Org on Launch](/architecture/pwa/open-last-org-on-launch.md) — leave `/orgs` to the browser so the middleware sees the real `Sec-Fetch-Site`

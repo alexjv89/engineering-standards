@@ -62,7 +62,7 @@ Traditional comprehensive documentation is inefficient for LLM tools. This knowl
 │   ├── state/         # State management
 │   ├── modules/       # Module organization
 │   ├── functional/    # Functional programming
-│   └── pwa/           # Progressive Web App patterns (5 notes)
+│   └── pwa/           # Progressive Web App patterns (6 notes)
 ├── ui/                # UI behaviour, mobile layout, UI change discipline (8 notes)
 ├── git-workflow/      # Git & development workflow (21 notes)
 │   ├── branch-naming.md
