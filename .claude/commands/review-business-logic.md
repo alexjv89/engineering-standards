@@ -14,7 +14,7 @@ Flag any references to:
 
 ### ✅ Implementation Logic (Keep These)
 DO NOT flag:
-- **Analytics/tracking tools**: Amplitude, Sentry, EventLog, analytics patterns
+- **Analytics/tracking tools**: Umami, Sentry, EventLog, analytics patterns
 - **Infrastructure**: Database schemas, API patterns, message queues
 - **Frameworks/libraries**: Next.js, React, Sequelize, Zod, AI SDK
 - **Instrumentation**: Logging patterns, error tracking, metrics collection
@@ -105,7 +105,7 @@ For each HIGH severity file, suggest specific changes:
 - Whether to keep the file at all
 
 **Important Notes**:
-- Amplitude, EventLog, Sentry, database schemas = OK (implementation logic)
+- Umami, EventLog, Sentry, database schemas = OK (implementation logic)
 - Plant, device, shift, OEE, manufacturing = NOT OK (domain logic)
 - Generic user_id, context_id, resource_id = OK
 - Specific plant_id, device_id, tenant_id = NOT OK (unless explaining a generic pattern)

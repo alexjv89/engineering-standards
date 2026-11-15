@@ -32,6 +32,7 @@ These standards are designed for **small teams** with specific preferences:
 ├── naming/            # Naming conventions (11 atomic notes)
 ├── testing/           # Testing practices (9 atomic notes)
 ├── architecture/      # Architecture patterns (9 atomic notes)
+│   ├── analytics/     # Product analytics with self-hosted Umami (1 atomic note)
 │   └── pwa/           # Progressive Web App patterns (6 atomic notes)
 ├── ui/                # UI behaviour, mobile layout, UI change discipline (9 atomic notes; start at ui/README.md)
 ├── git-workflow/      # Git & dev workflow (7 atomic notes)

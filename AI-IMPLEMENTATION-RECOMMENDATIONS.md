@@ -50,7 +50,6 @@ The elevate-ai project demonstrates a production-ready AI chatbot implementation
 │   └── __tests__/
 │
 └── /utils/analytics/               # Observability
-    ├── amplitude.js                # External analytics
     ├── eventTracker.js
     └── errorReporter.js            # Sentry integration
 ```
@@ -217,13 +216,8 @@ export async function trackEvent(eventName, userId, plantId, details = {}) {
     // Continue to external analytics
   }
 
-  // 2. External analytics (best-effort)
-  try {
-    await amplitude.track(eventName, { user_id: userId, ...details });
-  } catch (analyticsError) {
-    console.error('Analytics tracking failed:', analyticsError);
-    // Don't throw
-  }
+  // 2. Analytics (best-effort; trackServerEvent from @fob/lib-ui/umami/server never throws)
+  await trackServerEvent(eventName, { user_id: userId, data: details });
 }
 ```
 
