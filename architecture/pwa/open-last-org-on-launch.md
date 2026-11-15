@@ -62,6 +62,8 @@ if (pathname === "/orgs" && last_org && fetch_site && fetch_site !== "same-origi
 
 A missing header keeps the list, so old browsers lose the shortcut but never lose access to the list.
 
+The redirect needs the app's own URL. Use the middleware's `APP_URL` constant; if the file reads `process.env.NEXT_PUBLIC_APP_URL` inline instead (assistant and orchestrator do), use that. A missing `APP_URL` throws a `ReferenceError` only on the redirect path, so the middleware tests below are what catch it.
+
 ### 3. Redirect to the org's entry page, change nothing else
 
 Redirect to `/orgs/<o_id>`, not to a deeper page. The org's own entry page already decides where an org opens (and should check membership), so that decision stays in one place.
