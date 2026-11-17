@@ -18,7 +18,7 @@ Some folders benefit from a few sentences explaining what they're for — enough
 
 ## When to Add One
 
-Add a `readme.md` when a folder holds enough atomic notes (loosely, [Emergent Structure](/principles/documentation/structure/emergent-structure.md)'s 8+ threshold for a subfolder) that a newcomer can't tell what the folder is about from its name and directory listing alone.
+Add a `readme.md` when a folder holds enough atomic notes (loosely, the 8+ notes at which [Emergent Structure](/principles/documentation/structure/emergent-structure.md) splits a folder) that a newcomer can't tell what the folder is about from its name and directory listing alone.
 
 Don't add one to a folder with a handful of self-explanatory notes — the folder name plus `ls` already does the job.
 
